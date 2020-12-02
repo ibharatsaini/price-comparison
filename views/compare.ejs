@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/compareStore.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script> -->
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="disableBody"></div>
+    <div id="animating">
+        <div id="closePopUp"><span>&times;</span></div>
+        <div id="popBody">
+            <div class="inputOfForm">
+                <form type="GET" class="thisisForm" action="/search">
+                    <input type="text" placeholder="Search for over million products" name="q" id="newSearchBox"
+                        autocomplete="off">
+                    <div class="searchIcon"><span>&#x26B2;</span></div>
+                </form>
+            </div>
+            <div id="recommendations">
+                <h3 style="margin-left: 7px;">Trending</h3>
+                <p>Mobile</p>
+                <p>Redmi Note 8pro</p>
+                <p>Iphone X11</p>
+                <p>Mac Book Laptop</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="headFixing">
+        <header id="headContainer">
+            <div class='horizontalBars'>
+                <div class="border" data-pos="180">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <form method="GET" class="newone" action="/search">
+                <div class="searchBarFlex">
+                    <input type="text" placeholder="Search For Millions Of Products" name="q" id="searchBar" value="">
+                    <div id="searchIcon" type="submit"><i class="fa fa-search"></i></div>
+                </div>
+            </form>
+        </header>
+    </div>
+    <div class="mainBody">
+
+    </div>
+    <script>
+
+        // $(document).ready(() => {
+        //     $(".divOfOffer").hide()
+        // })
+
+
+        $('#searchBar').on('click', (e) => {
+            let pOfRecommendations;
+            //  let target = e.target
+            let focus = -1;
+            document.getElementById('disableBody').style.display = "block";
+            let animating = document.getElementById('animating');
+            animating.style.display = "block";
+            let valueOfInput = document.getElementById('newSearchBox');
+            let winW = window.innerWidth;
+            let winh = window.innerHeight;
+            animating.style.left = (winW / 2) - (animating.offsetWidth / 2) + "px"
+            animating.style.top = (winh / 2) - (animating.offsetHeight / 2) + "px";
+            let newSearchBox = document.getElementById('newSearchBox')
+            let recommendations = document.getElementById('recommendations')
+            let $newSearchBox = $('#newSearchBox')
+            $newSearchBox.focus()
+            let trending = ['Redmi note 8', 'Mobile', 'Iphone X11', 'Realme X2', 'MacBook Pro', 'Gaming Laptop']
+            appendingP()
+            function appendingP() {
+                let h3 = document.createElement('h3');
+                h3.textContent = "Trending";
+                recommendations.appendChild(h3)
+                console.log(trending)
+                for (let rt = 0; rt < trending.length; rt++) {
+                    let p = document.createElement('p');
+                    //   let span= document.createElement('span')
+                    //   span.innerHTML = "&#9906;"
+                    p.innerHTML = trending[rt]
+                    //   p.prepend(span)
+                    p.setAttribute('data-value', trending[rt])
+                    if (addEventListener) {
+                        p.addEventListener('click', putvalue, false)
+
+                    } else {
+                        p.attachEvent('onclick', putvalue)
+                    }
+                    recommendations.appendChild(p)
+                }
+            }
+            function putvalue(e) {
+                console.log('new')
+                console.log(e)
+                //   let target = e.target
+                console.log(e.target.getAttribute('data-value'))
+                valueOfInput.value = e.target.getAttribute('data-value')
+                document.forms[0].submit()
+                console.log(valueOfInput)
+            }
+            $newSearchBox.on('keyup', async (e) => {
+                let suggestion = await fetch('https://price-api.datayuge.com/api/v1/compare/search/suggest?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&product=' + newSearchBox.value)
+                suggestion = await suggestion.json()
+                try {
+                    if (!(suggestion.hasOwnProperty('keywords'))) {
+                        recommendations.innerHTML = ""
+                        appendingP()
+                        //   recommendations.innerHTML = '<h3 style="margin-left: 7px;">Trending</h3>'+ '<p>Mobile</p><p>Ipad</p> <p>Realme x2'+'<p>Redmi Note 8pro</p> <p>Iphone X11</p> <p>Mac Book Laptop</p>'                
+                    } else {
+                        recommendations.innerHTML = ""
+                        for (let ee = 0; ee < suggestion.keywords.length; ee++) {
+                            let p = document.createElement('p');
+                            //   let span= document.createElement('span')
+                            //   span.innerHTML = "&#9906;"
+                            p.innerHTML = suggestion.keywords[ee]
+                            //   p.prepend(span)
+                            p.setAttribute('data-value', suggestion.keywords[ee])
+                            if (addEventListener) {
+                                p.addEventListener('click', putvalue, false)
+
+                            } else {
+                                p.attachEvent('onclick', putvalue)
+                            }
+                            recommendations.appendChild(p)
+                        }
+
+                    }
+                } catch{
+                    appendingP()
+                }
+                pOfRecommendations = document.querySelectorAll('#recommendations p');
+            })
+
+            // console.log($newSearchBox)
+            $newSearchBox.on('keydown', (e) => {
+                console.log('clicked')
+                if (e.keyCode == 40) {
+                    console.log('krydown')
+                    focus++;
+                    addingClass(pOfRecommendations);
+
+                } else if (e.keyCode == 38) {
+                    console.log('keyup')
+                    focus--;
+                    addingClass(pOfRecommendations)
+                } else if (e.keyCode == 13) {
+                    console.log('enter')
+                    e.preventDefault()
+                    if (focus > -1) {
+                        pOfRecommendations[focus].click();
+                    }
+                }
+            })
+            function addingClass(pOfRecommendations) {
+                for (let rr = 0; rr < pOfRecommendations.length; rr++) {
+                    console.log('in thi s')
+                    pOfRecommendations[rr].classList = ""
+                }
+                if (focus >= pOfRecommendations.length) {
+                    focus = 0;
+
+                } else if (focus < 0) {
+                    focus = pOfRecommendations.length - 1;
+
+                }
+                pOfRecommendations[focus].classList.add('hightlight')
+
+            }
+
+
+        })
+        $('#closePopUp span').on('click', () => {
+            //   if(document.getElementById('animating')){
+            document.getElementById('disableBody').style.display = "none"
+            document.getElementById('animating').style.display = "none"
+            document.getElementById('alertBox').style.display = "none"
+            document.getElementsByTagName('html')[0].style.overflow = "scroll"
+
+
+
+        })
+
+        $('#searchIcon').on('click', () => {
+            document.forms[0].submit()
+        })
+        const $filterBar = $('.border')
+        //animation of category bar
+        $filterBar.on('click', (e) => {
+            e.preventDefault();
+            let $value = $filterBar.data('pos')
+            console.log($value)
+            if ($value == "-180") {
+                $filterBar.data("pos", "180");
+                $filterBar.css({
+                    "transform": "rotate(180deg)"
+                })
+            } else if ($value == "180") {
+                $filterBar.data("pos", "-180");
+                $filterBar.css({
+                    "transform": "rotate(-180deg)"
+                })
+            }
+        })
+        var naming2 = '<%= que.pid %>'
+        console.log(naming2)
+        var details;
+        var specsi;
+        (async () => {
+            console.log(naming2)
+            details = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&id=' + naming2);
+            details = await details.json();
+            specsi = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&id=' + naming2);
+            specsi = await specsi.json();
+            console.log(details);
+            console.log(specsi)
+            var mainBody = document.getElementsByClassName('mainBody')[0];
+
+            var container = document.createElement('a');
+            container.className = "container";
+            // var divOfimage = document.createElement('div');
+            // divOfimage.className = "divofimage";
+            var imageSlider = document.createElement('div');
+            imageSlider.className = 'imageSlider'
+            var imageOne = document.createElement('img');
+            imageOne.setAttribute('src', details.data.product_images[0]);
+            imageSlider.appendChild(imageOne);
+            // divOfimage.appendChild(imageSlider)
+            // container.appendChild(imageSlider);
+            // imageOne.className = 'imageOne';
+            // var titleFirstDiv = document.createElement('div');
+            // titleFirstDiv.className = "titleFirstDiv";
+            var titleDivNew = document.createElement('div');
+            titleDivNew.className = "titleDivNew";
+            var priceTitle = document.createElement('h3');
+            priceTitle.className = 'priceTitle';
+            priceTitle.innerHTML = details.data.product_name;
+            var unorderedList = document.createElement('ul');
+            unorderedList.className = "unordered";
+            for (let g = 0; g < specsi.data.main_specs.length; g++) {
+                let list = document.createElement('li');
+                list.className = "specsList";
+                list.innerHTML = specsi.data.main_specs[g];
+                unorderedList.appendChild(list)
+            }
+            var tableDiv = document.createElement('table');
+            // tableDiv.
+            var sortedStores = [];
+            var storesName = [];
+            q = 0;
+            for (let j = 0; j < details.data.stores.length; j++) {
+                // console.log(details.data.stores[j])
+                storesName = Object.keys(details.data.stores[j]);
+                if (details.data.stores[j][storesName[0]].hasOwnProperty("product_price") || details.data.stores[j][storesName[0]].hasOwnProperty('product_mrp')) {
+                    sortedStores[q] = {};
+                    sortedStores[q]['name'] = storesName[0];
+                    sortedStores[q]['logo'] = details.data.stores[j][storesName[0]].product_store_logo;
+                    sortedStores[q]['storeLink'] = details.data.stores[j][storesName[0]].product_store_url;
+                    if (details.data.stores[j][storesName[0]].hasOwnProperty('product_price') != ("0" || 0 || undefined || null)) {
+                        sortedStores[q]['price'] = details.data.stores[j][storesName[0]].product_price;
+
+                    } else {
+                        sortedStores[q]['price'] = details.data.stores[j][storesName[0]].product_mrp;
+                    }
+
+                    if (details.data.stores[j][storesName[0]].is_emi == "1") {
+                        sortedStores[q]['emi'] = "EMIs Available";
+                    } else {
+                        sortedStores[q]['emi'] = "EMIs Not Available"
+                    }
+                    if (details.data.stores[j][storesName[0]].is_cod == "1") {
+                        sortedStores[q]['cod'] = "COD Available";
+                    } else {
+                        sortedStores[q]['cod'] = "COD Not Available"
+                    } if (details.data.stores[j][storesName[0]].product_delivery.indexOf('d' || "D") != -1) {
+                        sortedStores[q]['deliveryTime'] = details.data.stores[j][storesName[0]].product_delivery + "days";
+                    } else {
+                        sortedStores[q]['deliveryTime'] = details.data.stores[j][storesName[0]].product_delivery;
+
+                    }
+                    if (details.data.stores[j][storesName[0]].product_delivery_cost == "0") {
+                        sortedStores[q]['deliveryCost'] = "Free";
+                    } else {
+                        sortedStores[q]['deliveryCost'] = details.data.stores[j][storesName[0]].product_delivery_cost;
+                    }
+                    if (details.data.stores[j][storesName[0]].product_offer.length > 2) {
+                        sortedStores[q]['offer'] = details.data.stores[j][storesName[0]].product_offer;
+                        // if(storesName[0] == ("flipkart" || "Flipkart")){
+                        //     console.log('pehla')
+                        //     console.log(storesName[0])
+                        //     sortedStores[q]["offer"] = "5% Unlimited Cashback On Flipkart Axis Bank Credit Card";
+                        // }else if(details.data.stores[j][storesName[0]].product_offer.indexOf("1)") != -1){
+                        //     // console.log(storesName[0])
+                        //     console.log('2')
+
+                        //     console.log(storesName[0])
+
+                        //     let offerSplited =  details.data.stores[j][storesName[0]].product_offer.split("1)");
+                        //     sortedStores[q]["offer"] = offerSplited[0];
+                        // }else if(storesName[0] != ('amazon' && 'paytmmall' && 'tatacliq')){
+                        //     console.log('3')
+                        //     console.log(storesName[0])
+                        //     if(details.data.stores[j][storesName[0]].product_offer.indexOf(". ") != -1 ){
+                        //         console.log('3 ,5')
+                        //         console.log(storesName[0])
+                        //         let offerSplited = details.data.stores[j][storesName[0]].product_offer.split(". ")
+                        //         sortedStores[q]['offer'] =  offerSplited[0];
+                        //     }
+
+                        // }else{
+                        //     console.log('peelsela')
+                        //     console.log(storesName[0])
+                        //     sortedStores[q]['offer'] = details.data.stores[j][storesName[0]].product_offer;
+                        // }
+                        // console.log(sortedStores[q]["offer"])
+                    } else {
+                        sortedStores[q]["offer"] = "No offers Available";
+                    }
+                    sortedStores[q]['returnTime'] = details.data.stores[j][storesName[0]].return_time;
+                    q++;
+                }
+
+            }
+
+            sortedStores.sort((x, y) => {
+                return x.price - y.price;
+            })
+
+            console.log(sortedStores);
+            console.log("This is sorted");
+            var tableDiv = document.createElement('div');
+            tableDiv.className = "tableDiv";
+            for (let j = 0; j < sortedStores.length; j++) {
+                let table = document.createElement('div');
+                table.className = "tablesComp"
+                if (j == 0) {
+                    table.className = "tablesComp tableClass"
+                }
+                // let rowLogo = document.createElement('div');
+                let colLogo = document.createElement('div');
+                let logo = document.createElement('img');
+                logo.setAttribute('src', sortedStores[j].logo);
+                // logo.style.maxHeight = "40px";
+                // logo.style.maxWidth = "112px";
+                colLogo.appendChild(logo);
+                // rowLogo.appendChild(colLogo);
+                table.appendChild(colLogo)
+                // let rowPrice = document.createElement('tr');
+                let colPrice = document.createElement('div');
+                colPrice.innerHTML = "&#x20B9;" + sortedStores[j].price;
+                // rowPrice.appendChild(colPrice);
+                table.appendChild(colPrice)
+                // let rowShipping =  document.createElement("tr");
+                let colShipping = document.createElement('div');
+                if (sortedStores[j].deliveryCost != "Free") {
+                    colShipping.innerHTML = "Delivery Charges are &#x20B9; " + sortedStores[j].deliveryCost;
+                } else {
+                    colShipping.innerHTML = sortedStores[j].deliveryCost + " Delivery";
+
+                }
+                // rowShipping.appendChild(colShipping);
+                table.appendChild(colShipping);
+                // let rowShippingTime = document.createElement('tr');
+                let colShippingTime = document.createElement('div');
+                colShippingTime.innerHTML = "Delivery in " + sortedStores[j].deliveryTime + " days";
+                // rowShippingTime.appendChild(colShippingTime);
+                table.appendChild(colShippingTime);
+                // let rowEmi = document.createElement('tr');
+                let colEmi = document.createElement('div');
+                colEmi.innerHTML = sortedStores[j].emi;
+                // rowEmi.appendChild(colEmi)
+                table.appendChild(colEmi);
+                // let rowCod = document.createElement('tr');
+                let colCod = document.createElement('div');
+                colCod.innerHTML = sortedStores[j].cod;
+                // rowCod.appendChild(colCod);
+                table.appendChild(colCod);
+                let tdBuy = document.createElement('div');
+                let linkToBuy = document.createElement('a');
+                linkToBuy.innerHTML = "Buy Now";
+                linkToBuy.className = "buyButton"
+                linkToBuy.setAttribute("target", "_blank")
+                linkToBuy.setAttribute('href', sortedStores[j].storeLink)
+                tdBuy.appendChild(linkToBuy);
+                // trBuy.appendChild(tdBuy);
+                table.appendChild(tdBuy)
+                console.log(sortedStores[j].offer);
+                
+                // let rowOffer = document.createElement('tr');
+                // let colOffer = document.createElement('td');
+                // colOffer.innerHTML = sortedStores[j].offer
+                // rowOffer.appendChild(colOffer);
+                // table.appendChild(rowOffer)
+                // table.style.flexGrow = "1";
+                tableDiv.appendChild(table)
+                // tableDiv.appendChild(tableOfOffer)
+
+
+
+                
+
+            }
+            titleDivNew.appendChild(priceTitle);
+            titleDivNew.appendChild(unorderedList);
+            container.appendChild(imageSlider)
+
+            // titleFirstDiv.appendChild(titleDivNew);
+            container.appendChild(titleDivNew);
+            container.appendChild(tableDiv)
+            // parentCont.appendChild(container);
+            mainBody.appendChild(container);
+
+            let divOfOffer = document.createElement('div');
+            divOfOffer.className = "divOfOffer";
+            let tableOfOffer = document.createElement('table');
+            tableOfOffer.className = "tableOfOffer";
+            let trOfHeading = document.createElement('tr');
+            let tdOfHeading = document.createElement('td');
+
+
+            tdOfHeading.innerHTML = "<h2 class='heading'>Offers</h2>";
+            trOfHeading.appendChild(tdOfHeading)
+            tableOfOffer.appendChild(trOfHeading)
+
+            for (let q = 0; q < sortedStores.length; q++) {
+                let tr = document.createElement('tr')
+                tr.className = "trOfHead";//ashish
+                let tdOfImage = document.createElement('td');
+                tdOfImage.className = "tdOfImage"
+                let imgLogo = document.createElement('img');
+                imgLogo.setAttribute('src', sortedStores[q].logo);
+                tdOfImage.appendChild(imgLogo);
+                let tdOfOffer = document.createElement('td');
+                tdOfOffer.className = "tdOfOffer"
+                tdOfOffer.innerHTML = sortedStores[q].offer;
+                tdOfOffer.innerHTML = tdOfOffer.innerHTML.replace(/#/g, " ");
+
+                tr.appendChild(tdOfImage);
+                tr.appendChild(tdOfOffer);
+                tableOfOffer.appendChild(tr)
+            }
+            divOfOffer.appendChild(tableOfOffer);
+            mainBody.appendChild(divOfOffer);
+
+            // if(sortedStores.length == 0){
+            //     console.log("it is 0");
+            //     document.getElementsByClassName("divOfOffer").style.display = "none";
+            //                 }
+
+            console.log(specsi);
+            var allCate = Object.keys(specsi.data.sub_specs);
+            console.log(allCate)
+            //     var divOfspecsi = document.createElement('div')
+            //     divOfspecsi.className = "divOfSpecsi";
+            //     var headingofSpecs = document.createElement('h1');
+            //     headingofSpecs.style.textAlign = "center";
+            //     headingofSpecs.style.fontWeight = "400";
+            //     headingofSpecs.style.color = "white";
+            //     headingofSpecs.style.marginTop = "10px"
+            //     // headingofSpecs.style. 
+            //     headingofSpecs.innerHTML = "Specification";
+            //     divOfspecsi.appendChild(headingofSpecs)
+            //     var tableOfSpecs = document.createElement('div');
+            //     tableOfSpecs.className= "tableOfSpecs";
+            //     console.log(specsi.data.sub_specs)
+            //     console.log(specsi.data.sub_specs["General"]);
+            //     let trOfSpecHeading = document.createElement('tr');
+            //     let tdOfSpecHeading = document.createElement('td');
+            //     tdOfSpecHeading.innerHTML =   "General";
+            //     tdOfSpecHeading.className = "tdOfSpecHeading";
+            //     tdOfSpecHeading.style.border = "none";
+            //     tdOfSpecHeading.style.backgroundColor = "#2b2929";
+            //     trOfSpecHeading.appendChild(tdOfSpecHeading);
+            //     tableOfSpecs.appendChild(trOfSpecHeading);
+            //     if(specsi.data.sub_specs.hasOwnProperty('General')){
+            //     for(let a=0; a<specsi.data.sub_specs["General"].length; a++){
+            //             let trOfSpecKey = document.createElement('tr');
+            //             // trOfSpecKey.style.border = "1px solid grey"
+            //             let tdOfSpecKey = document.createElement('td');
+            //             tdOfSpecKey.innerHTML = specsi.data.sub_specs["General"][a].spec_key;
+            //             trOfSpecKey.appendChild(tdOfSpecKey);
+            //             let tdOfSpecValue = document.createElement('td');
+            //             tdOfSpecValue.innerHTML = specsi.data.sub_specs["General"][a].spec_value;
+            //             trOfSpecKey.appendChild(tdOfSpecValue);
+            //             tableOfSpecs.appendChild(trOfSpecKey);
+            //     }
+            // }
+            //     for(let b=0; b<allCate.length; b++){
+            //         if(allCate[b] == ("General" || "general")){
+            //             continue
+            //         }
+            //         let trOfSpecHeading = document.createElement('tr');
+            //         let tdOfSpecHeading = document.createElement('td');
+            //         // tdOfSpecHeading.style.border = "1px solid grey";
+            //         tdOfSpecHeading.className = "tdOfSpecHeading"
+            //         tdOfSpecHeading.innerHTML =   allCate[b];
+            //         tdOfSpecHeading.style.border = "none";
+            //         tdOfSpecHeading.style.backgroundColor = "#2b2929"
+            //         trOfSpecHeading.appendChild(tdOfSpecHeading);
+            //         tableOfSpecs.appendChild(trOfSpecHeading)
+            //         for(let c=0; c<specsi.data.sub_specs[allCate[b]].length; c++){
+            //             let trOfSpecKey = document.createElement('tr');
+            //             let tdOfSpecKey = document.createElement('td');
+            //             tdOfSpecKey.innerHTML = specsi.data.sub_specs[allCate[b]][c].spec_key;
+            //             trOfSpecKey.appendChild(tdOfSpecKey);
+            //             let tdOfSpecValue = document.createElement('td');
+            //             tdOfSpecValue.innerHTML = specsi.data.sub_specs[allCate[b]][c].spec_value;
+            //             trOfSpecKey.appendChild(tdOfSpecValue);
+            //             tableOfSpecs.appendChild(trOfSpecKey);
+            //         }
+            //     }
+            //     divOfspecsi.appendChild(tableOfSpecs)
+            //     mainBody.appendChild(divOfspecsi)
+            let h2OfSpecification = document.createElement('div');
+            h2OfSpecification.className = "h2OfSpecification";
+            h2OfSpecification.textContent = "Specifications"
+            h2OfSpecification.style.textAlign = "center"
+            //    h2OfSpecification.style.fontSize = "25px"
+            //    h2OfSpecification.style.fontWeight = "100"
+            let divOfSpecsi = document.createElement('div');
+            divOfSpecsi.className = 'divOfSpecs';
+            if (specsi.data.sub_specs.hasOwnProperty('General')) {
+                console.log(specsi.data.sub_specs['General'])
+                let headingofSpecs = document.createElement('h2');
+                headingofSpecs.textContent = "General"
+                //    headingofSpecs.style.textAlign= "center"
+                divOfSpecsi.appendChild(headingofSpecs)
+                let divOfRow = document.createElement('div');
+                divOfRow.className = "divOfRowing"
+                for (let yu = 0; yu < specsi.data.sub_specs['General'].length; yu++) {
+                    makingSpec(divOfRow, specsi.data.sub_specs['General'][yu].spec_key, specsi.data.sub_specs['General'][yu].spec_value)
+                    divOfSpecsi.appendChild(divOfRow)
+                }
+            }
+            for (let we = 0; we < allCate.length; we++) {
+                if (allCate[we] == "General") {
+                    continue
+                }
+                let headingofSpecs = document.createElement('h2');
+                headingofSpecs.textContent = allCate[we]
+                divOfSpecsi.appendChild(headingofSpecs)
+                let divOfRow = document.createElement('div');
+                divOfRow.className = "divOfRowing"
+                for (let yu = 0; yu < specsi.data.sub_specs[allCate[we]].length; yu++) {
+                    makingSpec(divOfRow, specsi.data.sub_specs[allCate[we]][yu].spec_key, specsi.data.sub_specs[allCate[we]][yu].spec_value)
+                    divOfSpecsi.appendChild(divOfRow)
+                }
+            }
+
+            function makingSpec(divOfRow, specsKey, specsValue) {
+                let divOfSpecKeyValue = document.createElement('div');
+                divOfSpecKeyValue.className = "divOfKeyValue";
+                let divOfKey = document.createElement('div');
+                divOfKey.className = "divOfKey";
+                divOfKey.textContent = specsKey;
+                let divOfValue = document.createElement('div');
+                divOfValue.className = "divOfValueKey";
+                divOfValue.textContent = specsValue;
+                divOfSpecKeyValue.appendChild(divOfKey);
+                divOfSpecKeyValue.appendChild(divOfValue)
+                divOfRow.appendChild(divOfSpecKeyValue)
+            }
+            mainBody.appendChild(h2OfSpecification)
+            mainBody.appendChild(divOfSpecsi)
+
+
+        })();
+    </script>
+</body>
+
+</html>

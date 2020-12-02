@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/compareSpec.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>   
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script> -->
+  
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="disableBody"></div>
+    <div id="animating">
+        <div id="closePopUp"><span>&times;</span></div>
+        <div id="popBody">
+            <div class="inputOfForm">
+                <form type="GET" class="thisisForm" action="/search">
+                <input type="text" placeholder="Search for millions Of Products" name="q" id="newSearchBox" autocomplete="off">
+            <div class="searchIcon" ><span>&#x26B2;</span></div> </form>
+            </div>
+            <div id="recommendations">
+                <h3 style="margin-left: 7px;">Trending</h3><p>mobile</p><p>Redmi Note 8pro</p> <p>Iphone X11</p> <p>Mac Book Laptop</p>
+            </div>
+         </div>
+    </div>
+    <div id="alertBox"></div>
+    <div id="headFixing">
+        <header id="headContainer">
+            <div class='horizontalBars'>
+                <div class="border" data-pos="180">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <form method="GET" class="newone" action="/search">
+                <div class="searchBarFlex">
+                    <input type="text" placeholder="Search For Millions Of Products" name="q" id="searchBar" value="">
+                    <div id="searchIcon" type="submit"><span class="fa ">&#x26B2;</span></i></div>
+                </div>
+            </form>
+        </header>
+    </div>
+    <div class="mainBody">
+        <!-- <div class="tableInside"></div> -->
+    </div>
+    </div>
+    <script>
+            $('#searchBar').on('click', (e) => {
+                let pOfRecommendations;
+                //  let target = e.target
+                let focus = -1;
+                document.getElementById('disableBody').style.display = "block";
+                let animating = document.getElementById('animating');
+                animating.style.display = "block";
+                let valueOfInput = document.getElementById('newSearchBox');
+                let winW = window.innerWidth;
+                let winh = window.innerHeight;
+
+                animating.style.top = (winh / 2) - (animating.offsetHeight / 2) - 70 + "px";
+                animating.style.left = (winW / 2) - (animating.offsetWidth / 2) + "px"
+                let newSearchBox = document.getElementById('newSearchBox')
+                let recommendations = document.getElementById('recommendations')
+                let $newSearchBox = $('#newSearchBox')
+                $newSearchBox.focus()
+                let trending = ['Redmi note 8', 'Mobile', 'Iphone X11', 'Realme X2', 'MacBook Pro', 'Gaming Laptop']
+                appendingP()
+                function appendingP() {
+                    recommendations.innerHTML = ""
+                    let h3 = document.createElement('h3');
+                    h3.textContent = "Trending";
+                    recommendations.appendChild(h3)
+                    console.log(trending)
+                    for (let rt = 0; rt < trending.length; rt++) {
+                        let p = document.createElement('p');
+                        //   let span= document.createElement('span')
+                        //   span.innerHTML = "&#9906;"
+                        p.innerHTML = trending[rt]
+                        //   p.prepend(span)
+                        p.setAttribute('data-value', trending[rt])
+                        if (addEventListener) {
+                            p.addEventListener('click', putvalue, false)
+
+                        } else {
+                            p.attachEvent('onclick', putvalue)
+                        }
+                        recommendations.appendChild(p)
+                    }
+                    pOfRecommendations = document.querySelectorAll('#recommendations p');
+                }
+                function putvalue(e) {
+                    console.log('new')
+                    console.log(e)
+                    //   let target = e.target
+                    console.log(e.target.getAttribute('data-value'))
+                    valueOfInput.value = e.target.getAttribute('data-value')
+                    document.forms[0].submit()
+                    console.log(valueOfInput)
+                }
+                $newSearchBox.on('keyup', async (e) => {
+                    //  focus = 0;
+                    // let suggestion
+                    // GoForIt = 0;
+                    // let suggestion
+                    // let checking = newSearchBox.value
+                    console.log(newSearchBox.value.match(/[^A-Za-z0-9]+/g))
+                    let ifOk;
+                    let suggestion;
+                    // if((e.keyCode >=65 && e.keyCode <=90) || (e.keyCode >= 0 && e.keyCode <=9)){
+                    if ((!(newSearchBox.value.match(/[^\s+$A-Za-z0-9]+/g))) && (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 0 && e.keyCode <= 9)) {
+                        suggestion = await fetch('https://price-api.datayuge.com/api/v1/compare/search/suggest?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&product=' + newSearchBox.value)
+                        ifOk = suggestion.ok;
+                        //   console.log(suggestion.ok)
+                        console.log(ifOk)
+                        if (ifOk) {
+                            suggestion = await suggestion.json()
+                            //   console.log(suggestion)
+                        }
+
+                        try {
+                            //   console.log(ifOk) 
+                            if (ifOk) {
+                                //    console.log(ifOk)
+                                if ((suggestion.hasOwnProperty('keywords'))) {
+                                    recommendations.innerHTML = ""
+                                    for (let ee = 0; ee < suggestion.keywords.length; ee++) {
+                                        let p = document.createElement('p');
+                                        p.innerHTML = suggestion.keywords[ee]
+                                        p.setAttribute('data-value', suggestion.keywords[ee])
+                                        if (addEventListener) {
+                                            p.addEventListener('click', putvalue, false)
+
+                                        } else {
+                                            p.attachEvent('onclick', putvalue)
+                                        }
+                                        recommendations.appendChild(p)
+                                    }
+
+                                }
+                            } else {
+                                console.log('newonw')
+                                // recommendations.innerHTML = ""
+                                appendingP()
+
+                            }
+
+                        } catch{
+                            console.log('catching')
+                            appendingP()
+                        }
+                        pOfRecommendations = await document.querySelectorAll('#recommendations p');
+                        console.log(pOfRecommendations)
+                    }
+
+                })
+
+                // console.log($newSearchBox)
+                $newSearchBox.on('keyup', (e) => {
+                    console.log('clicked')
+                    if (e.keyCode == 40) {
+                        console.log('krydown')
+                        focus++;
+                        // console.log(focus)
+                        addingClass(pOfRecommendations)
+
+                    } else if (e.keyCode == 38) {
+                        console.log('keyup')
+                        focus--;
+                        // console.log(focus)
+
+                        addingClass(pOfRecommendations)
+                    } else if (e.keyCode == 13) {
+                        // console.log('enter')
+                        e.preventDefault()
+                        if (focus > -1) {
+                            pOfRecommendations[focus].click();
+                        }
+                    }
+                })
+                function addingClass(pOfRecommendations) {
+
+                    for (let rr = 0; rr < pOfRecommendations.length; rr++) {
+                        pOfRecommendations[rr].classList = ""
+                    }
+                    //    removingClass().then();
+                    if (focus >= pOfRecommendations.length) {
+                        focus = 0;
+
+                    } else if (focus < 0) {
+                        focus = pOfRecommendations.length - 1;
+
+                    }
+
+                    pOfRecommendations[focus].classList.add('highlight')
+
+                }
+                // function removingClass(pOfRecommendations){
+
+                //     return new Promise((resolve)=>{
+
+                //     })
+                // }
+
+
+            })
+            $('#closePopUp span').on('click', () => {
+                //   if(document.getElementById('animating')){
+                document.getElementById('animating').style.display = "none"
+                document.getElementById('alertBox').style.display = "none"
+                document.getElementsByTagName('html')[0].style.overflow = "scroll"
+                document.getElementById('disableBody').style.display = "none"
+
+
+            })
+
+            $('#searchIcon').on('click', () => {
+                document.forms[0].submit()
+            })
+        var idsListing =  "<%= list.ids %>";
+        idsListing = idsListing.split(',')
+        console.log(idsListing)
+        console.log(idsListing)
+        console.log(typeof(idsListing))
+    var prodSpecs={};
+    var specs = [];
+
+     
+     (async function(){
+        let prodSpecs2=[];
+           for(let qq=0; qq<idsListing.length; qq++){
+                 prodSpecs2[qq] = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&id='+idsListing[qq]);
+                 prodSpecs2[qq] = await prodSpecs2[qq].json()
+                 console.log(prodSpecs2[qq])
+                 prodSpecs[prodSpecs2[qq].data.product_name];
+                 prodSpecs[prodSpecs2[qq].data.product_name] = prodSpecs2[qq]
+                //  console.log(prodSpecs[].data.product_name)
+                 let specs2 = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&id='+ idsListing[qq]);
+                 specs[qq] = await specs2.json()
+                 
+        }
+        console.log(prodSpecs);
+        console.log(specs);
+        var keyOfProd = Object.keys(prodSpecs)
+        console.log(keyOfProd)
+        // let keyOfSpec = Object.keys(specs)
+        
+        var being=[];
+        for(let w=0; w<keyOfProd.length; w++){
+            // console.log  
+            // console.log(specs[keyOfProd[w]])
+            // console.log(specs[w].data.sub_specs)
+            for(let keyMainKey in specs[w].data.sub_specs){
+                       console.log(keyMainKey)
+                       if(being.indexOf(keyMainKey) == -1){
+                           being.push(keyMainKey)
+                       }
+            }
+        }
+        console.log(being)
+        
+        var nahi = []
+        var listing = {};   
+            // console.log(keyOfProd[re])
+        //     for(let rr=0; rr<being.length; rr++){
+        //         // let listing = [];
+        //         listing[being[rr]];
+        //             listing[being[rr]] =[];
+        //         // console.log(being[rr])
+        //         // console.log(keyOfProd[re])
+        //         // console.log(specs[re].data.sub_specs[being[rr]])
+        //         for(let re=0; re<keyOfProd.length; re++){
+        //         if(specs[re].data.sub_specs.hasOwnProperty(being[rr])){
+                    
+        //             // console.log(listing)
+        //             for(let gg=0; gg<specs[re].data.sub_specs[being[rr]].length; gg++){
+        //                     // for(let qq=0; qq<keyOfProd.length; qq++){
+        //                         if(nahi.indexOf(specs[re].data.sub_specs[being[rr]][gg]['spec_key']) == -1){
+        //                             console.log(specs[re].data.sub_specs[being[rr]][gg]['spec_key'])
+        //                             // console.log(specs[re].data.sub_specs[being[rr]][gg]['spec_key'])
+        //                             // listing[being[rr]]
+        //                             listing[being[rr]].push(specs[re].data.sub_specs[being[rr]][gg]['spec_key'])
+        //                             // console.log(listing[being[rr]])
+        //                             // console.log(listing)
+        //                             nahi.push(specs[re].data.sub_specs[being[rr]][gg]['spec_key'])
+        //                         }   
+
+        //                 // }
+        //             }
+        //         }
+        //     }
+        //     console.log(listing)
+        // }
+        // console.log(listing[being[0]])
+        console.log(being)
+        for(let jj=0; jj<being.length; jj++){
+               console.log(being[jj])
+               listing[being[jj]];
+               listing[being[jj]] = [];
+               console.log(listing)
+               for(let ee=0; ee<keyOfProd.length; ee++){
+                   if(specs[ee].data.sub_specs.hasOwnProperty(being[jj])){
+                         for(let tt=0; tt<specs[ee].data.sub_specs[being[jj]].length; tt++){
+                            // listing[being[jj]][tt];
+                            if(nahi.indexOf((specs[ee].data.sub_specs[being[jj]][tt]['spec_key'])) === -1){
+                                    console.log(specs[ee].data.sub_specs[being[jj]][tt]['spec_key'])
+                                    // console.log(specs[re].data.sub_specs[being[rr]][gg]['spec_key'])
+                                    // listing[being[rr]]
+                                    nahi.push(specs[ee].data.sub_specs[being[jj]][tt]['spec_key'])
+                                    listing[being[jj]].push(specs[ee].data.sub_specs[being[jj]][tt]['spec_key'])
+                                    // console.log(listing[being[rr]])
+                                    // console.log(listing)
+
+                         }
+                   }
+               }
+        }
+        }
+        console.log(listing)
+        
+        console.log(listing)
+        // for(let list in listing){
+        //     let tr;
+        //     console.log(list)
+        //     for(let ii=0; ii<listing[list].length; ii++){
+        //         // tr = document.createElement('tr')
+        //         // let td = document.createElement('td');
+        //         // td.textContent = list
+        //         // tr.appendChild(td)
+        //         for(let yu=0; yu<keyOfProd.length; yu++){
+        //             // console.log(listing[list])
+                   
+        //             // console.log()
+        //             if(specs[yu].data.sub_specs.hasOwnProperty(list)){
+        //             if(specs[yu].data.sub_specs[list][ii]['spec_key'] == listing[list][ii]){
+        //                 // console.log(list , keyOfProd[yu])
+        //                 if(specs[yu].data.sub_specs[list][ii]['spec_key'] == (undefined || "")){
+        //                     continue
+        //                 }
+        //                 // console.log(specs[yu].data.sub_specs[list][ii]['spec_key'])
+        //                 console.log(list , keyOfProd[yu] ,listing[list][ii])
+        //             }
+        //         }
+        //             // let td = document.createElement('td');
+        //             // td.textContent = specs[yu].data.sub_specs[list][ii];
+        //             // tr.appendChild(td)
+        //         }
+        //     }
+        //     }
+            // tabling.appendChild(tr)
+        // }
+        // document.getElementsByClassName('mainBody')[0].appendChild(tabling)
+    //    let tablingRow = document.createElement('div');
+    //    tablingRow.className = "tablingRow";
+    //    var wrapper = document.createElement('div');
+    //    wrapper.className = 'wrapper'
+    //    var trOfName = document.createElement('div');
+    //    trOfName.classList = 'divOfNameValue'
+    //    let tdOfProd = document.createElement('div');
+    //    tdOfProd.textContent = 'Products'
+    //    tdOfProd.className = "divOfNameRow"
+    //    trOfName.appendChild(tdOfProd)
+    //    for(let yy=0; yy<keyOfProd.length; yy++){
+    //        let tdOfName = document.createElement('div');
+    //        tdOfName.classList ="divOfValue";
+    //        tdOfName.textContent = keyOfProd[yy]
+    //        trOfName.appendChild(tdOfName)
+    //    }
+    //    wrapper.appendChild(trOfName)
+    //    tablingRow.appendChild(wrapper)
+    // document.getElementsByClassName('mainBody')[0].appendChild(tablingRow);
+
+
+    // let tabling = document.createElement('div');
+    //    tabling.className = "tabling";
+    //    var trOfPic = document.createElement('div');
+    //    trOfPic.className = 'divOfRow divOfRowPic'
+    //    let tdOfProd1 = document.createElement('div');
+    //    tdOfProd1.textContent = "Now We Let You Decide the Winnner"
+    //    tdOfProd1.className = "divOfName"
+    //    trOfPic.appendChild(tdOfProd1)
+    // //    trOfPic.appendChild(tdOfPro)
+       
+       
+    //    for(let uu=0; uu<keyOfProd.length; uu++){
+    //        let divOfPic = document.createElement('div');
+    //        divOfPic.className = "divOfPic";
+    //        console.log( prodSpecs[keyOfProd[uu]].data.product_images[0] )
+    //        let img = document.createElement('img');
+    //        img.src =   prodSpecs[keyOfProd[uu]].data.product_images[0] ;
+    //        img.className = "imgOfProduct"
+    //        divOfPic.appendChild(img)
+    //     //    tdOfPic.appendChild(divOfPic)
+    //        trOfPic.appendChild(divOfPic)
+    //    }
+      
+    //    tabling.appendChild(trOfPic);
+    //    document.getElementsByClassName('mainBody')[0].appendChild(tabling)
+       
+    //    for(let list in listing){
+    //     //    let divOfHeading = document.createElement('tr');
+    //     //    divOfHeading.className = "divOfHeadingName";
+    //     //    let divOfHeadingName = document.createElement('td')
+    //     //    divOfHeadingName.className = "divOfHeading"
+    //       let divOfHeading = document.createElement('div');
+    //       divOfHeading.className = "divOfHeading";
+    //       let h4OfHeading = document.createElement('h3');
+    //       h4OfHeading.textContent = list
+    //       h4OfHeading.className = "h4OfHeading"
+          
+    //     //    divOfHeadingName.textContent = list;
+
+    //         // divOfHeading.appendChild(divOfHeadingName);
+    //     divOfHeading.appendChild(h4OfHeading)
+    //     tabling.appendChild(divOfHeading)
+    //        for(let ii=0; ii<listing[list].length; ii++){
+    //         // let div = document.createElement('div');
+    //         // div.className ="divOfTiring"
+    //         let divOfRow = document.createElement('div');
+    //         divOfRow.className = "divOfRow"
+    //         let divOfName = document.createElement('div');
+    //         divOfName.textContent = listing[list][ii]
+    //         divOfName.className= "divOfName"
+    //         divOfRow.appendChild(divOfName);
+               
+                
+    //            for(let yu=0; yu<keyOfProd.length; yu++){
+                   
+    //                if(specs[yu].data.sub_specs.hasOwnProperty(list)){
+    //                    console.log(keyOfProd[yu] , list)
+    //                    var a=1;
+    //                    console.log(keyOfProd[yu] , list ,specs[yu].data.sub_specs.hasOwnProperty(list))
+    //                    for(let ee=0; ee<specs[yu].data.sub_specs[list].length; ee++){
+    //                         if(specs[yu].data.sub_specs[list][ee]['spec_key'] == listing[list][ii]){
+    //                             // console.log(list , keyOfProd[yu])
+    //                             // console.log('yes')
+    //                             // console.log(specs[yu].data.sub_specs[list][ee]['spec_value'])
+    //                             if(specs[yu].data.sub_specs[list][ee]['spec_value'] == ("" || null || undefined)){
+    //                                 let divOfValue = document.createElement('div');
+    //                                 divOfValue.textContent = "-";
+    //                                 divOfValue.className = "divOfValue"
+    //                                 divOfRow.appendChild(divOfValue)
+    //                                 // console.log('no we are not')  
+    //                             }else{
+    //                                 a=0
+    //                                 let divOfValue = document.createElement('div')
+    //                                 divOfValue.textContent = specs[yu].data.sub_specs[list][ee]['spec_value']
+    //                                 divOfValue.className = "divOfValue"
+    //                                 divOfRow.appendChild(divOfValue);
+    //                                 // console.log(list , keyOfProd[yu] ,listing[list][ii])
+    //                             }
+    //                         }
+    //                         if((ee == specs[yu].data.sub_specs[list].length-1)){
+    //                             if(a==1){
+    //                                     let divOfValue = document.createElement('div');
+    //                                     divOfValue.textContent = "-";
+    //                                     divOfValue.className = "divOfValue"
+    //                                     divOfRow.appendChild(divOfValue)
+    //                                     // console.log('we are in ths together')  
+    //                             }
+    //                         }
+    //                    }   
+    //                }else{
+    //                 //    if(specs)
+    //                 let divOfValue = document.createElement('div');
+    //                                     divOfValue.textContent = "-";
+    //                                     divOfValue.className = "divOfValue"
+    //                                     divOfRow.appendChild(divOfValue)
+    //                }
+    //             }
+    //         //    divOfRow.appendChild(divOfValue)
+    //            tabling.appendChild(divOfRow)
+    //        }
+    //     //    divOfHeading.textContent = list;
+    //     //    document.getElementsByClassName('mainBody')[0].appendChild(divOfHeading)
+    //        document.getElementsByClassName('mainBody')[0].appendChild(tabling)
+    // //    }
+    // let tablingRow = document.createElement('div');
+    //    tablingRow.className = "tablingRow";
+    //    var wrapper = document.createElement('div');
+    //    wrapper.className = 'wrapper'
+    //    var trOfName = document.createElement('div');
+    //    trOfName.classList = 'divOfNameValue'
+    //    let tdOfProd = document.createElement('div');
+    //    tdOfProd.textContent = 'Products'
+    //    tdOfProd.className = "divOfNameRow"
+    //    trOfName.appendChild(tdOfProd)
+    //    for(let yy=0; yy<keyOfProd.length; yy++){
+    //        let tdOfName = document.createElement('div');
+    //        tdOfName.classList ="divOfValue";
+    //        tdOfName.textContent = keyOfProd[yy]
+    //        trOfName.appendChild(tdOfName)
+    //    }
+    //    wrapper.appendChild(trOfName)
+    //    tablingRow.appendChild(wrapper)
+    // document.getElementsByClassName('mainBody')[0].appendChild(tablingRow);
+
+
+    let tabling = document.createElement('div');
+       tabling.className = "tabling";
+       let trOfName = document.createElement('div');
+       trOfName.className = "divOfRow"
+       for(let ee=0; ee<keyOfProd.length; ee++){
+           let tdOfName = document.createElement('div');
+           tdOfName.className ="divOfName";
+           let h3OfName = document.createElement('h3');
+           h3OfName.textContent =  keyOfProd[ee];
+           tdOfName.appendChild(h3OfName)
+           trOfName.appendChild(tdOfName)
+       }
+       tabling.appendChild(trOfName)
+    //    document.getElementsByClassName('mainBody')[0].appendChild(tabling)
+       var trOfPic = document.createElement('div');
+       trOfPic.className = 'divOfRow divOfRowPic'
+    //    let tdOfProd1 = document.createElement('div');
+    //    tdOfProd1.textContent = "Now We Let You Decide the Winnner"
+    //    tdOfProd1.className = "divOfName"
+    //    trOfPic.appendChild(tdOfProd1)
+    //    trOfPic.appendChild(tdOfPro)
+       
+       
+       for(let uu=0; uu<keyOfProd.length; uu++){
+           let divOfPic = document.createElement('div');
+           divOfPic.className = "divOfPic";
+           console.log( prodSpecs[keyOfProd[uu]].data.product_images[0] )
+           let img = document.createElement('img');
+           img.src =   prodSpecs[keyOfProd[uu]].data.product_images[0] ;
+           img.className = "imgOfProduct"
+           divOfPic.appendChild(img)
+        //    tdOfPic.appendChild(divOfPic)
+           trOfPic.appendChild(divOfPic)
+           if(keyOfProd.length-1 !=  uu){
+               let vers = document.createElement('div');
+               vers.className = "vers"
+               vers.textContent = "VS"
+               trOfPic.appendChild(vers)
+           }
+       }
+      
+       tabling.appendChild(trOfPic);
+       document.getElementsByClassName('mainBody')[0].appendChild(tabling)
+       let mainBody = document.getElementsByClassName('mainBody')[0];
+       for(let list in listing){
+        let tabling = document.createElement('div')
+        tabling.classList = "tabling coloringTabling"
+        //    let divOfHeading = document.createElement('tr');
+        //    divOfHeading.className = "divOfHeadingName";
+        //    let divOfHeadingName = document.createElement('td')
+        //    divOfHeadingName.className = "divOfHeading"
+          let divOfHeading = document.createElement('div');
+          divOfHeading.className = "divOfHeading";
+          let h4OfHeading = document.createElement('h3');
+          h4OfHeading.textContent = list
+          h4OfHeading.className = "h4OfHeading"
+          
+        //    divOfHeadingName.textContent = list;
+
+            // divOfHeading.appendChild(divOfHeadingName);
+        divOfHeading.appendChild(h4OfHeading)
+        document.getElementsByClassName('mainBody')[0].appendChild(divOfHeading)
+        // tabling.appendChild(divOfHeading)
+           for(let ii=0; ii<listing[list].length; ii++){
+            // let div = document.createElement('div');
+            // div.className ="divOfTiring"
+            let divOfHeadingSpec = document.createElement('div');
+            divOfHeadingSpec.className = "divOfRow"
+            let divOfName = document.createElement('div');
+            let h4OfName = document.createElement('h4');
+            divOfName.textContent = listing[list][ii]
+            divOfName.className= "divOfSpec"
+            divOfHeadingSpec.appendChild(divOfName);
+            let divOfRow = document.createElement('div');
+            divOfRow.className = "divOfRow" 
+            tabling.appendChild(divOfHeadingSpec)
+               for(let yu=0; yu<keyOfProd.length; yu++){    
+                    
+                   if(specs[yu].data.sub_specs.hasOwnProperty(list)){
+                       console.log(keyOfProd[yu] , list)
+                       var a=1;
+                       console.log(keyOfProd[yu] , list ,specs[yu].data.sub_specs.hasOwnProperty(list))
+                       for(let ee=0; ee<specs[yu].data.sub_specs[list].length; ee++){
+                            if(specs[yu].data.sub_specs[list][ee]['spec_key'] == listing[list][ii]){
+                                let divOfValue = document.createElement('div');
+                                divOfValue.className = "divOfValue"
+                                let nameOfProd = document.createElement('div');
+                                nameOfProd.className = "nameOfProd"
+                                nameOfProd.textContent = keyOfProd[yu]
+                                divOfValue.appendChild(nameOfProd)
+                                let valueOfName = document.createElement('div');
+                                valueOfName.className = "valueOfName"
+                                // console.log(list , keyOfProd[yu])
+                                // console.log('yes')
+                                // console.log(specs[yu].data.sub_specs[list][ee]['spec_value'])
+                                if(specs[yu].data.sub_specs[list][ee]['spec_value'] == ("" || null || undefined)){
+                                    console.log('no we are not')  
+                                    valueOfName.textContent = "-";
+                                }else{
+                                    a=0
+                                    // let divOfValue = document.createElement('div')
+                                    valueOfName.textContent = specs[yu].data.sub_specs[list][ee]['spec_value']
+                                    // divOfValue.className = "divOfValue"
+                                    // divOfRow.appendChild(divOfValue);
+                                    // console.log(list , keyOfProd[yu] ,listing[list][ii])
+                                }
+                                divOfValue.appendChild(valueOfName)
+                                divOfRow.appendChild(divOfValue)
+
+                            }
+                            if((ee == specs[yu].data.sub_specs[list].length-1)){
+                                if(a==1){
+                                        let divOfValue = document.createElement('div');
+                                       
+                                        divOfValue.className = "divOfValue"
+                                        divOfRow.appendChild(divOfValue)
+                                        let nameOfProd = document.createElement('div');
+                                nameOfProd.className = "nameOfProd"
+                                nameOfProd.textContent = keyOfProd[yu]
+                                divOfValue.appendChild(nameOfProd)
+                                let valueOfName = document.createElement('div');
+                                valueOfName.className = "valueOfName"
+                                valueOfName.textContent = "-";
+                                divOfValue.appendChild(valueOfName)
+                                        // console.log('we are in ths together')  
+                                }
+                            }
+                       }   
+                   }else{
+                    //    if(specs)
+                    let divOfValue = document.createElement('div');                      
+                    divOfValue.className = "divOfValue"
+                    divOfRow.appendChild(divOfValue)
+                    let nameOfProd = document.createElement('div');
+                    nameOfProd.className = "nameOfProd"
+                    nameOfProd.textContent = keyOfProd[yu]
+                    divOfValue.appendChild(nameOfProd)
+                    let valueOfName = document.createElement('div');
+                    valueOfName.className = "valueOfName"
+                    valueOfName.textContent = "-";
+                    divOfValue.appendChild(valueOfName)
+                   }
+                   tabling.appendChild(divOfRow)
+                }
+            //    divOfRow.appendChild(divOfValue)
+               
+           }
+        //    divOfHeading.textContent = list;
+        //    document.getElementsByClassName('mainBody')[0].appendChild(divOfHeading)
+           mainBody.appendChild(tabling)
+           let hr = document.createElement('div')
+           hr.className = "breaker"
+           mainBody.appendChild(hr)
+       }
+       
+     })();
+
+    </script>
+</body>
+</html>

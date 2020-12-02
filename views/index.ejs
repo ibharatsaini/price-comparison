@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prices Compare</title>
+    <!-- added icons and jquery scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Amarante?selection.family=Amarante">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/a.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/javascripts/a.js"></script>
+</head>
+
+<body>
+    <div id="headFixing">
+        <header id="headContainer">
+            <div class='horizontalBars'>
+                <div class="border" data-pos="180">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <form method="GET" class="newone" action="/search">
+                <div class="searchBarFlex">
+                    <input type="text" placeholder="Search For Millions Of Products" name="q" id="searchBar">
+                    <div id="searchIcon" type="submit"><span class="faFirst ">&#x26B2;</span></div>
+                </div>
+            </form>
+        </header>
+    </div>
+
+    <div id="supaSupaMain">
+        <div id="supermain">
+
+
+            <!--ALL MAIN CONTENTS ARE HERE-->
+
+            <% var i = 0; %>
+            <% let sign = 0;%>
+            <!-- IT IS TO KNOW WHETHER BUTTON SHOULD BE ADDED OR NOT -->
+            <% for(var j = 0;j < cat_name.b1.length;j++) {
+        var ja = cat_name.b1[j];
+        var be = ja[0];
+        ja = ja.replace(be,be.toUpperCase())
+        <!-- console.log(ja) -->
+        cat_name.b1[j] = ja;
+        %>
+            <% if(cat_name.b1[j] != "Home") {%>
+            <h3 class="lic1"> <%= cat_name.b1[j] %></h3> <!-- category -->
+            <% sign = 0; %>
+            <div class="main_div">
+                <div id="butbWala">
+                    <button type="button" value="B<%= j %>" class="butB<%= j %>"><i class="fa fa-angle-left"
+                            style="font-size:60px"></i></button>
+                </div>
+                <div class="middle_div<%= j %>">
+                    <% function ashish(){ %>
+                    <% if(cat_name.b0[i] != 'code0194' && i < cat_name.b0.length){ %>
+
+                    <% if(cat_name.b3[i] != "fake data"){
+                    var titi = cat_name.b0[i];
+                    cat_name.b0[i] = titi.replace(/-/," ")
+                    if(i == 32){
+                        i = 40 
+                        <!-- to ignore 32-40 elements -->
+                    }
+                    %>
+
+                    <div class="sub_div d1">
+                        <p class="lic2"><%= cat_name.b0[i] %></p> <!-- sub_category -->
+                        <div id="imgBox">
+                            <img class="i_img" src=<%= cat_name.b2[i] %>> <!-- images -->
+                        </div>
+                        <% if(cat_name.b3[i] != 0){ %>
+                        <h4 id="h4h4" style="margin-top:3%; color: white;
+                "><%= cat_name.b3[i] %>
+                            <i class="fa fa-star"></i></h4> <!-- PRODUCT RATING -->
+                        <%}%>
+            </div>
+                <% } %>
+
+                        <% i++; %>
+                        <% ashish(); %>
+                        <% sign++;  %>
+                        <% } else{ i++; %>
+                        <%  } %>
+                        <% } %>
+                        <% ashish(); %>
+                    </div>
+                    <% if(sign > 4) {%>
+                    <div id="butaWala">
+                        <button type="button" value="A<%= j %>" class="butA<%= j %>"><i class="fa fa-angle-right"
+                                style="font-size:60px"></i></button>
+                    </div>
+                    <% } %>
+                </div>
+                <% }} %>
+
+            </div>
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------------------------------------- -->
+    <div id="footKaBaap">
+        <footer id="footer">
+            <div id="upFoot">
+                <div class="divs1 dob">
+                </div>
+                <div class="divs2 dob">
+                    <div id="mySpan"></div>
+                </div>
+                
+                <div class="divs3 dob" >
+                    <div id="mySpan"></div>
+                    <div style="width: 80%; float: right;">
+                        <h2 style="color: white;font-weight: lighter;">About Prices Compare</h2>
+                        <p style="color: white;">Welcome to the World Of Comparison. <br>
+                            Here, we Provide 100% accurate prices of Millions of products <br>
+                            from different stores like Flipkart,Amazon etc. <br>
+                            So go on and explore this website to make your shopping style <br> easier and
+                            Convenient.<br>
+                            <!-- burnt during the Reformation</p><br> -->
+                    </div>
+                </div>
+            </div>
+            <div id="downFoot">
+                <h2>© 2020 Copyright : </h2>&nbsp;&nbsp;&nbsp; <h2 class="h2a"><a
+                        style="color: white;text-decoration: none;" href="http://www.piricescompare.in">
+                        PricesCompare.in</a></h2>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
