@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= data.a %> Mobile Phones Prices in India | Compare Prices of <%= data.a %> Phones in India
+    </title>
+    <!-- added icons and jquery scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://fonts.htc.com/specimen/Amarante?selection.family=Amarante"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.htcapis.com/icon?family=Material+Icons"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/searchresult.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="/javascripts/a.js"></script> -->
+</head>
+
+<body>
+    <div class="overlay">
+        <div class="messageBox">
+            <h4></h4>
+            <div>Remove Products</div>
+        </div>
+    </div>
+
+
+    <div id="disableBody"></div>
+    <div id="animating">
+        <div id="closePopUp"><span>&times;</span></div>
+        <div id="popBody">
+            <div class="inputOfForm">
+                <form type="GET" class="thisisForm" action="/search">
+                    <input type="text" placeholder="Search for millions Of Products" name="q" id="newSearchBox"
+                        autocomplete="off">
+                    <div class="searchIcon"><span class="fa ">&#x26B2;</span></div>
+                </form>
+            </div>
+            <div id="recommendations">
+            </div>
+        </div>
+    </div>
+    <div id="alertBox">
+        <div id="closePopUp"><span>&times;</span></div>
+        <div id="relating"></div>
+    </div>
+    <div id="headFixing">
+        <header id="headContainer">
+            <div onclick="slideIt()" class='horizontalBars'>
+                <div class="border" data-pos="180">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <form method="GET" class="newone" action="/search">
+                <div class="searchBarFlex">
+                    <input type="text" placeholder="Search For Millions Of Products" name="q" id="searchBar" value="">
+                    <div id="searchIcon" type="submit"><span class="fa">&#x26B2;</span></div>
+                </div>
+            </form>
+        </header>
+    </div>
+    <div class="mainBody">
+        <div id="filterBar" style="display: none;">
+            <div id="catg">
+                <div class="he">
+                    <h4> Categories</h4>
+                </div>
+                <a title="Mobile" href="/mobile">Mobiles</a>
+                <a title="Headphones" href="/headphone">Headphones</a>
+                <a title="laptops" href="/laptop">Laptops</a>
+                <a title="Desktop" href="/desktop">Desktops</a>
+
+                <a title="Appliances" href="/appliance">Appliances</a>
+                <a title="Refridgerator" href="/refridgerator">Refridgerators</a>
+                <a title="LEDs" href="/led">LEDs</a>
+                <!-- <a title="Fit Bands" href="/fit-band">Fit Bands</a> -->
+            </div>
+            <div id="allFilters">
+
+                <div Class="divOfPricesFilter">
+                    <div class="he">
+
+                        <h4>Price</h4>
+                        <button type="button" value="pr">Clear</button>
+
+                    </div>
+                    <div class="inputTake">
+
+                        <div>
+                            <!-- <div></div> -->
+                            <span>From</span>
+                            <span>To</span>
+                            <!-- <button type="button" class="filBut" value="pr">clear</button> -->
+                        </div>
+                        <div id="priceApi">
+                            <label for="min">&#x20B9;</label>
+                            <input type="text" id="min" value="">
+
+                            <label for="max">&#x20B9;</label>
+                            <input type="text" id="max" value="">
+                        </div>
+                        <div id='slider'></div>
+                    </div>
+                </div>
+                <div class="divOfPayDelivery">
+                    <div class="he">
+                        <h4>Delivery</h4>
+                        <button type="button" value="pd">Clear</button>
+                    </div>
+                    <div>
+                        <label id="labelOfBrand" for="COD">
+                            <input type="checkbox" id="COD" name="delivery" value="COD" onClick="disabling(this)">
+                            <span class="spanOfBox"></span>
+                            <span class="spanforCheckBox"></span>
+                            <span style="display: inline-block; margin-left: 30px;color:black;">Pay On Delivery</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="siteMap">
+            <a href="/">Home</a>><a href="/mobile/">Mobile</a>><a href="">
+                <%= data.a %> Smartphones
+            </a>
+        </div>
+        <div class="h1title">
+            <h1 title="<%= data.a %> Mobile prices in India">
+                <%= data.a %> Mobile Phones Prices Across All e-Stores
+            </h1>
+            <div class="drop" style="padding-bottom: 2px;">
+                <label for="sb">Sort by:</label>
+                <select name="sb" id="sb" value="">
+                    <option value="rel" class="styling">Relevance</option>
+                    <option value="l">Low to High</option>
+                    <option value="p">Hight to Low</option>
+                </select>
+            </div>
+        </div>
+        <div class="results">
+
+            <a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-mi-10/ZToxNjA2MA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjA2MC0xNDItMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Mi 10</h3>
+                    <div class="review">
+                        <div><span>3.8/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹44999</span><span>₹53450</span><span>16% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3WDFLVDZNUi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹44999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/mi-10--128-gb-twilight-grey-8-gb-ram,-dual-sim-5g/p-mp000000007062135">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹49699</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/mi-10-8-gb-128-gb-coral-green-CMPLXMOBMI-10-8-GB-1DUMM20256F9A3877-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹49999</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjA2MA"><input
+                                onclick="comp(this)" id="ZToxNjA2MA" type="checkbox" name="mobile"
+                                value="ZToxNjA2MA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-mi-10t-pro/ZToxNjcwOA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjcwOC03Ny0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Mi 10T Pro</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹39890</span><span>₹40499</span><span>2% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-mi-10t-pro-128-gb-cosmic-black-8-gb-ram,-dual-sim-5g/p-mp000000008182863">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹39890</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4OU1UUVpWQy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹39999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvbWktMTB0LXByby1jb3NtaWMtYmxhY2stMTI4LWdiL3AvaXRtNWZmNTQ1NWZlYzUyMD9waWQ9TU9CRldBRlpBU0VFRUVTNiZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹39999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/mi-10t-pro-8gb-128gb-cosmic-black-CMPLXMOBMI-10T-PRO-8DUMM20256A865240D-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹40499</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjcwOA"><input
+                                onclick="comp(this)" id="ZToxNjcwOA" type="checkbox" name="mobile"
+                                value="ZToxNjcwOA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-mi-10t/ZToxNjc5Mw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjc5My0xMzEtMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Mi 10T</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹33699</span><span>₹36299</span><span>7% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-mi-10t-128-gb-lunar-silver-6-gb-ram,-dual-sim-5g/p-mp000000008182848">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹33699</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4UFJZTlRTUy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹33999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvbWktMTB0LWNvc21pYy1ibGFjay0xMjgtZ2IvcC9pdG01OGNjMGYxYWQyNjgyP3BpZD1NT0JGV0FGWlBHSFpTSEE3JmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹35999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/mi-10t-6gb-128gb-cosmic-black-CMPLXMOBMI-10T-6GB-1DUMM20256285428CE-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹36299</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjc5Mw"><input
+                                onclick="comp(this)" id="ZToxNjc5Mw" type="checkbox" name="mobile"
+                                value="ZToxNjc5Mw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-poco-x2/ZToxNjI2Nw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjI2Ny0xLTE.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Poco X2</h3>
+                    <div class="review">
+                        <div><span>4.5/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹14999</span><span>₹15990</span><span>6% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcG9jby14Mi1waG9lbml4LXJlZC02NC1nYi9wL2l0bWRhN2RkMWYzN2ZmZmY_cGlkPU1PQkZaR0o2UTlBNUZIUkMmYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹14999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NFI1WE1NTC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjI2Nw"><input
+                                onclick="comp(this)" id="ZToxNjI2Nw" type="checkbox" name="mobile"
+                                value="ZToxNjI2Nw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-8a-dual/ZToxNjI4MQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjI4MS01OC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi 8A Dual</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹6999</span><span>₹8499</span><span>18% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktOGEtZHVhbC1za3ktd2hpdGUtMzItZ2IvcC9pdG01M2I4NjIxYWNkM2Q3P3BpZD1NT0JGUDdZTVlGRFBaVlpKJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹6999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4TDJNSlhWWC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹7398</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-8a-dual-32-gb-midnight-grey-2-gb-ram,-dual-sim-4g/p-mp000000006517328">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹7645</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-8a-dual-2-gb-32-gb-sky-white-CMPLXMOBREDMI-8A-DUASUNR5250444897BA1-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹7990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjI4MQ"><input
+                                onclick="comp(this)" id="ZToxNjI4MQ" type="checkbox" name="mobile"
+                                value="ZToxNjI4MQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-9-power-128gb/ZToxNzE5MQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNzE5MS0yNTMtMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi 9 Power 128GB</h3>
+                    <div class="review">
+                        <div><span>3.7/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹11999</span><span>₹13693</span><span>12% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4OU1WQ1M1Ry8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹11999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktOS1wb3dlci1taWdodHktYmxhY2stMTI4LWdiL3AvaXRtZGIzODU2ODgyYTkyMD9waWQ9TU9CRllaRlFHVVVSR05DUSZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹13693</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNzE5MQ"><input
+                                onclick="comp(this)" id="ZToxNzE5MQ" type="checkbox" name="mobile"
+                                value="ZToxNzE5MQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-9-prime-128gb/ZToxNjYyMQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYyMS0yNTktMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi 9 Prime 128GB</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹10700</span><span>₹13999</span><span>24% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-9-prime-4-gb-128-gb-sunrise-flare-CMPLXMOBREDMI-9-PRIMGOEL253761F28D075F-pdp?">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹10700</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk4NExKNC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹10999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-9-prime-128-gb-matte-black-4-gb-ram-dual-sim-4g/p-mp000000007704501">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹11290</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktOS1wcmltZS1taW50Z3JlZW4tMTI4LWdiL3AvaXRtZWVlY2Y4YzE1MGI0Zj9waWQ9TU9CRlVUNVlSVUhCR1FIMyZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹11785</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjYyMQ"><input
+                                onclick="comp(this)" id="ZToxNjYyMQ" type="checkbox" name="mobile"
+                                value="ZToxNjYyMQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-9-prime/ZToxNjYxNg">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYxNi0zMC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi 9 Prime</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹9999</span><span>₹11999</span><span>17% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk4MlZMRy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹9999</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjYxNg"><input
+                                onclick="comp(this)" id="ZToxNjYxNg" type="checkbox" name="mobile"
+                                value="ZToxNjYxNg"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-9/ZToxNjA4Mw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjA4My05MS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi 9</h3>
+                    <div class="review">
+                        <div><span>4.1/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹8999</span><span>₹10999</span><span>18% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk2VzNCMy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹8999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-9-4-gb-64-gb-carbon-black-CMPLXMOBREDMI-9-4-GBDUMM20256C8AB206B-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹9608</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-9-64-gb-carbon-black-4-gb-ram-dual-sim-4g/p-mp000000007704488">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹9799</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktOS1jYXJib24tYmxhY2stNjQtZ2IvcC9pdG0xZGM0ZWYyOWFlY2Y1P3BpZD1NT0JGVkhSTVE4WVFOVDVaJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹9899</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjA4Mw"><input
+                                onclick="comp(this)" id="ZToxNjA4Mw" type="checkbox" name="mobile"
+                                value="ZToxNjA4Mw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-9a-3gb-ram/ZToxNjc0OA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjc0OC0yOTAtMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi 9A 3GB RAM</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹7499</span><span>₹10899</span><span>31% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk3S0xaUC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹7499</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-9a-3-gb-32-gb-sea-blue-CMPLXMOBREDMI-9A-3-GGOEL2537611A960F8A-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹7635</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktOWEtbWlkbmlnaHQtYmxhY2stMzItZ2IvcC9pdG1lYWJkMzlhMGNkNjY5P3BpZD1NT0JGVkRBWVJIM0dZTlpUJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹8349</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-9a-32-gb-midnight-black-3-gb-ram-dual-sim-4g/p-mp000000007704502">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹8385</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjc0OA"><input
+                                onclick="comp(this)" id="ZToxNjc0OA" type="checkbox" name="mobile"
+                                value="ZToxNjc0OA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-9a/ZToxNjI3MA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjI3MC0yMTgtMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi 9A</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹6999</span><span>₹8499</span><span>18% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk2WEI0Qi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹6999</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjI3MA"><input
+                                onclick="comp(this)" id="ZToxNjI3MA" type="checkbox" name="mobile"
+                                value="ZToxNjI3MA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-k20-pro/ZToxNTY1OA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTY1OC01OS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi K20 Pro</h3>
+                    <div class="review">
+                        <div><span>4.5/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹24950</span><span>₹29999</span><span>17% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-k20-pro-128-gb-pearl-white-6-gb-ram,-dual-sim-4g/p-mp000000006701299">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹24950</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4MkZONVdSNC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹26999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktazIwLXByby1jYXJib24tYmxhY2stMTI4LWdiL3AvaXRtZmdmanRkamt6Z3l5cj9waWQ9TU9CRkc3VVlNQ0JSU1FaOCZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹26999</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTY1OA"><input
+                                onclick="comp(this)" id="ZToxNTY1OA" type="checkbox" name="mobile"
+                                value="ZToxNTY1OA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-k20/ZToxNTY4NA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTY4NC0zMC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi K20</h3>
+                    <div class="review">
+                        <div><span>4.5/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹20990</span><span>₹29999</span><span>30% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3VlZEUkxYOC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹20990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktazIwLWNhcmJvbi1ibGFjay02NC1nYi9wL2l0bWZnZmp0a3BuZDY0Z2I_cGlkPU1PQkZHN1VZUkNDVEI3QkEmYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹21999</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTY4NA"><input
+                                onclick="comp(this)" id="ZToxNTY4NA" type="checkbox" name="mobile"
+                                value="ZToxNTY4NA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-7-pro/ZToxNTM5Mg">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTM5Mi0zNC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 7 Pro</h3>
+                    <div class="review">
+                        <div><span>4.5/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹10999</span><span>₹38999</span><span>72% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktbm90ZS03LXByby1uZXB0dW5lLWJsdWUtNjQtZ2IvcC9pdG1mZWdreDhuYmN6ZTZ0P3BpZD1NT0JGRFhaMzc2WFJUWlhIJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹10999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3UlRCTVhDSC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹13990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTM5Mg"><input
+                                onclick="comp(this)" id="ZToxNTM5Mg" type="checkbox" name="mobile"
+                                value="ZToxNTM5Mg"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-7s-32gb/ZToxNTY2MA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTY2MC0xOS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 7S 32GB</h3>
+                    <div class="review">
+                        <div><span>4.4/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹10200</span><span>₹15550</span><span>34% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3UzlNV0paNC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹10200</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTY2MA"><input
+                                onclick="comp(this)" id="ZToxNTY2MA" type="checkbox" name="mobile"
+                                value="ZToxNTY2MA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-8/ZToxNTg1OQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTg1OS04OS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 8</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹9999</span><span>₹14999</span><span>33% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3WDFLVDZMRC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹9999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-note-8-64-gb-cosmic-purple-4-gb-ram,-dual-sim-4g/p-mp000000006137499">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹12998</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktbm90ZS04LXNwYWNlLWJsYWNrLTY0LWdiL3AvaXRtMDg1OTE3NTBhOTk3Mz9waWQ9TU9CRkhGRlNNVlFKWVlXWSZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹13999</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTg1OQ"><input
+                                onclick="comp(this)" id="ZToxNTg1OQ" type="checkbox" name="mobile"
+                                value="ZToxNTg1OQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-9-6gb-ram/ZToxNjU4Mg">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjU4Mi0xMjEtMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 9 6GB RAM</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹14499</span><span>₹19899</span><span>27% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4OU1TRzU2NS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹14499</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-note-9-128-gb-pebble-grey-6-gb-ram,-dual-sim-4g/p-mp000000007362124">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15099</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktbm90ZS05LXNoYWRvdy1ibGFjay0xMjgtZ2IvcC9pdG0xMjIwMWMyZWU2M2U1P3BpZD1NT0JGWTdIRkVWV0hDWEZZJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15498</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-note-9-6-gb-128-gb-aqua-green-CMPLXMOBREDMI-NOTE-9DUMM202566012AC3-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15639</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjU4Mg"><input
+                                onclick="comp(this)" id="ZToxNjU4Mg" type="checkbox" name="mobile"
+                                value="ZToxNjU4Mg"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-9-pro-4gb-ram/ZToxNjYwNg">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYwNi00LTE.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 9 Pro 4GB RAM</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹14490</span><span>₹17999</span><span>19% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-note-9-pro-4-gb-128-gb-champagne-gold-CMPLXMOBREDMI-NOTE-9APNI99302010C64EC9-pdp?">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹14490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk4MlpLUC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹14499</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-note-9-pro-128-gb-champagne-gold-4-gb-ram,-dual-sim-4g/p-mp000000007864632">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹14999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktbm90ZS05LXByby1jaGFtcGFnbmUtZ29sZC1jaGFtcGFnbmUtaW50ZXJzdGVsbGFyLWJsYWNrLTEyOC1nYi9wL2l0bTU0NGY5NTJhNGI3YTM_cGlkPU1PQkZWTllZWlo2QUpUNDQmYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15356</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjYwNg"><input
+                                onclick="comp(this)" id="ZToxNjYwNg" type="checkbox" name="mobile"
+                                value="ZToxNjYwNg"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-9-pro-max-128gb/ZToxNjc4MQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjc4MS0zMy0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 9 Pro Max 128GB</h3>
+                    <div class="review">
+                        <div><span>4.1/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹18207</span><span>₹20999</span><span>13% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-note-9-pro-max-6-gb-128-gb-glacier-white-CMPLXMOBREDMI-NOTE-9SALE98700182064E1-pdp?">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹18207</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk5M1dCRC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18499</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-note-9-pro-max-128-gb-interstellar-black-6-gb-ram-dual-sim-4g/p-mp000000006738749">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18795</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktbm90ZS05LXByby1tYXgtaW50ZXJzdGVsbGFyLWJsYWNrLTEyOC1nYi9wL2l0bThmN2JlMDMzOTgyOGI_cGlkPU1PQkZSV1pOOVdIV1pLWkomYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18946</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjc4MQ"><input
+                                onclick="comp(this)" id="ZToxNjc4MQ" type="checkbox" name="mobile"
+                                value="ZToxNjc4MQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-9-pro-max/ZToxNjMxOA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjMxOC0zOS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 9 Pro Max</h3>
+                    <div class="review">
+                        <div><span>4.1/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹15502</span><span>₹20999</span><span>26% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-note-9-pro-max-6-gb-64-gb-glacier-white-CMPLXMOBREDMI-NOTE-9SALE98700CB7BA0F-pdp?">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹15502</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3N1BXSjhSUy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktbm90ZS05LXByby1tYXgtaW50ZXJzdGVsbGFyLWJsYWNrLTY0LWdiL3AvaXRtOGY3YmUwMzM5ODI4Yj9waWQ9TU9CRlVGVENLQ1BIWlRRWCZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹16333</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-note-9-pro-max-64-gb-glacier-white-6-gb-ram,-dual-sim-4g/p-mp000000006738747">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹17139</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjMxOA"><input
+                                onclick="comp(this)" id="ZToxNjMxOA" type="checkbox" name="mobile"
+                                value="ZToxNjMxOA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-9-pro/ZToxNjIzOQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjIzOS03NS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 9 Pro</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹12999</span><span>₹16999</span><span>24% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3N1E3R1c5Vi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹12999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/redmi-note-9-pro-4-gb-64-gb-champagne-gold-CMPLXMOBREDMI-NOTE-9APNI9930203CF246EB-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹13138</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvcmVkbWktbm90ZS05LXByby1nbGFjaWVyLXdoaXRlLTY0LWdiL3AvaXRtNTBmMWI5MjM0OTM0MD9waWQ9TU9CRlBaWFU5UUREU0tOVSZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹13475</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/xiaomi-redmi-note-9-pro-64-gb-glacier-white-4-gb-ram,-dual-sim-4g/p-mp000000006738659">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹13899</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjIzOQ"><input
+                                onclick="comp(this)" id="ZToxNjIzOQ" type="checkbox" name="mobile"
+                                value="ZToxNjIzOQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/xiaomi-mobiles/xiaomi-redmi-note-9/ZToxNjA0OA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjA0OC0yMzgtMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">Xiaomi Redmi Note 9</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹11999</span><span>₹14999</span><span>20% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk1WU1ZQy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹11999</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjA0OA"><input
+                                onclick="comp(this)" id="ZToxNjA0OA" type="checkbox" name="mobile"
+                                value="ZToxNjA0OA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a>
+        </div>
+        <div class="divOfPopUp">
+            <h4>COMPARE</h4>
+        </div>
+        <script>
+            function slideIt() {
+                //console.log(document.getElementById('filterBarHead').style.transform)
+                if (document.getElementById('filterBarHead').style.transform == 'translate3d(-100%, 0px, 0px)') {
+                    document.getElementById('filterBarHead').style.transform = 'translate3d(0%, 0px, 0px)';
+                    document.getElementById('mainBody').style.opacity = '0.5'
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    repeater("filterBarHead")
+                }
+            }
+
+            var brandName = '<%= data.a %>';
+            console.log(brandName);
+
+            var filterBar = document.getElementById('filterBar');
+            filterBar.style.height = window.screen.height - document.getElementById('headFixing').offsetHeight + "px";
+            let xhttp = new XMLHttpRequest()
+            var response;
+
+            console.log(xhttp)
+            let path = `/json/mobile/${brandName}`
+            xhttp.open('GET', path, false)
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log('new')
+                    response = this.responseText
+                    // console.log(response)
+                }
+            }
+            xhttp.send()
+            response = JSON.parse(response)
+            console.log(typeof (response))
+            // for (let i = 0; i < response.data.length; i++) {
+            //     creatingBody(response.data[i])
+            //     response.data[i].stores.sort((y, x) => {
+            //         return parseFloat(y.price) - parseFloat(x.price)
+            //     })
+            // }
+            console.log(response)
+            // console.log(response)
+            var smallest = 0
+            var greatest = 0;
+            console.log(smallest)
+            console.log(greatest)
+            // console.log("sortedData "+sortedData.length)
+            // for (let q = 0; q < response.data.length; q++) {
+            //     // console.log('ye hai sorted data')
+            //     console.log(response.data[q].stores[0].price)
+            //     // // i
+            //     // console.log(smallest ,greatest)
+            //     // smallNo = parseInt(response.data[smallest].stores[0].price)
+            //     // console.log(typeof(response.data[smallest].stores[0].price ))
+            //     // console.log(response.data[greatest].stores[0].price)
+            //     // console.log(response.data[smallest].stores[0].price >= response.data[q].stores[0].price)
+            //     // console.log(response.data[smallest].stores[0].price >= response.data[q].stores[0].price)
+            //     if (response.data[smallest].stores[0].price >= response.data[q].stores[0].price) {
+            //         smallest = q
+            //         console.log('smallest is updated to ', response.data[smallest].stores[0].price)
+            //     } else if (response.data[greatest].stores[0].price < response.data[q].stores[0].price) {
+            //         greatest = q
+            //         console.log('greatest is updated to ', response.data[greatest].stores[0].price)
+            //     }
+            //     console.log('hone ke baad')
+            //     console.log(smallest ,greatest)
+            // }
+
+            for (let q = 0; q < response.data.length; q++) {
+                console.log('ye hai sorted data')
+                // console.log(sortedData[q])
+                // i
+                let iterNum = parseInt(response.data[q].stores[0].price)
+                let smallNum = parseInt(response.data[smallest].stores[0].price)
+                let greatNum = parseInt(response.data[greatest].stores[0].price)
+                if (smallNum >= iterNum) {
+                    smallest = q
+                    console.log('smallest is updated to ', smallNum)
+                } else if (greatNum < iterNum) {
+                    greatest = q
+                    console.log('greates is updated to ', greatNum)
+                }
+            }
+            var smallNum = parseFloat(response.data[smallest].stores[0].price)
+            var greatNum = parseFloat(response.data[greatest].stores[0].price)
+            console.log(response.data[smallest].stores[0].price, response.data[greatest].stores[0].price)
+            // for(let i=0; i<)
+            // var data;
+            var min = document.getElementById("min");
+            var max = document.getElementById('max');
+            min.value = smallNum
+            max.value = greatNum
+            $('#slider').slider({
+                range: true,
+                min: (smallNum),
+                max: (greatNum),
+                values: [(smallNum), (greatNum)],
+                // values:[parseFloat(sortedData[0].product_lowest_price),parseFloat(sortedData[sortedData.length-1].product_lowest_price)],
+                slide: (event, ui) => {
+                    // whenSliding(ui.values[0], ui.values[1])
+                    min.value = ui.values[0];
+                    // var max = document.getElementById('max');
+                    max.value = ui.values[1];
+                },
+                change: (event, ui) => {
+
+                    // let resultsCont = document.getElementsByClassName('resultsCont');
+                    // let results = document.getElementsByClassName('results')[0];
+                    // results.innerHTML = "";
+                    // console.log(newJson)
+                    // storeName = Object.keys(newJson[0].data.stores)
+                    // console.log(storeName)
+                    if (ui.values[0] == smallNum && ui.values[1] == greatNum) {
+
+                        $('button[value="pr"]').css({
+                            'display': 'none'
+                        })
+
+                    } else {
+                        $('button[value="pr"]').css({
+                            'display': 'block'
+                        })
+
+                    }
+                    let val = $('#sb').val()
+                    let clone2 = JSON.parse(JSON.stringify(response))
+                    if (val == "l") {
+                        clone2.data.sort((y, x) => { return y.stores[0].price - x.stores[0].price })
+                        payonDelivery(clone2.data, ui.values[0], ui.values[1])
+                    } else if (val == "p") {
+                        clone2.data.sort((y, x) => { return x.stores[0].price - y.stores[0].price })
+                        payonDelivery(clone2.data, ui.values[0], ui.values[1])
+                    } else {
+                        payonDelivery(response.data, ui.values[0], ui.values[1])
+                    }
+                    // for(let qq=0; qq<newJson.length; qq++){
+                    //     if(sortedData[qq].product_lowest_price > ui.values[0] && sortedData[qq].product_lowest_price < ui.values[1]){
+                    //         creatingBody(sortedData[qq],newJson[qq],specs[qq],ui.values[0],ui.values[1])
+                    //     }
+                    // }
+                }
+            });
+
+            function payonDelivery(data, min, max) {
+                console.log('andar aya')
+                let minimum = parseFloat(min);
+                let maximum = parseFloat(max)
+                // console.log(' pay on delivery');
+                let inputCheck = document.getElementById('COD');
+                let results = document.getElementsByClassName('results')[0];
+                results.innerHTML = "";
+                if (inputCheck != undefined) {
+                    console.log('arleast')
+                    if (inputCheck.checked) {
+                        console.log('gal')
+                        for (let ww = 0; ww < data.length; ww++) {
+                            var bnao1;
+                            for (let qw = 0; qw < data[ww].stores.length; qw++) {
+                                // let store = Object.keys(data[ww].stores[qw])
+                                if (data[ww].stores[qw].hasOwnProperty('cod')) {
+                                    if (data[ww].stores[qw].cod == ("1")) {
+                                        // console.log(sortedData)
+                                        bnao1 = 1;
+                                    } else {
+                                        bnao1 = 0;
+                                        break;
+                                    }
+                                }
+                            }
+                            if ((bnao1 == 1) && (data[ww].stores[0].price >= minimum) && (data[ww].stores[0].price <= maximum)) {
+                                creatingBody(data[ww])
+                            }
+                        }
+                    } else {
+                        console.log('katayi')
+                        for (let y = 0; y < data.length; y++) {
+                            let dataPrice = parseFloat(data[y].stores[0].price)
+
+                            console.log('inside')
+                            if ((dataPrice) >= parseFloat(minimum) && (dataPrice) <= parseFloat(maximum)) {
+                                console.log('are way')
+                                creatingBody(data[y])
+                            }
+                        }
+                    }
+                } else {
+                    for (let y = 0; y < data.length; y++) {
+                        let dataPrice = parseFloat(data[y].stores[0].price)
+
+                        if (dataPrice >= minimum && dataPrice <= maximum) {
+                            console.log('are wah 2')
+                            creatingBody(data[y])
+
+                        }
+                    }
+
+                }
+            }
+
+            function creatingBody(data) {
+                let results = document.getElementsByClassName('results')[0];
+                // let results = document.createElement('div')
+                // results.className ='results'
+
+                let resultsCont = document.createElement('a');
+                resultsCont.className = "resultsCont";
+                resultsCont.href = `/mobile/${brandName}-mobiles/` + data.name.replace(/ /g, "-").toLowerCase() + "/" + data.id;
+                // console.log(newData.product_id)
+                let imageDiv = document.createElement('div');
+                imageDiv.className = "imagesOuter";
+                let imagechecking = document.createElement('div');
+                imagechecking.className = "imageChecking";
+                let image = document.createElement('img');
+                image.setAttribute('src', data.image);
+                image.className = "imageClass";
+                let titleDiv = document.createElement('div');
+                titleDiv.className = "titleDiv";
+                let title = document.createElement('h3');
+                title.className = "title";
+                title.textContent = data.name;
+                titleDiv.appendChild(title)
+                if (data.hasOwnProperty('rating') && parseInt(data.rating) > 0) {
+                    var review = document.createElement('div');
+                    review.className = "review";
+                    var div = document.createElement('div');
+                    // span.textContent = 
+                    var spantext = document.createElement('span');
+                    spantext.textContent = data.rating + '/5';
+                    var imgOfstar = document.createElement('img');
+                    imgOfstar.setAttribute('src', '/images/star.png')
+                    div.appendChild(spantext)
+                    div.appendChild(imgOfstar);
+                    review.appendChild(div)
+                    titleDiv.appendChild(review)
+                }
+                // title.appendChild(h3)
+                // console.log(newData.product_id + "this is id")
+                // console.log(JSON.stringify(newJson));
+                let specsKey = document.createElement('div');
+                specsKey.className = "specsKey";
+                let listOfSpec = document.createElement('ul');
+                listOfSpec.className = "specList";
+                var listItem;
+                try {
+                    for (let r = 0; r < data.spec.length; r++) {
+                        // let fontOfListing = document.createElement('h3');
+                        listItem = document.createElement('li');
+                        listItem.className = "listItem";
+                        listItem.innerHTML = data.spec[r];
+                        // listItem.appendChild(fontOfListing);
+                        listOfSpec.appendChild(listItem);
+
+                    }
+                    specsKey.appendChild(listOfSpec)
+                } catch {
+                    console.log("specification nahi hai iski")
+                }
+                // console.log("nenwenwneknkwer" + newJson.stores)
+                let pricesDiv = document.createElement('div');
+                pricesDiv.className = "pricesDiv";
+                let priceTag;
+                // var prodStoreInfo = [];
+                var z = 0;
+                var prodStoreInfo = [];
+                // console.log("cheking ho rha hai")
+                // var sortingAndAlloting = function (apnaData) {
+                //     for (let l = 0; l < apnaData.length; l++) {
+                //         let storing = Object.keys(apnaData.stores[l]);
+                //         if (apnaData.stores[l][storing[0]].hasOwnProperty('logo')) {
+                //             if ((apnaData.data.stores[l][storing[0]]['price'] || apnaData.data.stores[l][storing[0]]['product_mrp']) != (undefined || null || "0" || 0)) {
+                //                 prodStoreInfo[z] = {};
+                //                 prodStoreInfo[z]['store'] = storing[0];
+                //                 if (apnaData.data.stores[l][storing[0]]['product_price'] != (undefined || null || 0 || "0")) {
+                //                     prodStoreInfo[z]['price'] = parseInt(apnaData.data.stores[l][storing[0]]['product_price']);
+                //                     // console.log(`${storing[0]}  ${"price"}  ${prodStoreInfo[z][storing[0]]['price']}`)
+                //                 } else {
+                //                     prodStoreInfo[z]['price'] = apnaData.data.stores[l][storing[0]]['product_mrp']
+                //                     // console.log(`${}  ${"price"}  ${prodStoreInfo[z][storing[0]]['mrp']}`)
+
+                //                 }
+                //                 prodStoreInfo[z]['url'] = {}
+                //                 prodStoreInfo[z]['url'] = apnaData.data.stores[l][storing[0]]['product_store_url']
+                //                 prodStoreInfo[z]['logo'] = apnaData.data.stores[l][storing[0]]['product_store_logo']
+                //                 z++;
+                //             }
+                //         }
+                //     }
+                //     prodStoreInfo.sort((y, x) => {
+                //         return parseFloat(y.price) - parseFloat(x.price)
+                //     })
+                //     return prodStoreInfo
+
+                // }
+                // let prodStore = sortingAndAlloting(data.stores);
+                // console.log(prodStore)
+                // print(type)
+                data.stores.sort((y, x) => {
+                    return parseFloat(y.price) - parseFloat(x.price)
+                })
+                var mrpTag = document.createElement('div');
+                mrpTag.className = 'mrpTag';
+                console.log(data.mrp.length > 0)
+                if (data.mrp.length > 0 && data.stores.length > 0) {
+                    console.log('iske andar')
+                    let best = (data.stores[0].price);
+                    let bestPrice = document.createElement('span');
+                    console.log(best)
+                    // bestPrice.classList  = 'bestPrice'
+                    bestPrice.innerHTML = '&#x20B9;' + best;
+                    let num = parseInt(data.mrp)
+                    console.log(num)
+                    mrpTag.appendChild(bestPrice)
+
+                    // let num =(data.mrp)
+                    // console.log(num)
+                    // console.log(num>prodStore[prodStore.length-1].price)
+                    // console.log(prodStore[prodStore.length-1].price)
+                    console.log(num, data.stores[0].price)
+                    console.log(num !== data.stores[0].price)
+                    if (num !== data.stores[0].price || (data.stores[data.stores.length - 1].price) > num) {
+                        console.log('iske bhi andar')
+                        let mrp = num > (data.stores[data.stores.length - 1].price) ? data.mrp : data.stores[data.stores.length - 1].price;
+                        console.log(data.mrp > data.stores[data.stores.length - 1].price ? data.mrp : data.stores[data.stores.length - 1].price)
+
+                        let mrpheading = document.createElement('span');
+                        mrpheading.innerHTML = '&#x20B9;' + mrp;
+                        let off = document.createElement('span');
+                        off.textContent = Math.round(((mrp - best) / mrp) * 100) + "% Off!"
+                        console.log(Math.round((best / mrp) * 100))
+                        mrpTag.appendChild(mrpheading)
+                        mrpTag.appendChild(off)
+                    }
+                    titleDiv.appendChild(mrpTag)
+                    // let mrpTag = document.createElement('h4');
+                    // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                    titleDiv.appendChild(mrpTag)
+                } else if (data.mrp.length == 0 && data.stores.length > 1) {
+                    console.log('second andar')
+                    let best = data.stores[0].price;
+                    let bestPrice = document.createElement('span');
+                    // bestPrice.classList  = 'bestPrice'
+                    bestPrice.innerHTML = '&#x20B9;' + best;
+                    mrpTag.appendChild(bestPrice)
+                    if (data.stores.length > 1) {
+                        let mrp = data.stores[data.stores.length - 1].price;
+                        let mrpheading = document.createElement('span');
+                        mrpheading.innerHTML = '&#x20B9;' + mrp;
+                        let off = document.createElement('span');
+                        off.textContent = Math.round(((mrp - best) / mrp) * 100) + "% Off!"
+                        console.log(Math.round((best / mrp) * 100))
+                        mrpTag.appendChild(mrpheading)
+                        mrpTag.appendChild(off)
+                    }
+                    titleDiv.appendChild(mrpTag)
+                    // let mrpTag = document.createElement('h4');
+                    // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                    titleDiv.appendChild(mrpTag)
+                } else if (data.mrp.length > 1) {
+                    console.log('aa gya')
+                    let best = data.mrp;
+                    let bestPrice = document.createElement('span');
+                    // bestPrice.classList  = 'bestPrice'
+                    bestPrice.innerHTML = '&#x20B9;' + best;
+                    mrpTag.appendChild(bestPrice)
+                    titleDiv.appendChild(mrpTag)
+                    // let mrpTag = document.createElement('h4');
+                    // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                    titleDiv.appendChild(mrpTag)
+                }
+                titleDiv.appendChild(specsKey)
+                var tableOflogo = document.createElement('table');
+                tableOflogo.className = "tableOfLogo";
+                for (let m = 0; m < data.stores.length; m++) {
+                    let linking = document.createElement('a');
+                    let headingPrice = document.createElement('h4');
+                    // console.log(prodStore[m].price);
+                    // console.log(prodStore[m].logo)
+                    let rowPrice = document.createElement('tr');
+                    let colLogo = document.createElement('td');
+                    let imgLogo = document.createElement('img');
+                    imgLogo.setAttribute('src', data.stores[m].logo);
+                    colLogo.appendChild(imgLogo);
+                    let priceTag = document.createElement('td');
+                    headingPrice.innerHTML = "&#x20B9;" + data.stores[m].price;
+                    // console.log(m)
+                    if (m == 0) {
+                        headingPrice.style.fontSize = "2vw";
+                    } else {
+                        headingPrice.style.fontSize = "1.3vw"
+                    }
+                    headingPrice.style.fontWeight = '400'
+
+                    linking.setAttribute('href', data.stores[m].link);
+                    linking.appendChild(headingPrice);
+                    priceTag.appendChild(linking)
+                    rowPrice.appendChild(colLogo);
+                    rowPrice.appendChild(priceTag);
+                    tableOflogo.appendChild(rowPrice)
+                }
+                let compareDivision = document.createElement('div');
+                compareDivision.className = "compareDivision";
+                var labelOfCompare = document.createElement('label');
+                labelOfCompare.className = "labelOfCompare"
+                let spanOfBox = document.createElement('span')
+                spanOfBox.className = "spanOfBox"
+                var inputOfPayDelivery = document.createElement('input');
+                inputOfPayDelivery.setAttribute('onclick', "comp(this)");
+                let spanOfText = document.createElement('span');
+                // spanOfText.style.position = "absolute";
+                spanOfText.style.display = "inline-block"
+                spanOfText.textContent = "Compare Specs"
+                spanOfText.style.marginLeft = "30px"
+                spanOfText.style.color = "#551A8B"
+                inputOfPayDelivery.id = data.id;
+                inputOfPayDelivery.type = "checkbox";
+                inputOfPayDelivery.name = data.sub;
+                inputOfPayDelivery.value = data.id
+                labelOfCompare.setAttribute('for', data.id);
+                var spanforCheckBox = document.createElement('span');
+                spanforCheckBox.className = 'spanforCheckBox';
+                labelOfCompare.appendChild(inputOfPayDelivery);
+                labelOfCompare.appendChild(spanOfBox)
+                labelOfCompare.appendChild(spanforCheckBox);
+                labelOfCompare.appendChild(spanOfText);
+                // let labelCompare = document.createElement('label');
+                // labelCompare.className = 'labelCompare';
+                // labelCompare.setAttribute('for',newData.product_id);
+                // let checkBoxInput = document.createElement('input');
+                // checkBoxInput.className = 'checkBoxInput';
+                // checkBoxInput.setAttribute('type','checkbox');
+                // checkBoxInput.id= newData.product_id;
+                // let divOfCheckBox = document.createElement('div');
+                // divOfCheckBox.className = 'divOfCheckBox';
+                // labelCompare.appendChild(checkBoxInput);
+                // labelCompare.appendChild(divOfCheckBox);
+                // var spanElement = document.createElement('div');
+                // spanElement.textContent   =  "Add To Compare";
+                // spanElement.style.display   =  "inline-block"
+                // labelCompare.appendChild(spanElement);
+                compareDivision.appendChild(labelOfCompare);
+                pricesDiv.appendChild(tableOflogo);
+                pricesDiv.appendChild(compareDivision);
+                imagechecking.appendChild(image)
+                imageDiv.appendChild(imagechecking);
+                // titleDiv.appendChild(title);
+                // titleDiv.appendChild(listOfSpec)/;
+                resultsCont.appendChild(imageDiv);
+                resultsCont.appendChild(titleDiv);
+                resultsCont.appendChild(pricesDiv);
+                results.appendChild(resultsCont);
+            }
+            // let labeling = ('labelOfBrand')
+            $('#labelOfBrand').on("click", function () {
+                // console.log(this)
+                var min = $('#slider').slider('values')[0];
+                var max = $('#slider').slider('values')[1];
+                // console.log(sortedData[smallest].product_lowest_price, sortedData[greatest].product_lowest_price)
+                payonDelivery(response.data, min, max);
+
+            });
+            $('#min').on('change', () => {
+                console.log($('#min').val() + "min value")
+                // let val = $('#min').val() > response.data[smallest].stores[0]
+                let val = parseFloat($('#min').val())
+                let maxVal = parseFloat($('#max').val())
+                let gm = (greatNum)
+                let sm = (smallNum)
+                if (val > gm) {
+                    val = gm
+                }
+                if (val > maxVal) {
+                    val = maxVal
+                }
+                if (val < sm) {
+                    val = sm
+                }
+                $('#min').val(val)
+                $("#slider").slider("values", 0, val);
+
+
+            })
+            $('#max').on('change', () => {
+                console.log('new')
+                console.log($('#max').val() + "min value")
+                // let val = $('#min').val() > response.data[smallest].stores[0]
+                let val = parseFloat($('#max').val())
+                let minVal = parseFloat($('#min').val())
+                let gm = (greatNum)
+                let sm = (smallNum)
+                if (val > gm) {
+                    val = gm
+                }
+                if (val < minVal) {
+                    val = minVal
+                }
+                if (val < sm) {
+                    val = sm
+                }
+                // if(val <)
+                $('#max').val(val)
+                $("#slider").slider("values", 1, val);
+            })
+            $(':button').on('click', function () {
+                // $this = e
+                // e.preventDefault()
+                val = $(this).attr('value');
+                console.log(val)
+                if (val == "pd") {
+                    $(this).css({
+                        'display': 'none'
+                    })
+                    document.getElementById('COD').checked = false
+                    // $(this).
+                } else if (val == "pr") {
+                    console.log("sike ")
+                    $(this).css({
+                        'display': 'none'
+                    })
+                    console.log(smallNum)
+                    console.log(greatNum)
+                    $('#min').val(smallNum)
+                    $('#max').val(greatNum)
+                    $("#slider").slider("values", 0, smallNum);
+                    $("#slider").slider("values", 1, greatNum);
+                    // payonDelivery
+                }
+
+                // payonDelivery(response.data, parseFloat($('#min').val()), parseFloat($('#max').val()))
+
+            })
+
+            function animatingMessage(msg, showOrNot) {
+                // console.log(showOrNot)
+                document.getElementsByClassName('overlay')[0].style.display = "block"
+                document.querySelector('.messageBox h4').textContent = msg;
+                document.getElementsByClassName('messageBox')[0].style.display = "flex"
+                if ((showOrNot)) {
+                    document.querySelectorAll('.messageBox div')[0].style.display = "none"
+                }
+                $('.messageBox div').on('click', () => {
+                    document.getElementsByClassName('overlay')[0].style.display = "none"
+                    document.querySelector('.messageBox').style.display = "none";
+                    showingAlertBox();
+                })
+
+                setTimeout(() => {
+                    document.getElementsByClassName('overlay')[0].style.display = "none"
+                    document.getElementsByClassName('messageBox')[0].style.display = "none"
+                    document.querySelectorAll('.messageBox div')[0].style.display = "inline-block"
+                    //  document.querySelector('.messageBox h4').textContent = ""
+                    // document.getElementsByClassName('messageBox')[0].textContent = ""
+
+                }, 6000)
+            }
+            var idList = []
+            let spanOfItem = document.createElement('div');
+            spanOfItem.style.width = "20px"
+
+            function comp(el) {
+                let divOfPopUp = document.getElementsByClassName('divOfPopUp')[0]
+                console.log(idList)
+                if (el.checked) {
+                    if (idList.length == 0) {
+                        categ = el.name
+                        console.log(categ)
+                    }
+                    // console.log(el.id)
+                    if (!(el.id in idList)) {
+                        // console.log(el.name)
+                        if (categ == el.name) {
+                            if (idList.length < 3) {
+                                idList.push(el.id)
+                                // console.log(idList.length)
+                            } else {
+                                el.checked = false;
+                                animatingMessage('Three Products Are Not Enough?', false)
+                                return
+                            }
+                        } else {
+                            el.checked = false
+                            animatingMessage('You Can Compare Products Of Same Category', false)
+                            return
+                        }
+                    }
+                } else {
+                    var newIndex = idList.indexOf(el.id)
+                    // console.log(newIndex);
+                    if (newIndex == idList.length - 1) {
+                        idList.pop()
+                        // console.log(idList)
+                    } else {
+                        idList.splice(newIndex, newIndex + 1)
+                    }
+                }
+                if (idList.length > 0) {
+                    divOfPopUp.style.display = "block"
+                    spanOfItem.textContent = idList.length;
+                    divOfPopUp.prepend(spanOfItem)
+                } else {
+                    divOfPopUp.style.display = "none"
+                }
+            }
+
+            function disabling(el) {
+                if ((el.checked)) {
+                    $('button[value="pd"]').css({
+                        'display': 'block'
+                    })
+                } else {
+                    $('button[value="pd"]').css({
+                        'display': 'none'
+                    })
+                }
+            }
+            $('.divOfPopUp:first').on('click', showingAlertBox)
+
+            function showingAlertBox() {
+                // e.preventDefault();
+                var alertBox = document.getElementById('alertBox');
+                var relating = document.getElementById('relating');
+                relating.innerHTML = ""
+                // let wrapperAlert = document.getElementById('wrapperAlert')
+                document.getElementById('disableBody').style.display = 'block';
+                alertBox.style.visibility = "hidden"
+                // var widthOfAlertBox = document.getElem
+                document.getElementById('alertBox').style.display = "block";
+                document.getElementsByTagName('html')[0].style.overflow = "hidden";
+                let headingOfCompareAlert = document.createElement('h3')
+                headingOfCompareAlert.className = "headingOfCompareAlert";
+                headingOfCompareAlert.textContent = "Products To Compare"
+                let divOfMainProd = document.createElement('div');
+                divOfMainProd.className = "divOfMainProd"
+                // divOfProduct.style.width = 
+                for (let jj = 0; jj < idList.length; jj++) {
+                    for (let rr = 0; rr < response.data.length; rr++) {
+                        // console.log('we are in loop')
+                        // console.log(newJson[rr].product_id)
+                        // console.log(idList[jj])
+                        if (idList[jj] == response.data[rr].id) {
+                            // console.log(newJson[rr].data.product_id)
+                            // console.log(idList[jj])
+                            let divOfProduct = document.createElement('div');
+                            divOfProduct.className = "divOfProd";
+                            let divOfHeadingbrand = document.createElement('div');
+                            divOfHeadingbrand.className = "divOfHeadingbrand"
+                            let headingOfBrand = document.createElement('h3');
+                            // headingOfBrand.className = "headingOfBrand";
+                            // headingOfBrand.style.marginLeft = "auto";
+                            // headingOfBrand.style.marginRight = "auto"
+                            // headingOfBrand.style.maxWidth = "80%"
+                            // headingOfBrand.style.overflow = "hidden"
+                            // headingOfBrand.style.marginBottom = "10px"
+                            headingOfBrand.textContent = response.data[rr].name;
+                            // headingOfBrand.style.float ="center"
+                            // headingOfBrand.style.width = "100%";
+                            var spanofCloseHeading = document.createElement('span')
+                            spanofCloseHeading.className = "spanOfCloseHeading"
+                            spanofCloseHeading.innerHTML = "&times;"
+                            // spanofCloseHeading.setAttribute('data-num' , jj)
+                            spanofCloseHeading.style.cursor = "pointer"
+                            spanofCloseHeading.style.marginRight = "0px"
+                            let divOfImageComp = document.createElement('div');
+                            divOfImageComp.className = "divOfImageComp";
+
+                            // divOfImageComp.style.height = "10%"
+                            // divOfImageComp.style.height = (relating.offsetHeight * 80)/100  +"px";                    
+                            // divOfImageComp.style.marginLeft = "auto";
+                            // divOfImageComp.style.marginRight = "auto"
+                            let imageOfProd = document.createElement('img');
+                            imageOfProd.src = response.data[rr].image;
+                            imageOfProd.style.maxWidth = "100%";
+                            imageOfProd.style.maxHeight = "100%";
+
+                            imageOfProd.className = "imageOfProd";
+                            divOfImageComp.appendChild(imageOfProd);
+                            divOfHeadingbrand.appendChild(headingOfBrand);
+                            divOfHeadingbrand.appendChild(spanofCloseHeading)
+                            divOfProduct.appendChild(divOfHeadingbrand)
+                            divOfProduct.appendChild(divOfImageComp)
+                            divOfMainProd.appendChild(divOfProduct)
+                        }
+                    }
+                }
+                relating.appendChild(headingOfCompareAlert);
+                relating.appendChild(divOfMainProd);
+
+                alertBox.style.visibility = "visible"
+
+                let winW = window.innerWidth;
+                let winh = window.innerHeight;
+                alertBox.style.left = (winW / 2) - (alertBox.offsetWidth / 2) + "px"
+                alertBox.style.top = (winh / 2) - (alertBox.offsetHeight / 2) + "px";
+                let form = document.createElement('form');
+                form.setAttribute('method', "GET")
+                form.setAttribute('action', '/product')
+                let divTypeButton = document.createElement('div');
+                divTypeButton.id = "divOfCompareButton"
+                divTypeButton.type = "submit";
+                let h3OfCompare = document.createElement('h3')
+                h3OfCompare.textContent = "Compare"
+                h3OfCompare.style.margin = "auto"
+                h3OfCompare.style.color = "whitesmoke"
+                divTypeButton.appendChild(h3OfCompare)
+                var inputtype = document.createElement('input');
+                inputtype.name = "pids"
+                inputtype.type = "text";
+                inputtype.value = idList;
+                inputtype.style.display = "none"
+                form.appendChild(inputtype)
+                form.appendChild(divTypeButton)
+                form.style.height = "10%"
+                relating.appendChild(form)
+                var $spanClose = $('.spanOfCloseHeading')
+                $spanClose.on('click', (e) => {
+                    // ksndflslkdnfn
+                    console.log($('.spanOfCloseHeading').index(e.target))
+                    let element = $('.spanOfCloseHeading').index(e.target)
+                    // console.log(element)
+                    e.target.className = ""
+                    // console.log(document.getElementsByName('pids')[0].value)
+                    document.getElementsByClassName('divOfMainProd')[0].removeChild(document.getElementsByClassName('divOfProd')[element])
+                    // document.getElementsByClassName('divOfProd')[element].className = ""
+                    // document.getElementsByClassName('divOfProd')[element].style.display = "none"
+                    let valueOfNew = document.getElementsByName('pids')[0].value.split(",");
+                    document.querySelector('.results label[for=' + '"' + valueOfNew[element] + '"]' + ' input').checked = false
+                    // console.log(valueOfNew[element])
+                    // console.log(valueOfNew)
+                    if (element == valueOfNew.length - 1) {
+                        valueOfNew.pop()
+                        idList.pop()
+                    } else {
+                        valueOfNew.splice(element, 1)
+                        idList.splice(element, 1)
+                    }
+
+
+                    if (valueOfNew.length > 0) {
+                        document.getElementsByName('pids')[0].value = valueOfNew;
+                        // console.log(document.getElementsByName('pids')[0].value)
+                        // console.log(valueOfNew)
+                    } else {
+                        // let msgBox = document.getElementsByClassName('messageBox')[0]
+
+                        alertBox.style.display = "none";
+                        relating.innerHTML = ""
+                        document.getElementById('disableBody').style.display = 'none';
+                        document.getElementsByTagName('html')[0].style.overflow = "scroll"
+                        document.getElementsByClassName('divOfPopUp')[0].style.display = "none"
+                        animatingMessage("Add Products To Compare", true)
+
+                        console.log('to sal')
+                    }
+                    // console.log('final value o new')
+                    // console.log(valueOfNew)
+
+                })
+                // console.log($('divOfCompareButton')[0])
+                $('#divOfCompareButton').on('click', () => {
+                    if (document.getElementsByName('pids')[0].value.split(",").length > 1) {
+                        document.forms[1].submit()
+                    } else {
+                        animatingMessage('Add Atleast One More Product', true)
+                    }
+                })
+                $('#closePopUp span').on('click', () => {
+                    //   if(document.getElementById('animating')){
+                    document.getElementById("headContainer").style.zIndex = "49";
+                    document.getElementById('animating').style.display = "none"
+                    document.getElementById('alertBox').style.display = "none"
+                    document.getElementsByTagName('html')[0].style.overflow = "scroll"
+                    document.getElementById('disableBody').style.display = "none"
+
+
+                })
+
+            }
+
+
+            $('#sb').on('change', function () {
+                let val = $(this).val()
+                let clone = JSON.parse(JSON.stringify(response))
+                if (val == "l") {
+                    let lp = ltp(true, clone)
+                    console.log(lp)
+                    console.log(response)
+                    payonDelivery(lp, $('#min').val(), $('#max').val())
+                } else if (val == "p") {
+                    let pt = ltp(false, clone)
+                    console.log(pt)
+                    console.log(response)
+                    payonDelivery(pt, $('#min').val(), $('#max').val())
+                } else {
+                    payonDelivery(response.data, $('#min').val(), $('#max').val())
+
+                }
+
+            })
+            function ltp(t, clone) {
+                // let y = response
+                if (t) {
+                    let n = clone.data.sort((y, x) => { return y.stores[0].price - x.stores[0].price })
+                    return n
+                } else {
+                    return clone.data.sort((x, y) => { return y.stores[0].price - x.stores[0].price })
+                }
+
+            }
+        </script>
+
+    </div>
+
+    </div>
+
+    <!-- ---------------------------------------------------------------------------------------------------------- -->
+    <div id="footKaBaap">
+        <footer id="footer">
+            <div id="upFoot">
+                <div class="divs1 dob">
+                    <div class="footInfo">
+                        <h2>Prices Compare</h2>
+                        <img src="https://th.bing.com/th/id/OIP.QDohBW7QbDHjI7ui_cHT4gHaGw?w=217&h=198&c=7&o=5&pid=1.7">
+                    </div>
+                </div>
+                <div class="divs2 dob">
+                    <div id="mySpan"></div>
+                    <div class="footInfo">
+                        <h2>About</h2>
+                        <p>advertise with us</p>
+                        <p>Privacy</p>
+                        <p><a></a>Contact Us</p>
+
+                    </div>
+
+                </div>
+
+                <div class="divs3 dob">
+                    <div id="mySpan"></div>
+                    <div class="footInfo">
+                        <h2>Follow Us On</h2>
+                        <p>Facebook</p>
+                        <p>Twitter</p>
+                        <p>Instagram</p>
+                        <p>Credits</p>
+
+                    </div>
+                </div>
+
+                <div class="divs4 dob">
+                    <div id="mySpan"></div>
+
+                    <div class="footInfo">
+                        <h2>Get To Know Us</h2>
+                        <p>About Us</p>
+                        <p>Terms of use</p>
+                    </div>
+                </div>
+            </div>
+            <div id="downFoot">
+                <h2>© 2020 Copyright : </h2>&nbsp;&nbsp;&nbsp; <h2 class="h2a"><a
+                        style="color: white;text-decoration: none;" href="http://www.piricescompare.in">
+                        PricesCompare.in</a></h2>
+            </div>
+        </footer>
+    </div>
+</body>
+<!-- <scr src="/javascripts/mob.js"></scr> -->
+
+</html>

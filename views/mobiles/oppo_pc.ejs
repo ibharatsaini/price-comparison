@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= data.a %> Mobile Phones Prices in India | Compare Prices of <%= data.a %> Phones in India
+    </title>
+    <!-- added icons and jquery scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://fonts.htc.com/specimen/Amarante?selection.family=Amarante"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.htcapis.com/icon?family=Material+Icons"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/searchresult.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="/javascripts/a.js"></script> -->
+</head>
+
+<body>
+    <div class="overlay">
+        <div class="messageBox">
+            <h4></h4>
+            <div>Remove Products</div>
+        </div>
+    </div>
+
+
+    <div id="disableBody"></div>
+    <div id="animating">
+        <div id="closePopUp"><span>&times;</span></div>
+        <div id="popBody">
+            <div class="inputOfForm">
+                <form type="GET" class="thisisForm" action="/search">
+                    <input type="text" placeholder="Search for millions Of Products" name="q" id="newSearchBox"
+                        autocomplete="off">
+                    <div class="searchIcon"><span class="fa ">&#x26B2;</span></div>
+                </form>
+            </div>
+            <div id="recommendations">
+            </div>
+        </div>
+    </div>
+    <div id="alertBox">
+        <div id="closePopUp"><span>&times;</span></div>
+        <div id="relating"></div>
+    </div>
+    <div id="headFixing">
+        <header id="headContainer">
+            <div class='horizontalBars'>
+                <div class="border" data-pos="180">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <form method="GET" class="newone" action="/search">
+                <div class="searchBarFlex">
+                    <input type="text" placeholder="Search For Millions Of Products" name="q" id="searchBar" value="">
+                    <div id="searchIcon" type="submit"><span class="fa">&#x26B2;</span></div>
+                </div>
+            </form>
+        </header>
+    </div>
+    <div class="mainBody">
+        <div id="filterBar">
+            <div id="catg">
+                <div class="he">
+                    <h4> Categories</h4>
+                </div>
+                <a title="Mobile" href="/mobile">Mobiles</a>
+                <a title="Headphones" href="/headphone">Headphones</a>
+                <a title="laptops" href="/laptop">Laptops</a>
+                <a title="Desktop" href="/desktop">Desktops</a>
+                <!-- <a title="Speaker" href="/speaker">Speakers</a> -->
+                <!-- <a title="Home Theaters" href="/home-theater">Home Theaters</a> -->
+                <a title="Appliances" href="/appliance">Appliances</a>
+                <a title="Refridgerator" href="/refridgerator">Refridgerators</a>
+                <a title="LEDs" href="/led">LEDs</a>
+                <!-- <a title="Fit Bands" href="/fit-band">Fit Bands</a> -->
+            </div>
+            <div id="allFilters">
+                <!-- <div class="divFilterHeading">
+                    <h3 class="h3Heading">Filters</h3>
+                </div> -->
+                <div Class="divOfPricesFilter">
+                    <div class="he">
+
+                        <h4>Price</h4>
+                        <button type="button" value="pr">Clear</button>
+
+                    </div>
+                    <div class="inputTake">
+
+                        <div>
+                            <!-- <div></div> -->
+                            <span>From</span>
+                            <span>To</span>
+                            <!-- <button type="button" class="filBut" value="pr">clear</button> -->
+                        </div>
+                        <div id="priceApi">
+                            <label for="min">&#x20B9;</label>
+                            <input type="text" id="min" value="">
+
+                            <label for="max">&#x20B9;</label>
+                            <input type="text" id="max" value="">
+                        </div>
+                        <div id='slider'></div>
+                    </div>
+                </div>
+                <div class="divOfPayDelivery">
+                    <div class="he">
+                        <h4>Delivery</h4>
+                        <button type="button" value="pd">Clear</button>
+                    </div>
+                    <div>
+                        <label id="labelOfBrand" for="COD">
+                            <input type="checkbox" id="COD" name="delivery" value="COD" onClick="disabling(this)">
+                            <span class="spanOfBox"></span>
+                            <span class="spanforCheckBox"></span>
+                            <span style="display: inline-block; margin-left: 30px;color:black;">Pay On Delivery</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="siteMap">
+            <a href="/">Home</a>><a href="/mobile/">Mobile</a>><a href="">
+                <%= data.a %> Smartphones
+            </a>
+        </div>
+        <div class="h1title">
+            <h1 title="<%= data.a %> Mobile prices in India">
+                <%= data.a %> Mobile Phones Prices Across All e-Stores
+            </h1>
+            <div class="drop" style="padding-bottom: 2px;">
+                <label for="sb">Sort by:</label>
+                <select name="sb" id="sb" value="">
+                    <option value="rel" class="styling">Relevance</option>
+                    <option value="l">Low to High</option>
+                    <option value="p">Hight to Low</option>
+                </select>
+            </div>
+        </div>
+        <div class="results">
+
+            <a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a12/ZToxNjM2MA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjM2MC01NS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A12</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹8990</span><span>₹8990</span><span>0% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NDQ0WjdSOS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹8990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hMTItYmx1ZS0zMi1nYi9wL2l0bWZjODU5Y2RmMzllMDE_cGlkPU1PQkZTRERKVVVFN01RR0cmYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹8990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-a12-32-gb-blue-3-gb-ram,-dual-sim-4g/p-mp000000007138289">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹8990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-a12-3-gb-32-gb-black-CMPLXMOBOPPO-A12-3-GFUTU62974526C7EEFB-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹8990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjM2MA"><input
+                                onclick="comp(this)" id="ZToxNjM2MA" type="checkbox" name="mobile"
+                                value="ZToxNjM2MA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a15/ZToxNjg2Nw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjg2Ny0yOTEtMQ.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A15</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹9990</span><span>₹10099</span><span>1% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NDQ1R1kyOS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹9990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hMTUtZHluYW1pYy1ibGFjay0zMi1nYi9wL2l0bTIyN2ZlYjdhZTIyYjg_cGlkPU1PQkZXWTJNR1BITUdTRVgmYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹10099</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjg2Nw"><input
+                                onclick="comp(this)" id="ZToxNjg2Nw" type="checkbox" name="mobile"
+                                value="ZToxNjg2Nw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a15s/ZToxNzE2Nw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNzE2Ny0zNi0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A15s</h3>
+                    <div class="review">
+                        <div><span>3.1/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹11489</span><span>₹11489</span><span>0% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NDQ1OTJIQi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹11489</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNzE2Nw"><input
+                                onclick="comp(this)" id="ZToxNzE2Nw" type="checkbox" name="mobile"
+                                value="ZToxNzE2Nw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a1k/ZToxNTU0Nw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTU0Ny01OC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A1K</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹7390</span><span>₹10990</span><span>33% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-a1k-32-gb-red-2-gb-ram-dual-sim-4g/p-mp000000004708136">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹7390</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3UFNITFJKOC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹7990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hMWstYmxhY2stMzItZ2IvcC9pdG1mZnZ6ZmhoZzZkZmFoP3BpZD1NT0JGRlZaWVlaSEE2QjRUJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹7990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-a1k-cph1923-2-gb-32-gb-black-CMPLXMOBOPPO-A1K-CPHFUTU629745487742B8-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹7990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTU0Nw"><input
+                                onclick="comp(this)" id="ZToxNTU0Nw" type="checkbox" name="mobile"
+                                value="ZToxNTU0Nw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a31-2020/ZToxNjY1OQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjY1OS04NC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A31 2020</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹11490</span><span>₹12990</span><span>12% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NDQ1NFlLUi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹11490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hMzEtbXlzdGVyeS1ibGFjay02NC1nYi9wL2l0bTgyZTE5ZjQ1OTExOGE_cGlkPU1PQkZQQkQ3M1FTN0RVU0QmYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹12490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-a31-64-gb-mystery-black-4-gb-ram,-dual-sim-4g/p-mp000000006567000">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹12490</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjY1OQ"><input
+                                onclick="comp(this)" id="ZToxNjY1OQ" type="checkbox" name="mobile"
+                                value="ZToxNjY1OQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a5-2020-/ZToxNTk5Mg">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTk5Mi00LTE.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A5 2020 </h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹9990</span><span>₹12990</span><span>23% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3U0JLMVdRUS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹9990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hNS0yMDIwLWRhenpsaW5nLXdoaXRlLTY0LWdiL3AvaXRtNDRjYzVkYWZmMGJhMT9waWQ9TU9CRktDUzVLUk5QNVpHRyZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹12990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTk5Mg"><input
+                                onclick="comp(this)" id="ZToxNTk5Mg" type="checkbox" name="mobile"
+                                value="ZToxNTk5Mg"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a5-2020-4gb-ram/ZToxNTk0MA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTk0MC04Ny0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A5 2020 4GB RAM</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹11990</span><span>₹15990</span><span>25% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3U0RQSjRYSi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹11990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hNS0yMDIwLW1pcnJvci1ibGFjay02NC1nYi9wL2l0bTc2MGYxYjdiNDg0ZjA_cGlkPU1PQkZLQ1M1QkZaV0g5RVEmYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹13590</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTk0MA"><input
+                                onclick="comp(this)" id="ZToxNTk0MA" type="checkbox" name="mobile"
+                                value="ZToxNTk0MA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a52-8gb-ram/ZToxNjY0Ng">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjY0Ni02MC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A52 8GB RAM</h3>
+                    <div class="review">
+                        <div><span>4.1/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹15990</span><span>₹18990</span><span>16% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NktDQ1BCNy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹15990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hNTItc3RyZWFtLXdoaXRlLTEyOC1nYi9wL2l0bWNjMTU2YjBlYjZlMmE_cGlkPU1PQkZVSkhES0JTRVVTRVomYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjY0Ng"><input
+                                onclick="comp(this)" id="ZToxNjY0Ng" type="checkbox" name="mobile"
+                                value="ZToxNjY0Ng"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a52/ZToxNjM4MQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjM4MS0zLTE.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A52</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹13990</span><span>₹19990</span><span>30% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NktDRFBNUi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹13990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-a52-128-gb-stream-white-6-gb-ram,-dual-sim-4g/p-mp000000007161262">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15900</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hNTItdHdpbGlnaHQtYmxhY2stMTI4LWdiL3AvaXRtY2MxNTZiMGViNmUyYT9waWQ9TU9CRlNOSDlLREpGWVpaSyZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹16680</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjM4MQ"><input
+                                onclick="comp(this)" id="ZToxNjM4MQ" type="checkbox" name="mobile"
+                                value="ZToxNjM4MQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a53-2020-128gb/ZToxNjY5Nw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjY5Ny0yMy0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A53 2020 128GB</h3>
+                    <div class="review">
+                        <div><span>4.2/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹15490</span><span>₹17990</span><span>14% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4OU1US1AySi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹15490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hNTMtZWxlY3RyaWMtYmxhY2stMTI4LWdiL3AvaXRtMDdmOWU5NTI2YmZhYz9waWQ9TU9CRlVSQVFISFNUWkJGRiZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-a53-128-gb-fancy-blue-6-gb-ram,-dual-sim-4g/p-mp000000007588726">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-a53-6-gb-128-gb-electric-black-CMPLXMOBOPPO-A53-6-GDUMM20256C1E6ACD9-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹15490</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjY5Nw"><input
+                                onclick="comp(this)" id="ZToxNjY5Nw" type="checkbox" name="mobile"
+                                value="ZToxNjY5Nw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a53-2020/ZToxNjY3NA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjY3NC0yMi0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A53 2020</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹12989</span><span>₹15990</span><span>19% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4OU1TNlI2Vi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹12989</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hNTMtZmFpcnktd2hpdGUtNjQtZ2IvcC9pdG0wN2Y5ZTk1MjZiZmFjP3BpZD1NT0JGVVJBUTNLUU1VWVpQJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹12990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-a53-64-gb-electric-black-4-gb-ram,-dual-sim-4g/p-mp000000007588727">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹12990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-a53-4-gb-64-gb-fairy-white-CMPLXMOBOPPO-A53-4-GDUMM20256F5A3488C-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹12990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjY3NA"><input
+                                onclick="comp(this)" id="ZToxNjY3NA" type="checkbox" name="mobile"
+                                value="ZToxNjY3NA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a5s/ZToxNTUyNA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTUyNC0zMS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A5s</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹8990</span><span>₹12990</span><span>31% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hNXMtYmxhY2stMzItZ2IvcC9pdG1mZmhnenNxYWN6cm40P3BpZD1NT0JGRkhHWjU2VFZSRFpXJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹8990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-a5s-32-gb-black-2-gb-ram,-dual-sim-4g/p-mp000000004705724">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹9990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3WUpNTVhSVC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹9999</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTUyNA"><input
+                                onclick="comp(this)" id="ZToxNTUyNA" type="checkbox" name="mobile"
+                                value="ZToxNTUyNA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a9-2020-4gb-ram/ZToxNjAyNg">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjAyNi05Ny0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A9 2020 4GB RAM</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹14990</span><span>₹21990</span><span>32% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1hOS0yMDIwLXNwYWNlLXB1cnBsZS0xMjgtZ2IvcC9pdG0zMjc5OWFiMWQ0NWI0P3BpZD1NT0JGS0NTNVZVWFdIUjVIJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹14990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3WkhEWktSQy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹19500</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjAyNg"><input
+                                onclick="comp(this)" id="ZToxNjAyNg" type="checkbox" name="mobile"
+                                value="ZToxNjAyNg"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-a9-2020/ZToxNTk0OA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTk0OC0zOC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO A9 2020</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹17390</span><span>₹22600</span><span>23% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3WkRMNzFRUS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹17390</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTk0OA"><input
+                                onclick="comp(this)" id="ZToxNTk0OA" type="checkbox" name="mobile"
+                                value="ZToxNTk0OA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-f11-pro/ZToxNTQyNw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTQyNy05OS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO F11 Pro</h3>
+                    <div class="review">
+                        <div><span>4.4/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹21999</span><span>₹29990</span><span>27% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3S1hDWFJMSy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹21999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-f11-pro-6-gb-64-gb-aurora-green-MOBOPPO-F11-PROFUTU6297454D24438E-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹24990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTQyNw"><input
+                                onclick="comp(this)" id="ZToxNTQyNw" type="checkbox" name="mobile"
+                                value="ZToxNTQyNw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-f15/ZToxNjIzMw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjIzMy0zLTE.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO F15</h3>
+                    <div class="review">
+                        <div><span>4.4/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹18980</span><span>₹22990</span><span>17% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-f15-128-gb-lightening-black-8-gb-ram,-dual-sim-4g/p-mp000000006275597">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹18980</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1mMTUtbGlnaHRlbmluZy1ibGFjay0xMjgtZ2IvcC9pdG01NmQzNTU2NTY5MWVhP3BpZD1NT0JGTlNVUVhFQ0paNVhBJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-f15-8-gb128-gb-unicorn-white-CMPLXMOBOPPO-F15-8-GDUMM20256BE4E5F91-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4OTMzUFFUNy8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹19990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjIzMw"><input
+                                onclick="comp(this)" id="ZToxNjIzMw" type="checkbox" name="mobile"
+                                value="ZToxNjIzMw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-f17-8gb-ram/ZToxNjc4OA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjc4OC03MC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO F17 8GB RAM</h3>
+                    <div class="review">
+                        <div><span>4/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹18380</span><span>₹18490</span><span>1% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NktDRFBOOS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹18380</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1mMTctbmF2eS1ibHVlLTEyOC1nYi9wL2l0bTQyODA1NTUyOWZlYWM_cGlkPU1PQkZWREFTQ0RISllFQU0mYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-f17-128-gb-dynamic-orange-8-gb-ram,-dual-sim-4g/p-mp000000007719502">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-f17-8gb-128gb-navy-blue-CMPLXMOBOPPO-F17-8GBFUTU6297457F381962-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹18490</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjc4OA"><input
+                                onclick="comp(this)" id="ZToxNjc4OA" type="checkbox" name="mobile"
+                                value="ZToxNjc4OA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-f17-pro-diwali-edition/ZToxNjkyNQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjkyNS01MS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO F17 Pro Diwali Edition</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹21490</span><span>₹21490</span><span>0% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4OU1TNkZCOC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹21490</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjkyNQ"><input
+                                onclick="comp(this)" id="ZToxNjkyNQ" type="checkbox" name="mobile"
+                                value="ZToxNjkyNQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-f17/ZToxNjY3NQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjY3NS02MC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO F17</h3>
+                    <div class="review">
+                        <div><span>4.1/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹16990</span><span>₹16990</span><span>0% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4NktEWkdUOC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹16990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1mMTctbmF2eS1ibHVlLTEyOC1nYi9wL2l0bTQyODA1NTUyOWZlYWM_cGlkPU1PQkZWREFTR1k2UlNIOVUmYWZmaWQ9YXJ1bmJhYnVs">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹16990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-f17-128-gb-classic-silver-6-gb-ram,-dual-sim-4g/p-mp000000007719499">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹16990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-f17-6gb-128gb-classic-silver-CMPLXMOBOPPO-F17-6GBFUTU629745CDB0AA57-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹16990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjY3NQ"><input
+                                onclick="comp(this)" id="ZToxNjY3NQ" type="checkbox" name="mobile"
+                                value="ZToxNjY3NQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-f9-pro/ZToxNDkzNA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNDkzNC00Mi0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO F9 Pro</h3>
+                    <div class="review">
+                        <div><span>4.5/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹18999</span><span>₹29999</span><span>37% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-f9-pro-64-gb-starry-purple-6-gb-ram,-dual-sim-4g/p-mp000000003712105">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹18999</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1mOS1wcm8tc3VucmlzZS1yZWQtNjQtZ2IvcC9pdG1mOGZjemducm41eGh5P3BpZD1NT0JGOEZDWlJGRVRFRUhRJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹19990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3R1ZNVFdXWC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹23990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNDkzNA"><input
+                                onclick="comp(this)" id="ZToxNDkzNA" type="checkbox" name="mobile"
+                                value="ZToxNDkzNA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-find-x2/ZToxNTQzMw">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTQzMy00Mi0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO Find X2</h3>
+                    <div class="review">
+                        <div><span>4.3/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹64990</span><span>₹64990</span><span>0% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk1WjNHUi8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹64990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTQzMw"><input
+                                onclick="comp(this)" id="ZToxNTQzMw" type="checkbox" name="mobile"
+                                value="ZToxNTQzMw"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-reno-2f/ZToxNTg4OA">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTg4OC0yNS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO Reno 2F</h3>
+                    <div class="review">
+                        <div><span>4.4/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹21990</span><span>₹32990</span><span>33% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1yZW5vMi1mLXNreS13aGl0ZS0xMjgtZ2IvcC9pdG04NDEzZTdlYjBiMTk1P3BpZD1NT0JGSDI3NE5GRlk3QVpXJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹21990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-reno-2f-128-gb-lake-green-8-gb-ram,-dual-sim-4g/p-mp000000005430122">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹21990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-reno2-f-8-gb-128-gb-lake-green-CMPLXMOBOPPO-RENO2-FDUMM20256567E7038-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹21990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4MTUzNERNMS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹22990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTg4OA"><input
+                                onclick="comp(this)" id="ZToxNTg4OA" type="checkbox" name="mobile"
+                                value="ZToxNTg4OA"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-reno-2z/ZToxNTg4OQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNTg4OS0zMS0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO Reno 2Z</h3>
+                    <div class="review">
+                        <div><span>4.4/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹27449</span><span>₹32990</span><span>17% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1yZW5vMi16LXNreS13aGl0ZS0yNTYtZ2IvcC9pdG04NTlkYzRmNGYyNWI0P3BpZD1NT0JGSktTWUpHTTNLRENRJmFmZmlkPWFydW5iYWJ1bA">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹27449</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA3UzdEWEpXVC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹27490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-reno-2z-256-gb-sky-white-8-gb-ram,-dual-sim-4g/p-mp000000005361981">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹27490</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-reno2-8gb-256gb-ocean-blue-CMPLXMOBOPPO-RENO-2-FUTU6297451B0D8B52-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹27490</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNTg4OQ"><input
+                                onclick="comp(this)" id="ZToxNTg4OQ" type="checkbox" name="mobile"
+                                value="ZToxNTg4OQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a><a class="resultsCont" href="/mobile/oppo-mobiles/oppo-reno-4-pro/ZToxNjQ4NQ">
+                <div class="imagesOuter">
+                    <div class="imageChecking"><img
+                            src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjQ4NS00NC0x.jpg"
+                            class="imageClass"></div>
+                </div>
+                <div class="titleDiv">
+                    <h3 class="title">OPPO Reno 4 Pro</h3>
+                    <div class="review">
+                        <div><span>4.4/5</span><img src="/images/star.png"></div>
+                    </div>
+                    <div class="mrpTag"><span>₹34990</span><span>₹34990</span><span>0% Off!</span></div>
+                    <div class="specsKey"></div>
+                </div>
+                <div class="pricesDiv">
+                    <table class="tableOfLogo">
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4OU1TN0w3UC8_JnRhZz1wcmljZXl1Z2UwZC0yMQ">
+                                    <h4 style="font-size: 2vw; font-weight: 400;">₹34990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/ZmxpcGthcnRfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly9kbC5mbGlwa2FydC5jb20vZGwvb3Bwby1yZW5vNC1wcm8tc2lsa3ktd2hpdGUtMTI4LWdiL3AvaXRtN2Q0MzllZWRjZmFiZj9waWQ9TU9CRlUyR1k4WjRQV1paOSZhZmZpZD1hcnVuYmFidWw">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹34990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/dGF0YWNsaXFfc3RvcmUucG5n.png"></td>
+                            <td><a
+                                    href="https://www.tatacliq.com/oppo-reno-4-pro-128-gb-silky-white-8-gb-ram,-dual-sim-4g/p-mp000000007363820">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹34990</h4>
+                                </a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://images-api.datayuge.in/image/cGF5dG1tYWxsX3N0b3JlLnBuZw.png"></td>
+                            <td><a
+                                    href="https://paytmmall.com/oppo-reno4-pro-8-gb-128-gb-starry-night-CMPLXMOBOPPO-RENO4-PDUMM202561691782D-pdp?">
+                                    <h4 style="font-size: 1.3vw; font-weight: 400;">₹34990</h4>
+                                </a></td>
+                        </tr>
+                    </table>
+                    <div class="compareDivision"><label class="labelOfCompare" for="ZToxNjQ4NQ"><input
+                                onclick="comp(this)" id="ZToxNjQ4NQ" type="checkbox" name="mobile"
+                                value="ZToxNjQ4NQ"><span class="spanOfBox"></span><span
+                                class="spanforCheckBox"></span><span
+                                style="display: inline-block; margin-left: 30px; color: rgb(85, 26, 139);">Compare
+                                Specs</span></label></div>
+                </div>
+            </a>
+        </div>
+        <div class="divOfPopUp">
+            <h4>COMPARE</h4>
+        </div>
+        <script>
+
+            var brandName = '<%= data.a %>';
+            console.log(brandName);
+
+            var filterBar = document.getElementById('filterBar');
+            filterBar.style.height = window.screen.height - document.getElementById('headFixing').offsetHeight + "px";
+            let xhttp = new XMLHttpRequest()
+            var response;
+
+            console.log(xhttp)
+            let path = `/json/mobile/${brandName}`
+            xhttp.open('GET', path, false)
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log('new')
+                    response = this.responseText
+                    // console.log(response)
+                }
+            }
+            xhttp.send()
+            response = JSON.parse(response)
+            console.log(typeof (response))
+            // for (let i = 0; i < response.data.length; i++) {
+            //     creatingBody(response.data[i])
+            //     response.data[i].stores.sort((y, x) => {
+            //         return parseFloat(y.price) - parseFloat(x.price)
+            //     })
+            // }
+            console.log(response)
+            // console.log(response)
+            var smallest = 0
+            var greatest = 0;
+            console.log(smallest)
+            console.log(greatest)
+            // console.log("sortedData "+sortedData.length)
+            // for (let q = 0; q < response.data.length; q++) {
+            //     // console.log('ye hai sorted data')
+            //     console.log(response.data[q].stores[0].price)
+            //     // // i
+            //     // console.log(smallest ,greatest)
+            //     // smallNo = parseInt(response.data[smallest].stores[0].price)
+            //     // console.log(typeof(response.data[smallest].stores[0].price ))
+            //     // console.log(response.data[greatest].stores[0].price)
+            //     // console.log(response.data[smallest].stores[0].price >= response.data[q].stores[0].price)
+            //     // console.log(response.data[smallest].stores[0].price >= response.data[q].stores[0].price)
+            //     if (response.data[smallest].stores[0].price >= response.data[q].stores[0].price) {
+            //         smallest = q
+            //         console.log('smallest is updated to ', response.data[smallest].stores[0].price)
+            //     } else if (response.data[greatest].stores[0].price < response.data[q].stores[0].price) {
+            //         greatest = q
+            //         console.log('greatest is updated to ', response.data[greatest].stores[0].price)
+            //     }
+            //     console.log('hone ke baad')
+            //     console.log(smallest ,greatest)
+            // }
+
+            for (let q = 0; q < response.data.length; q++) {
+                console.log('ye hai sorted data')
+                // console.log(sortedData[q])
+                // i
+                let iterNum = parseInt(response.data[q].stores[0].price)
+                let smallNum = parseInt(response.data[smallest].stores[0].price)
+                let greatNum = parseInt(response.data[greatest].stores[0].price)
+                if (smallNum >= iterNum) {
+                    smallest = q
+                    console.log('smallest is updated to ', smallNum)
+                } else if (greatNum < iterNum) {
+                    greatest = q
+                    console.log('greates is updated to ', greatNum)
+                }
+            }
+            var smallNum = parseFloat(response.data[smallest].stores[0].price)
+            var greatNum = parseFloat(response.data[greatest].stores[0].price)
+            console.log(response.data[smallest].stores[0].price, response.data[greatest].stores[0].price)
+            // for(let i=0; i<)
+            // var data;
+            var min = document.getElementById("min");
+            var max = document.getElementById('max');
+            min.value = smallNum
+            max.value = greatNum
+            $('#slider').slider({
+                range: true,
+                min: (smallNum),
+                max: (greatNum),
+                values: [(smallNum), (greatNum)],
+                // values:[parseFloat(sortedData[0].product_lowest_price),parseFloat(sortedData[sortedData.length-1].product_lowest_price)],
+                slide: (event, ui) => {
+                    // whenSliding(ui.values[0], ui.values[1])
+                    min.value = ui.values[0];
+                    // var max = document.getElementById('max');
+                    max.value = ui.values[1];
+                },
+                change: (event, ui) => {
+
+                    // let resultsCont = document.getElementsByClassName('resultsCont');
+                    // let results = document.getElementsByClassName('results')[0];
+                    // results.innerHTML = "";
+                    // console.log(newJson)
+                    // storeName = Object.keys(newJson[0].data.stores)
+                    // console.log(storeName)
+                    if (ui.values[0] == smallNum && ui.values[1] == greatNum) {
+
+                        $('button[value="pr"]').css({
+                            'display': 'none'
+                        })
+
+                    } else {
+                        $('button[value="pr"]').css({
+                            'display': 'block'
+                        })
+
+                    }
+                    let val = $('#sb').val()
+                    let clone2 = JSON.parse(JSON.stringify(response))
+                    if (val == "l") {
+                        clone2.data.sort((y, x) => { return y.stores[0].price - x.stores[0].price })
+                        payonDelivery(clone2.data, ui.values[0], ui.values[1])
+                    } else if (val == "p") {
+                        clone2.data.sort((y, x) => { return x.stores[0].price - y.stores[0].price })
+                        payonDelivery(clone2.data, ui.values[0], ui.values[1])
+                    } else {
+                        payonDelivery(response.data, ui.values[0], ui.values[1])
+                    }
+                    // for(let qq=0; qq<newJson.length; qq++){
+                    //     if(sortedData[qq].product_lowest_price > ui.values[0] && sortedData[qq].product_lowest_price < ui.values[1]){
+                    //         creatingBody(sortedData[qq],newJson[qq],specs[qq],ui.values[0],ui.values[1])
+                    //     }
+                    // }
+                }
+            });
+
+            function payonDelivery(data, min, max) {
+                console.log('andar aya')
+                let minimum = parseFloat(min);
+                let maximum = parseFloat(max)
+                // console.log(' pay on delivery');
+                let inputCheck = document.getElementById('COD');
+                let results = document.getElementsByClassName('results')[0];
+                results.innerHTML = "";
+                if (inputCheck != undefined) {
+                    console.log('arleast')
+                    if (inputCheck.checked) {
+                        console.log('gal')
+                        for (let ww = 0; ww < data.length; ww++) {
+                            var bnao1;
+                            for (let qw = 0; qw < data[ww].stores.length; qw++) {
+                                // let store = Object.keys(data[ww].stores[qw])
+                                if (data[ww].stores[qw].hasOwnProperty('cod')) {
+                                    if (data[ww].stores[qw].cod == ("1")) {
+                                        // console.log(sortedData)
+                                        bnao1 = 1;
+                                    } else {
+                                        bnao1 = 0;
+                                        break;
+                                    }
+                                }
+                            }
+                            if ((bnao1 == 1) && (data[ww].stores[0].price >= minimum) && (data[ww].stores[0].price <= maximum)) {
+                                creatingBody(data[ww])
+                            }
+                        }
+                    } else {
+                        console.log('katayi')
+                        for (let y = 0; y < data.length; y++) {
+                            let dataPrice = parseFloat(data[y].stores[0].price)
+
+                            console.log('inside')
+                            if ((dataPrice) >= parseFloat(minimum) && (dataPrice) <= parseFloat(maximum)) {
+                                console.log('are way')
+                                creatingBody(data[y])
+                            }
+                        }
+                    }
+                } else {
+                    for (let y = 0; y < data.length; y++) {
+                        let dataPrice = parseFloat(data[y].stores[0].price)
+
+                        if (dataPrice >= minimum && dataPrice <= maximum) {
+                            console.log('are wah 2')
+                            creatingBody(data[y])
+
+                        }
+                    }
+
+                }
+            }
+
+            function creatingBody(data) {
+                let results = document.getElementsByClassName('results')[0];
+                // let results = document.createElement('div')
+                // results.className ='results'
+
+                let resultsCont = document.createElement('a');
+                resultsCont.className = "resultsCont";
+                resultsCont.href = `/mobile/${brandName}-mobiles/` + data.name.replace(/ /g, "-").toLowerCase() + "/" + data.id;
+                // console.log(newData.product_id)
+                let imageDiv = document.createElement('div');
+                imageDiv.className = "imagesOuter";
+                let imagechecking = document.createElement('div');
+                imagechecking.className = "imageChecking";
+                let image = document.createElement('img');
+                image.setAttribute('src', data.image);
+                image.className = "imageClass";
+                let titleDiv = document.createElement('div');
+                titleDiv.className = "titleDiv";
+                let title = document.createElement('h3');
+                title.className = "title";
+                title.textContent = data.name;
+                titleDiv.appendChild(title)
+                if (data.hasOwnProperty('rating') && parseInt(data.rating) > 0) {
+                    var review = document.createElement('div');
+                    review.className = "review";
+                    var div = document.createElement('div');
+                    // span.textContent = 
+                    var spantext = document.createElement('span');
+                    spantext.textContent = data.rating + '/5';
+                    var imgOfstar = document.createElement('img');
+                    imgOfstar.setAttribute('src', '/images/star.png')
+                    div.appendChild(spantext)
+                    div.appendChild(imgOfstar);
+                    review.appendChild(div)
+                    titleDiv.appendChild(review)
+                }
+                // title.appendChild(h3)
+                // console.log(newData.product_id + "this is id")
+                // console.log(JSON.stringify(newJson));
+                let specsKey = document.createElement('div');
+                specsKey.className = "specsKey";
+                let listOfSpec = document.createElement('ul');
+                listOfSpec.className = "specList";
+                var listItem;
+                try {
+                    for (let r = 0; r < data.spec.length; r++) {
+                        // let fontOfListing = document.createElement('h3');
+                        listItem = document.createElement('li');
+                        listItem.className = "listItem";
+                        listItem.innerHTML = data.spec[r];
+                        // listItem.appendChild(fontOfListing);
+                        listOfSpec.appendChild(listItem);
+
+                    }
+                    specsKey.appendChild(listOfSpec)
+                } catch {
+                    console.log("specification nahi hai iski")
+                }
+                // console.log("nenwenwneknkwer" + newJson.stores)
+                let pricesDiv = document.createElement('div');
+                pricesDiv.className = "pricesDiv";
+                let priceTag;
+                // var prodStoreInfo = [];
+                var z = 0;
+                var prodStoreInfo = [];
+                // console.log("cheking ho rha hai")
+                // var sortingAndAlloting = function (apnaData) {
+                //     for (let l = 0; l < apnaData.length; l++) {
+                //         let storing = Object.keys(apnaData.stores[l]);
+                //         if (apnaData.stores[l][storing[0]].hasOwnProperty('logo')) {
+                //             if ((apnaData.data.stores[l][storing[0]]['price'] || apnaData.data.stores[l][storing[0]]['product_mrp']) != (undefined || null || "0" || 0)) {
+                //                 prodStoreInfo[z] = {};
+                //                 prodStoreInfo[z]['store'] = storing[0];
+                //                 if (apnaData.data.stores[l][storing[0]]['product_price'] != (undefined || null || 0 || "0")) {
+                //                     prodStoreInfo[z]['price'] = parseInt(apnaData.data.stores[l][storing[0]]['product_price']);
+                //                     // console.log(`${storing[0]}  ${"price"}  ${prodStoreInfo[z][storing[0]]['price']}`)
+                //                 } else {
+                //                     prodStoreInfo[z]['price'] = apnaData.data.stores[l][storing[0]]['product_mrp']
+                //                     // console.log(`${}  ${"price"}  ${prodStoreInfo[z][storing[0]]['mrp']}`)
+
+                //                 }
+                //                 prodStoreInfo[z]['url'] = {}
+                //                 prodStoreInfo[z]['url'] = apnaData.data.stores[l][storing[0]]['product_store_url']
+                //                 prodStoreInfo[z]['logo'] = apnaData.data.stores[l][storing[0]]['product_store_logo']
+                //                 z++;
+                //             }
+                //         }
+                //     }
+                //     prodStoreInfo.sort((y, x) => {
+                //         return parseFloat(y.price) - parseFloat(x.price)
+                //     })
+                //     return prodStoreInfo
+
+                // }
+                // let prodStore = sortingAndAlloting(data.stores);
+                // console.log(prodStore)
+                // print(type)
+                data.stores.sort((y, x) => {
+                    return parseFloat(y.price) - parseFloat(x.price)
+                })
+                var mrpTag = document.createElement('div');
+                mrpTag.className = 'mrpTag';
+                console.log(data.mrp.length > 0)
+                if (data.mrp.length > 0 && data.stores.length > 0) {
+                    console.log('iske andar')
+                    let best = (data.stores[0].price);
+                    let bestPrice = document.createElement('span');
+                    console.log(best)
+                    // bestPrice.classList  = 'bestPrice'
+                    bestPrice.innerHTML = '&#x20B9;' + best;
+                    let num = parseInt(data.mrp)
+                    console.log(num)
+                    mrpTag.appendChild(bestPrice)
+
+                    // let num =(data.mrp)
+                    // console.log(num)
+                    // console.log(num>prodStore[prodStore.length-1].price)
+                    // console.log(prodStore[prodStore.length-1].price)
+                    console.log(num, data.stores[0].price)
+                    console.log(num !== data.stores[0].price)
+                    if (num !== data.stores[0].price || (data.stores[data.stores.length - 1].price) > num) {
+                        console.log('iske bhi andar')
+                        let mrp = num > (data.stores[data.stores.length - 1].price) ? data.mrp : data.stores[data.stores.length - 1].price;
+                        console.log(data.mrp > data.stores[data.stores.length - 1].price ? data.mrp : data.stores[data.stores.length - 1].price)
+
+                        let mrpheading = document.createElement('span');
+                        mrpheading.innerHTML = '&#x20B9;' + mrp;
+                        let off = document.createElement('span');
+                        off.textContent = Math.round(((mrp - best) / mrp) * 100) + "% Off!"
+                        console.log(Math.round((best / mrp) * 100))
+                        mrpTag.appendChild(mrpheading)
+                        mrpTag.appendChild(off)
+                    }
+                    titleDiv.appendChild(mrpTag)
+                    // let mrpTag = document.createElement('h4');
+                    // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                    titleDiv.appendChild(mrpTag)
+                } else if (data.mrp.length == 0 && data.stores.length > 1) {
+                    console.log('second andar')
+                    let best = data.stores[0].price;
+                    let bestPrice = document.createElement('span');
+                    // bestPrice.classList  = 'bestPrice'
+                    bestPrice.innerHTML = '&#x20B9;' + best;
+                    mrpTag.appendChild(bestPrice)
+                    if (data.stores.length > 1) {
+                        let mrp = data.stores[data.stores.length - 1].price;
+                        let mrpheading = document.createElement('span');
+                        mrpheading.innerHTML = '&#x20B9;' + mrp;
+                        let off = document.createElement('span');
+                        off.textContent = Math.round(((mrp - best) / mrp) * 100) + "% Off!"
+                        console.log(Math.round((best / mrp) * 100))
+                        mrpTag.appendChild(mrpheading)
+                        mrpTag.appendChild(off)
+                    }
+                    titleDiv.appendChild(mrpTag)
+                    // let mrpTag = document.createElement('h4');
+                    // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                    titleDiv.appendChild(mrpTag)
+                } else if (data.mrp.length > 1) {
+                    console.log('aa gya')
+                    let best = data.mrp;
+                    let bestPrice = document.createElement('span');
+                    // bestPrice.classList  = 'bestPrice'
+                    bestPrice.innerHTML = '&#x20B9;' + best;
+                    mrpTag.appendChild(bestPrice)
+                    titleDiv.appendChild(mrpTag)
+                    // let mrpTag = document.createElement('h4');
+                    // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                    titleDiv.appendChild(mrpTag)
+                }
+                titleDiv.appendChild(specsKey)
+                var tableOflogo = document.createElement('table');
+                tableOflogo.className = "tableOfLogo";
+                for (let m = 0; m < data.stores.length; m++) {
+                    let linking = document.createElement('a');
+                    let headingPrice = document.createElement('h4');
+                    // console.log(prodStore[m].price);
+                    // console.log(prodStore[m].logo)
+                    let rowPrice = document.createElement('tr');
+                    let colLogo = document.createElement('td');
+                    let imgLogo = document.createElement('img');
+                    imgLogo.setAttribute('src', data.stores[m].logo);
+                    colLogo.appendChild(imgLogo);
+                    let priceTag = document.createElement('td');
+                    headingPrice.innerHTML = "&#x20B9;" + data.stores[m].price;
+                    // console.log(m)
+                    if (m == 0) {
+                        headingPrice.style.fontSize = "2vw";
+                    } else {
+                        headingPrice.style.fontSize = "1.3vw"
+                    }
+                    headingPrice.style.fontWeight = '400'
+
+                    linking.setAttribute('href', data.stores[m].link);
+                    linking.appendChild(headingPrice);
+                    priceTag.appendChild(linking)
+                    rowPrice.appendChild(colLogo);
+                    rowPrice.appendChild(priceTag);
+                    tableOflogo.appendChild(rowPrice)
+                }
+                let compareDivision = document.createElement('div');
+                compareDivision.className = "compareDivision";
+                var labelOfCompare = document.createElement('label');
+                labelOfCompare.className = "labelOfCompare"
+                let spanOfBox = document.createElement('span')
+                spanOfBox.className = "spanOfBox"
+                var inputOfPayDelivery = document.createElement('input');
+                inputOfPayDelivery.setAttribute('onclick', "comp(this)");
+                let spanOfText = document.createElement('span');
+                // spanOfText.style.position = "absolute";
+                spanOfText.style.display = "inline-block"
+                spanOfText.textContent = "Compare Specs"
+                spanOfText.style.marginLeft = "30px"
+                spanOfText.style.color = "#551A8B"
+                inputOfPayDelivery.id = data.id;
+                inputOfPayDelivery.type = "checkbox";
+                inputOfPayDelivery.name = data.sub;
+                inputOfPayDelivery.value = data.id
+                labelOfCompare.setAttribute('for', data.id);
+                var spanforCheckBox = document.createElement('span');
+                spanforCheckBox.className = 'spanforCheckBox';
+                labelOfCompare.appendChild(inputOfPayDelivery);
+                labelOfCompare.appendChild(spanOfBox)
+                labelOfCompare.appendChild(spanforCheckBox);
+                labelOfCompare.appendChild(spanOfText);
+                // let labelCompare = document.createElement('label');
+                // labelCompare.className = 'labelCompare';
+                // labelCompare.setAttribute('for',newData.product_id);
+                // let checkBoxInput = document.createElement('input');
+                // checkBoxInput.className = 'checkBoxInput';
+                // checkBoxInput.setAttribute('type','checkbox');
+                // checkBoxInput.id= newData.product_id;
+                // let divOfCheckBox = document.createElement('div');
+                // divOfCheckBox.className = 'divOfCheckBox';
+                // labelCompare.appendChild(checkBoxInput);
+                // labelCompare.appendChild(divOfCheckBox);
+                // var spanElement = document.createElement('div');
+                // spanElement.textContent   =  "Add To Compare";
+                // spanElement.style.display   =  "inline-block"
+                // labelCompare.appendChild(spanElement);
+                compareDivision.appendChild(labelOfCompare);
+                pricesDiv.appendChild(tableOflogo);
+                pricesDiv.appendChild(compareDivision);
+                imagechecking.appendChild(image)
+                imageDiv.appendChild(imagechecking);
+                // titleDiv.appendChild(title);
+                // titleDiv.appendChild(listOfSpec)/;
+                resultsCont.appendChild(imageDiv);
+                resultsCont.appendChild(titleDiv);
+                resultsCont.appendChild(pricesDiv);
+                results.appendChild(resultsCont);
+            }
+            // let labeling = ('labelOfBrand')
+            $('#labelOfBrand').on("click", function () {
+                // console.log(this)
+                var min = $('#slider').slider('values')[0];
+                var max = $('#slider').slider('values')[1];
+                // console.log(sortedData[smallest].product_lowest_price, sortedData[greatest].product_lowest_price)
+                payonDelivery(response.data, min, max);
+
+            });
+            $('#min').on('change', () => {
+                console.log($('#min').val() + "min value")
+                // let val = $('#min').val() > response.data[smallest].stores[0]
+                let val = parseFloat($('#min').val())
+                let maxVal = parseFloat($('#max').val())
+                let gm = (greatNum)
+                let sm = (smallNum)
+                if (val > gm) {
+                    val = gm
+                }
+                if (val > maxVal) {
+                    val = maxVal
+                }
+                if (val < sm) {
+                    val = sm
+                }
+                $('#min').val(val)
+                $("#slider").slider("values", 0, val);
+
+
+            })
+            $('#max').on('change', () => {
+                console.log('new')
+                console.log($('#max').val() + "min value")
+                // let val = $('#min').val() > response.data[smallest].stores[0]
+                let val = parseFloat($('#max').val())
+                let minVal = parseFloat($('#min').val())
+                let gm = (greatNum)
+                let sm = (smallNum)
+                if (val > gm) {
+                    val = gm
+                }
+                if (val < minVal) {
+                    val = minVal
+                }
+                if (val < sm) {
+                    val = sm
+                }
+                // if(val <)
+                $('#max').val(val)
+                $("#slider").slider("values", 1, val);
+            })
+            $(':button').on('click', function () {
+                // $this = e
+                // e.preventDefault()
+                val = $(this).attr('value');
+                console.log(val)
+                if (val == "pd") {
+                    $(this).css({
+                        'display': 'none'
+                    })
+                    document.getElementById('COD').checked = false
+                    // $(this).
+                } else if (val == "pr") {
+                    console.log("sike ")
+                    $(this).css({
+                        'display': 'none'
+                    })
+                    console.log(smallNum)
+                    console.log(greatNum)
+                    $('#min').val(smallNum)
+                    $('#max').val(greatNum)
+                    $("#slider").slider("values", 0, smallNum);
+                    $("#slider").slider("values", 1, greatNum);
+                    // payonDelivery
+                }
+
+                // payonDelivery(response.data, parseFloat($('#min').val()), parseFloat($('#max').val()))
+
+            })
+
+            function animatingMessage(msg, showOrNot) {
+                // console.log(showOrNot)
+                document.getElementsByClassName('overlay')[0].style.display = "block"
+                document.querySelector('.messageBox h4').textContent = msg;
+                document.getElementsByClassName('messageBox')[0].style.display = "flex"
+                if ((showOrNot)) {
+                    document.querySelectorAll('.messageBox div')[0].style.display = "none"
+                }
+                $('.messageBox div').on('click', () => {
+                    document.getElementsByClassName('overlay')[0].style.display = "none"
+                    document.querySelector('.messageBox').style.display = "none";
+                    showingAlertBox();
+                })
+
+                setTimeout(() => {
+                    document.getElementsByClassName('overlay')[0].style.display = "none"
+                    document.getElementsByClassName('messageBox')[0].style.display = "none"
+                    document.querySelectorAll('.messageBox div')[0].style.display = "inline-block"
+                    //  document.querySelector('.messageBox h4').textContent = ""
+                    // document.getElementsByClassName('messageBox')[0].textContent = ""
+
+                }, 6000)
+            }
+            var idList = []
+            let spanOfItem = document.createElement('div');
+            spanOfItem.style.width = "20px"
+
+            function comp(el) {
+                let divOfPopUp = document.getElementsByClassName('divOfPopUp')[0]
+                console.log(idList)
+                if (el.checked) {
+                    if (idList.length == 0) {
+                        categ = el.name
+                        console.log(categ)
+                    }
+                    // console.log(el.id)
+                    if (!(el.id in idList)) {
+                        // console.log(el.name)
+                        if (categ == el.name) {
+                            if (idList.length < 3) {
+                                idList.push(el.id)
+                                // console.log(idList.length)
+                            } else {
+                                el.checked = false;
+                                animatingMessage('Three Products Are Not Enough?', false)
+                                return
+                            }
+                        } else {
+                            el.checked = false
+                            animatingMessage('You Can Compare Products Of Same Category', false)
+                            return
+                        }
+                    }
+                } else {
+                    var newIndex = idList.indexOf(el.id)
+                    // console.log(newIndex);
+                    if (newIndex == idList.length - 1) {
+                        idList.pop()
+                        // console.log(idList)
+                    } else {
+                        idList.splice(newIndex, newIndex + 1)
+                    }
+                }
+                if (idList.length > 0) {
+                    divOfPopUp.style.display = "block"
+                    spanOfItem.textContent = idList.length;
+                    divOfPopUp.prepend(spanOfItem)
+                } else {
+                    divOfPopUp.style.display = "none"
+                }
+            }
+
+            function disabling(el) {
+                if ((el.checked)) {
+                    $('button[value="pd"]').css({
+                        'display': 'block'
+                    })
+                } else {
+                    $('button[value="pd"]').css({
+                        'display': 'none'
+                    })
+                }
+            }
+            $('.divOfPopUp:first').on('click', showingAlertBox)
+
+            function showingAlertBox() {
+                // e.preventDefault();
+                var alertBox = document.getElementById('alertBox');
+                var relating = document.getElementById('relating');
+                relating.innerHTML = ""
+                // let wrapperAlert = document.getElementById('wrapperAlert')
+                document.getElementById('disableBody').style.display = 'block';
+                alertBox.style.visibility = "hidden"
+                // var widthOfAlertBox = document.getElem
+                document.getElementById('alertBox').style.display = "block";
+                document.getElementsByTagName('html')[0].style.overflow = "hidden";
+                let headingOfCompareAlert = document.createElement('h3')
+                headingOfCompareAlert.className = "headingOfCompareAlert";
+                headingOfCompareAlert.textContent = "Products To Compare"
+                let divOfMainProd = document.createElement('div');
+                divOfMainProd.className = "divOfMainProd"
+                // divOfProduct.style.width = 
+                for (let jj = 0; jj < idList.length; jj++) {
+                    for (let rr = 0; rr < response.data.length; rr++) {
+                        // console.log('we are in loop')
+                        // console.log(newJson[rr].product_id)
+                        // console.log(idList[jj])
+                        if (idList[jj] == response.data[rr].id) {
+                            // console.log(newJson[rr].data.product_id)
+                            // console.log(idList[jj])
+                            let divOfProduct = document.createElement('div');
+                            divOfProduct.className = "divOfProd";
+                            let divOfHeadingbrand = document.createElement('div');
+                            divOfHeadingbrand.className = "divOfHeadingbrand"
+                            let headingOfBrand = document.createElement('h3');
+                            // headingOfBrand.className = "headingOfBrand";
+                            // headingOfBrand.style.marginLeft = "auto";
+                            // headingOfBrand.style.marginRight = "auto"
+                            // headingOfBrand.style.maxWidth = "80%"
+                            // headingOfBrand.style.overflow = "hidden"
+                            // headingOfBrand.style.marginBottom = "10px"
+                            headingOfBrand.textContent = response.data[rr].name;
+                            // headingOfBrand.style.float ="center"
+                            // headingOfBrand.style.width = "100%";
+                            var spanofCloseHeading = document.createElement('span')
+                            spanofCloseHeading.className = "spanOfCloseHeading"
+                            spanofCloseHeading.innerHTML = "&times;"
+                            // spanofCloseHeading.setAttribute('data-num' , jj)
+                            spanofCloseHeading.style.cursor = "pointer"
+                            spanofCloseHeading.style.marginRight = "0px"
+                            let divOfImageComp = document.createElement('div');
+                            divOfImageComp.className = "divOfImageComp";
+
+                            // divOfImageComp.style.height = "10%"
+                            // divOfImageComp.style.height = (relating.offsetHeight * 80)/100  +"px";                    
+                            // divOfImageComp.style.marginLeft = "auto";
+                            // divOfImageComp.style.marginRight = "auto"
+                            let imageOfProd = document.createElement('img');
+                            imageOfProd.src = response.data[rr].image;
+                            imageOfProd.style.maxWidth = "100%";
+                            imageOfProd.style.maxHeight = "100%";
+
+                            imageOfProd.className = "imageOfProd";
+                            divOfImageComp.appendChild(imageOfProd);
+                            divOfHeadingbrand.appendChild(headingOfBrand);
+                            divOfHeadingbrand.appendChild(spanofCloseHeading)
+                            divOfProduct.appendChild(divOfHeadingbrand)
+                            divOfProduct.appendChild(divOfImageComp)
+                            divOfMainProd.appendChild(divOfProduct)
+                        }
+                    }
+                }
+                relating.appendChild(headingOfCompareAlert);
+                relating.appendChild(divOfMainProd);
+
+                alertBox.style.visibility = "visible"
+
+                let winW = window.innerWidth;
+                let winh = window.innerHeight;
+                alertBox.style.left = (winW / 2) - (alertBox.offsetWidth / 2) + "px"
+                alertBox.style.top = (winh / 2) - (alertBox.offsetHeight / 2) + "px";
+                let form = document.createElement('form');
+                form.setAttribute('method', "GET")
+                form.setAttribute('action', '/product')
+                let divTypeButton = document.createElement('div');
+                divTypeButton.id = "divOfCompareButton"
+                divTypeButton.type = "submit";
+                let h3OfCompare = document.createElement('h3')
+                h3OfCompare.textContent = "Compare"
+                h3OfCompare.style.margin = "auto"
+                h3OfCompare.style.color = "whitesmoke"
+                divTypeButton.appendChild(h3OfCompare)
+                var inputtype = document.createElement('input');
+                inputtype.name = "pids"
+                inputtype.type = "text";
+                inputtype.value = idList;
+                inputtype.style.display = "none"
+                form.appendChild(inputtype)
+                form.appendChild(divTypeButton)
+                form.style.height = "10%"
+                relating.appendChild(form)
+                var $spanClose = $('.spanOfCloseHeading')
+                $spanClose.on('click', (e) => {
+                    // ksndflslkdnfn
+                    console.log($('.spanOfCloseHeading').index(e.target))
+                    let element = $('.spanOfCloseHeading').index(e.target)
+                    // console.log(element)
+                    e.target.className = ""
+                    // console.log(document.getElementsByName('pids')[0].value)
+                    document.getElementsByClassName('divOfMainProd')[0].removeChild(document.getElementsByClassName('divOfProd')[element])
+                    // document.getElementsByClassName('divOfProd')[element].className = ""
+                    // document.getElementsByClassName('divOfProd')[element].style.display = "none"
+                    let valueOfNew = document.getElementsByName('pids')[0].value.split(",");
+                    document.querySelector('.results label[for=' + '"' + valueOfNew[element] + '"]' + ' input').checked = false
+                    // console.log(valueOfNew[element])
+                    // console.log(valueOfNew)
+                    if (element == valueOfNew.length - 1) {
+                        valueOfNew.pop()
+                        idList.pop()
+                    } else {
+                        valueOfNew.splice(element, 1)
+                        idList.splice(element, 1)
+                    }
+
+
+                    if (valueOfNew.length > 0) {
+                        document.getElementsByName('pids')[0].value = valueOfNew;
+                        // console.log(document.getElementsByName('pids')[0].value)
+                        // console.log(valueOfNew)
+                    } else {
+                        // let msgBox = document.getElementsByClassName('messageBox')[0]
+
+                        alertBox.style.display = "none";
+                        relating.innerHTML = ""
+                        document.getElementById('disableBody').style.display = 'none';
+                        document.getElementsByTagName('html')[0].style.overflow = "scroll"
+                        document.getElementsByClassName('divOfPopUp')[0].style.display = "none"
+                        animatingMessage("Add Products To Compare", true)
+
+                        console.log('to sal')
+                    }
+                    // console.log('final value o new')
+                    // console.log(valueOfNew)
+
+                })
+                // console.log($('divOfCompareButton')[0])
+                $('#divOfCompareButton').on('click', () => {
+                    if (document.getElementsByName('pids')[0].value.split(",").length > 1) {
+                        document.forms[1].submit()
+                    } else {
+                        animatingMessage('Add Atleast One More Product', true)
+                    }
+                })
+                $('#closePopUp span').on('click', () => {
+                    //   if(document.getElementById('animating')){
+                    document.getElementById("headContainer").style.zIndex = "49";
+                    document.getElementById('animating').style.display = "none"
+                    document.getElementById('alertBox').style.display = "none"
+                    document.getElementsByTagName('html')[0].style.overflow = "scroll"
+                    document.getElementById('disableBody').style.display = "none"
+
+
+                })
+
+            }
+
+
+            $('#sb').on('change', function () {
+                let val = $(this).val()
+                let clone = JSON.parse(JSON.stringify(response))
+                if (val == "l") {
+                    let lp = ltp(true, clone)
+                    console.log(lp)
+                    console.log(response)
+                    payonDelivery(lp, $('#min').val(), $('#max').val())
+                } else if (val == "p") {
+                    let pt = ltp(false, clone)
+                    console.log(pt)
+                    console.log(response)
+                    payonDelivery(pt, $('#min').val(), $('#max').val())
+                } else {
+                    payonDelivery(response.data, $('#min').val(), $('#max').val())
+
+                }
+
+            })
+            function ltp(t, clone) {
+                // let y = response
+                if (t) {
+                    let n = clone.data.sort((y, x) => { return y.stores[0].price - x.stores[0].price })
+                    return n
+                } else {
+                    return clone.data.sort((x, y) => { return y.stores[0].price - x.stores[0].price })
+                }
+
+            }
+        </script>
+
+    </div>
+
+    </div>
+
+    <!-- ---------------------------------------------------------------------------------------------------------- -->
+    <div id="footKaBaap">
+        <footer id="footer">
+            <div id="upFoot">
+                <div class="divs1 dob">
+                    <div class="footInfo">
+                        <h2>Prices Compare</h2>
+                        <img src="https://th.bing.com/th/id/OIP.QDohBW7QbDHjI7ui_cHT4gHaGw?w=217&h=198&c=7&o=5&pid=1.7">
+                    </div>
+                </div>
+                <div class="divs2 dob">
+                    <div id="mySpan"></div>
+                    <div class="footInfo">
+                        <h2>About</h2>
+                        <p>advertise with us</p>
+                        <p>Privacy</p>
+                        <p><a></a>Contact Us</p>
+
+                    </div>
+
+                </div>
+
+                <div class="divs3 dob">
+                    <div id="mySpan"></div>
+                    <div class="footInfo">
+                        <h2>Follow Us On</h2>
+                        <p>Facebook</p>
+                        <p>Twitter</p>
+                        <p>Instagram</p>
+                        <p>Credits</p>
+
+                    </div>
+                </div>
+
+                <div class="divs4 dob">
+                    <div id="mySpan"></div>
+
+                    <div class="footInfo">
+                        <h2>Get To Know Us</h2>
+                        <p>About Us</p>
+                        <p>Terms of use</p>
+                    </div>
+                </div>
+            </div>
+            <div id="downFoot">
+                <h2>© 2020 Copyright : </h2>&nbsp;&nbsp;&nbsp; <h2 class="h2a"><a
+                        style="color: white;text-decoration: none;" href="http://www.piricescompare.in">
+                        PricesCompare.in</a></h2>
+            </div>
+        </footer>
+    </div>
+</body>
+<!-- <scr src="/javascripts/mob.js"></scr> -->
+
+</html>

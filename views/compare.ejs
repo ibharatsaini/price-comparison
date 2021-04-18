@@ -7,7 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/compareStore.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet"> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet"> -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -65,139 +73,139 @@
         // })
 
 
-        $('#searchBar').on('click', (e) => {
-            let pOfRecommendations;
-            //  let target = e.target
-            let focus = -1;
-            document.getElementById('disableBody').style.display = "block";
-            let animating = document.getElementById('animating');
-            animating.style.display = "block";
-            let valueOfInput = document.getElementById('newSearchBox');
-            let winW = window.innerWidth;
-            let winh = window.innerHeight;
-            animating.style.left = (winW / 2) - (animating.offsetWidth / 2) + "px"
-            animating.style.top = (winh / 2) - (animating.offsetHeight / 2) + "px";
-            let newSearchBox = document.getElementById('newSearchBox')
-            let recommendations = document.getElementById('recommendations')
-            let $newSearchBox = $('#newSearchBox')
-            $newSearchBox.focus()
-            let trending = ['Redmi note 8', 'Mobile', 'Iphone X11', 'Realme X2', 'MacBook Pro', 'Gaming Laptop']
-            appendingP()
-            function appendingP() {
-                let h3 = document.createElement('h3');
-                h3.textContent = "Trending";
-                recommendations.appendChild(h3)
-                console.log(trending)
-                for (let rt = 0; rt < trending.length; rt++) {
-                    let p = document.createElement('p');
-                    //   let span= document.createElement('span')
-                    //   span.innerHTML = "&#9906;"
-                    p.innerHTML = trending[rt]
-                    //   p.prepend(span)
-                    p.setAttribute('data-value', trending[rt])
-                    if (addEventListener) {
-                        p.addEventListener('click', putvalue, false)
+        // $('#searchBar').on('click', (e) => {
+        //     let pOfRecommendations;
+        //     //  let target = e.target
+        //     let focus = -1;
+        //     document.getElementById('disableBody').style.display = "block";
+        //     let animating = document.getElementById('animating');
+        //     animating.style.display = "block";
+        //     let valueOfInput = document.getElementById('newSearchBox');
+        //     let winW = window.innerWidth;
+        //     let winh = window.innerHeight;
+        //     animating.style.left = (winW / 2) - (animating.offsetWidth / 2) + "px"
+        //     animating.style.top = (winh / 2) - (animating.offsetHeight / 2) + "px";
+        //     let newSearchBox = document.getElementById('newSearchBox')
+        //     let recommendations = document.getElementById('recommendations')
+        //     let $newSearchBox = $('#newSearchBox')
+        //     $newSearchBox.focus()
+        //     let trending = ['Redmi note 8', 'Mobile', 'Iphone X11', 'Realme X2', 'MacBook Pro', 'Gaming Laptop']
+        //     appendingP()
+        //     function appendingP() {
+        //         let h3 = document.createElement('h3');
+        //         h3.textContent = "Trending";
+        //         recommendations.appendChild(h3)
+        //         console.log(trending)
+        //         for (let rt = 0; rt < trending.length; rt++) {
+        //             let p = document.createElement('p');
+        //             //   let span= document.createElement('span')
+        //             //   span.innerHTML = "&#9906;"
+        //             p.innerHTML = trending[rt]
+        //             //   p.prepend(span)
+        //             p.setAttribute('data-value', trending[rt])
+        //             if (addEventListener) {
+        //                 p.addEventListener('click', putvalue, false)
 
-                    } else {
-                        p.attachEvent('onclick', putvalue)
-                    }
-                    recommendations.appendChild(p)
-                }
-            }
-            function putvalue(e) {
-                console.log('new')
-                console.log(e)
-                //   let target = e.target
-                console.log(e.target.getAttribute('data-value'))
-                valueOfInput.value = e.target.getAttribute('data-value')
-                document.forms[0].submit()
-                console.log(valueOfInput)
-            }
-            $newSearchBox.on('keyup', async (e) => {
-                let suggestion = await fetch('https://price-api.datayuge.com/api/v1/compare/search/suggest?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&product=' + newSearchBox.value)
-                suggestion = await suggestion.json()
-                try {
-                    if (!(suggestion.hasOwnProperty('keywords'))) {
-                        recommendations.innerHTML = ""
-                        appendingP()
-                        //   recommendations.innerHTML = '<h3 style="margin-left: 7px;">Trending</h3>'+ '<p>Mobile</p><p>Ipad</p> <p>Realme x2'+'<p>Redmi Note 8pro</p> <p>Iphone X11</p> <p>Mac Book Laptop</p>'                
-                    } else {
-                        recommendations.innerHTML = ""
-                        for (let ee = 0; ee < suggestion.keywords.length; ee++) {
-                            let p = document.createElement('p');
-                            //   let span= document.createElement('span')
-                            //   span.innerHTML = "&#9906;"
-                            p.innerHTML = suggestion.keywords[ee]
-                            //   p.prepend(span)
-                            p.setAttribute('data-value', suggestion.keywords[ee])
-                            if (addEventListener) {
-                                p.addEventListener('click', putvalue, false)
+        //             } else {
+        //                 p.attachEvent('onclick', putvalue)
+        //             }
+        //             recommendations.appendChild(p)
+        //         }
+        //     }
+        //     function putvalue(e) {
+        //         console.log('new')
+        //         console.log(e)
+        //         //   let target = e.target
+        //         console.log(e.target.getAttribute('data-value'))
+        //         valueOfInput.value = e.target.getAttribute('data-value')
+        //         document.forms[0].submit()
+        //         console.log(valueOfInput)
+        //     }
+        //     $newSearchBox.on('keyup', async (e) => {
+        //         let suggestion = await fetch('https://price-api.datayuge.com/api/v1/compare/search/suggest?api_key=YnKGTqtB3hrieTofKaGkhJtntFRsYmcDuKY&product=' + newSearchBox.value)
+        //         suggestion = await suggestion.json()
+        //         try {
+        //             if (!(suggestion.hasOwnProperty('keywords'))) {
+        //                 recommendations.innerHTML = ""
+        //                 appendingP()
+        //                 //   recommendations.innerHTML = '<h3 style="margin-left: 7px;">Trending</h3>'+ '<p>Mobile</p><p>Ipad</p> <p>Realme x2'+'<p>Redmi Note 8pro</p> <p>Iphone X11</p> <p>Mac Book Laptop</p>'                
+        //             } else {
+        //                 recommendations.innerHTML = ""
+        //                 for (let ee = 0; ee < suggestion.keywords.length; ee++) {
+        //                     let p = document.createElement('p');
+        //                     //   let span= document.createElement('span')
+        //                     //   span.innerHTML = "&#9906;"
+        //                     p.innerHTML = suggestion.keywords[ee]
+        //                     //   p.prepend(span)
+        //                     p.setAttribute('data-value', suggestion.keywords[ee])
+        //                     if (addEventListener) {
+        //                         p.addEventListener('click', putvalue, false)
 
-                            } else {
-                                p.attachEvent('onclick', putvalue)
-                            }
-                            recommendations.appendChild(p)
-                        }
+        //                     } else {
+        //                         p.attachEvent('onclick', putvalue)
+        //                     }
+        //                     recommendations.appendChild(p)
+        //                 }
 
-                    }
-                } catch{
-                    appendingP()
-                }
-                pOfRecommendations = document.querySelectorAll('#recommendations p');
-            })
+        //             }
+        //         } catch{
+        //             appendingP()
+        //         }
+        //         pOfRecommendations = document.querySelectorAll('#recommendations p');
+        //     })
 
-            // console.log($newSearchBox)
-            $newSearchBox.on('keydown', (e) => {
-                console.log('clicked')
-                if (e.keyCode == 40) {
-                    console.log('krydown')
-                    focus++;
-                    addingClass(pOfRecommendations);
+        //     // console.log($newSearchBox)
+        //     $newSearchBox.on('keydown', (e) => {
+        //         console.log('clicked')
+        //         if (e.keyCode == 40) {
+        //             console.log('krydown')
+        //             focus++;
+        //             addingClass(pOfRecommendations);
 
-                } else if (e.keyCode == 38) {
-                    console.log('keyup')
-                    focus--;
-                    addingClass(pOfRecommendations)
-                } else if (e.keyCode == 13) {
-                    console.log('enter')
-                    e.preventDefault()
-                    if (focus > -1) {
-                        pOfRecommendations[focus].click();
-                    }
-                }
-            })
-            function addingClass(pOfRecommendations) {
-                for (let rr = 0; rr < pOfRecommendations.length; rr++) {
-                    console.log('in thi s')
-                    pOfRecommendations[rr].classList = ""
-                }
-                if (focus >= pOfRecommendations.length) {
-                    focus = 0;
+        //         } else if (e.keyCode == 38) {
+        //             console.log('keyup')
+        //             focus--;
+        //             addingClass(pOfRecommendations)
+        //         } else if (e.keyCode == 13) {
+        //             console.log('enter')
+        //             e.preventDefault()
+        //             if (focus > -1) {
+        //                 pOfRecommendations[focus].click();
+        //             }
+        //         }
+        //     })
+        //     function addingClass(pOfRecommendations) {
+        //         for (let rr = 0; rr < pOfRecommendations.length; rr++) {
+        //             console.log('in thi s')
+        //             pOfRecommendations[rr].classList = ""
+        //         }
+        //         if (focus >= pOfRecommendations.length) {
+        //             focus = 0;
 
-                } else if (focus < 0) {
-                    focus = pOfRecommendations.length - 1;
+        //         } else if (focus < 0) {
+        //             focus = pOfRecommendations.length - 1;
 
-                }
-                pOfRecommendations[focus].classList.add('hightlight')
+        //         }
+        //         pOfRecommendations[focus].classList.add('hightlight')
 
-            }
-
-
-        })
-        $('#closePopUp span').on('click', () => {
-            //   if(document.getElementById('animating')){
-            document.getElementById('disableBody').style.display = "none"
-            document.getElementById('animating').style.display = "none"
-            document.getElementById('alertBox').style.display = "none"
-            document.getElementsByTagName('html')[0].style.overflow = "scroll"
+        //     }
 
 
+        // })
+        // $('#closePopUp span').on('click', () => {
+        //     //   if(document.getElementById('animating')){
+        //     document.getElementById('disableBody').style.display = "none"
+        //     document.getElementById('animating').style.display = "none"
+        //     document.getElementById('alertBox').style.display = "none"
+        //     document.getElementsByTagName('html')[0].style.overflow = "scroll"
 
-        })
 
-        $('#searchIcon').on('click', () => {
-            document.forms[0].submit()
-        })
+
+        // })
+
+        // $('#searchIcon').on('click', () => {
+        //     document.forms[0].submit()
+        // })
         const $filterBar = $('.border')
         //animation of category bar
         $filterBar.on('click', (e) => {
@@ -222,42 +230,83 @@
         var specsi;
         (async () => {
             console.log(naming2)
-            details = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&id=' + naming2);
+            details = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=YnKGTqtB3hrieTofKaGkhJtntFRsYmcDuKY&id=' + naming2);
             details = await details.json();
-            specsi = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&id=' + naming2);
+            console.log(details)
+            specsi = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=YnKGTqtB3hrieTofKaGkhJtntFRsYmcDuKY&id=' + naming2);
             specsi = await specsi.json();
             console.log(details);
-            console.log(specsi)
+            console.log(specsi);
             var mainBody = document.getElementsByClassName('mainBody')[0];
 
-            var container = document.createElement('a');
+            var container = document.createElement('div');
             container.className = "container";
-            // var divOfimage = document.createElement('div');
-            // divOfimage.className = "divofimage";
+            var divOfimageContainer = document.createElement('div');
+            divOfimageContainer.className= 'imageContainer';
+            var divOfGallery =  document.createElement('div');
+            divOfGallery.className = 'divOfGallery';
+            // var divOfSlideImage = document.createElement('div');
+            // divOfSlideImage.className = "slideImageOuter";
+            // var divOfSlideInside = document.createElement('div');
+            // divOfSlideInside.className = "slideInside";
+            if(details.data.product_images.length > 1){
+                var divOfSlideImage = document.createElement('div');
+                divOfSlideImage.className = "slideImageOuter";
+                var ee = details.data.product_images.length;
+                if(details.data.product_images.length > 5){
+                    ee = 5;
+                }
+                for(let i=0; i<ee; i++){
+                    var divOfSlideInside = document.createElement('div');
+                    divOfSlideInside.className = "slideInside";
+                    if(i==0){
+                        divOfSlideInside.classList = 'slideInside blackOut'
+                    }
+                    var imgOfSlideInside = document.createElement('img');
+                    imgOfSlideInside.setAttribute('src',details.data.product_images[i]);
+                    // divOfSlideInside.appendChild(divOfblackOut);
+                    divOfSlideInside.appendChild(imgOfSlideInside);
+                    divOfSlideImage.appendChild(divOfSlideInside);
+                }
+                divOfGallery.appendChild(divOfSlideImage);
+            }
+            var divOfimage = document.createElement('div');
+            divOfimage.className = "divofimage";
             var imageSlider = document.createElement('div');
             imageSlider.className = 'imageSlider'
             var imageOne = document.createElement('img');
             imageOne.setAttribute('src', details.data.product_images[0]);
             imageSlider.appendChild(imageOne);
-            // divOfimage.appendChild(imageSlider)
-            // container.appendChild(imageSlider);
+            divOfimage.appendChild(imageSlider);
+            divOfimageContainer.appendChild(divOfGallery);
+            divOfimageContainer.appendChild(divOfimage)
+            container.appendChild(divOfimageContainer);
+            // container.appendChild(divOfimage);
             // imageOne.className = 'imageOne';
             // var titleFirstDiv = document.createElement('div');
             // titleFirstDiv.className = "titleFirstDiv";
             var titleDivNew = document.createElement('div');
             titleDivNew.className = "titleDivNew";
-            var priceTitle = document.createElement('h3');
+            var priceTitle = document.createElement('h1');
             priceTitle.className = 'priceTitle';
-            priceTitle.innerHTML = details.data.product_name;
-            var unorderedList = document.createElement('ul');
-            unorderedList.className = "unordered";
-            for (let g = 0; g < specsi.data.main_specs.length; g++) {
-                let list = document.createElement('li');
-                list.className = "specsList";
-                list.innerHTML = specsi.data.main_specs[g];
-                unorderedList.appendChild(list)
+            priceTitle.innerHTML = details.data.product_name ;
+            titleDivNew.appendChild(priceTitle);
+
+            console.log(details.data.product_ratings)
+            if(details.data.hasOwnProperty('product_ratings') && parseInt(details.data.product_ratings) > 0){
+                var review = document.createElement('div');
+                review.className = "review";
+                var div = document.createElement('div');
+                // span.textContent = 
+                var spantext = document.createElement('span');
+                spantext.textContent = details.data.product_ratings +'/5';
+                var imgOfstar = document.createElement('img');
+                imgOfstar.setAttribute('src','/images/star.png')
+                div.appendChild(spantext)
+                div.appendChild(imgOfstar);
+                review.appendChild(div)
+                titleDivNew.appendChild(review)
             }
-            var tableDiv = document.createElement('table');
             // tableDiv.
             var sortedStores = [];
             var storesName = [];
@@ -271,7 +320,7 @@
                     sortedStores[q]['logo'] = details.data.stores[j][storesName[0]].product_store_logo;
                     sortedStores[q]['storeLink'] = details.data.stores[j][storesName[0]].product_store_url;
                     if (details.data.stores[j][storesName[0]].hasOwnProperty('product_price') != ("0" || 0 || undefined || null)) {
-                        sortedStores[q]['price'] = details.data.stores[j][storesName[0]].product_price;
+                        sortedStores[q]['price'] = parseInt(details.data.stores[j][storesName[0]].product_price);
 
                     } else {
                         sortedStores[q]['price'] = details.data.stores[j][storesName[0]].product_mrp;
@@ -326,7 +375,7 @@
                         //     console.log(storesName[0])
                         //     sortedStores[q]['offer'] = details.data.stores[j][storesName[0]].product_offer;
                         // }
-                        // console.log(sortedStores[q]["offer"])
+                        // console.log(sortedStores[q]["offer"] )
                     } else {
                         sortedStores[q]["offer"] = "No offers Available";
                     }
@@ -339,122 +388,293 @@
             sortedStores.sort((x, y) => {
                 return x.price - y.price;
             })
-
+            
             console.log(sortedStores);
             console.log("This is sorted");
-            var tableDiv = document.createElement('div');
-            tableDiv.className = "tableDiv";
-            for (let j = 0; j < sortedStores.length; j++) {
-                let table = document.createElement('div');
-                table.className = "tablesComp"
-                if (j == 0) {
-                    table.className = "tablesComp tableClass"
+            // var unorderList
+                var mrpTag = document.createElement('div');
+                mrpTag.className = 'mrpTag';
+                console.log(details.data.product_mrp.length>0)
+                if(details.data.product_mrp.length >0 && sortedStores.length>0){
+                    console.log('iske andar')
+                    let best = sortedStores[0].price;
+                    let bestPrice   = document.createElement('span');
+                    // bestPrice.classList  = 'bestPrice'
+                    bestPrice.innerHTML = '&#x20B9;' +best;
+                    let num = parseInt(details.data.product_mrp)
+                    mrpTag.appendChild(bestPrice)
+                    
+                    // let num =parseInt(details.data.product_mrp)
+                    // console.log(num)
+                    // console.log(num>sortedStores[sortedStores.length-1].price)
+                    // console.log(sortedStores[sortedStores.length-1].price)
+                    console.log(num,sortedStores[0].price)
+                    console.log(num!==sortedStores[0].price)
+                    if(num!==sortedStores[0].price || sortedStores[sortedStores.length-1].price > num){
+                        console.log('iske bhi andar')
+                    let mrp = num> sortedStores[sortedStores.length-1].price ? details.data.product_mrp : sortedStores[sortedStores.length-1].price;
+                    console.log(details.data.product_mrp > sortedStores[sortedStores.length-1].price ? details.data.product_mrp : sortedStores[sortedStores.length-1].price)
+                    
+                    let mrpheading = document.createElement('span');
+                    mrpheading.innerHTML = '&#x20B9;' +mrp;
+                    let off = document.createElement('span');
+                    off.textContent = Math.round(((mrp-best)/mrp)*100) +"% Off!"
+                    console.log(Math.round((best/mrp)*100))
+                    mrpTag.appendChild(mrpheading)
+                    mrpTag.appendChild(off)
+                    }
+                    titleDivNew.appendChild(mrpTag)
+                    // let mrpTag = document.createElement('h4');
+                    // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                    titleDivNew.appendChild(mrpTag)
+                }else if(details.data.product_mrp.length==0 && sortedStores.length>1){
+                        console.log('second andar')
+                            let best = sortedStores[0].price;
+                            let bestPrice   = document.createElement('span');
+                            // bestPrice.classList  = 'bestPrice'
+                            bestPrice.innerHTML = '&#x20B9;' +best;
+                            mrpTag.appendChild(bestPrice)   
+                            if(sortedStores.length>1){
+                                let mrp =sortedStores[sortedStores.length-1].price;
+                                let mrpheading = document.createElement('span');
+                                mrpheading.innerHTML = '&#x20B9;' +mrp;
+                                let off = document.createElement('span');
+                                off.textContent = Math.round(((mrp-best)/mrp)*100) +"% Off!"
+                                console.log(Math.round((best/mrp)*100))
+                                mrpTag.appendChild(mrpheading)
+                                mrpTag.appendChild(off)
+                            }
+                            titleDivNew.appendChild(mrpTag)
+                            // let mrpTag = document.createElement('h4');
+                            // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                            titleDivNew.appendChild(mrpTag)
+                }else if(details.data.product_mrp.length>1){
+                    console.log('aa gya')
+                            let best = details.data.product_mrp;
+                            let bestPrice   = document.createElement('span');
+                            // bestPrice.classList  = 'bestPrice'
+                            bestPrice.innerHTML = '&#x20B9;' +best;
+                            mrpTag.appendChild(bestPrice)   
+                            titleDivNew.appendChild(mrpTag)
+                            // let mrpTag = document.createElement('h4');
+                            // mrpTag.innerHTML = '&#x20B9;' +mrp;
+                            titleDivNew.appendChild(mrpTag)
                 }
-                // let rowLogo = document.createElement('div');
-                let colLogo = document.createElement('div');
-                let logo = document.createElement('img');
-                logo.setAttribute('src', sortedStores[j].logo);
-                // logo.style.maxHeight = "40px";
-                // logo.style.maxWidth = "112px";
-                colLogo.appendChild(logo);
-                // rowLogo.appendChild(colLogo);
-                table.appendChild(colLogo)
-                // let rowPrice = document.createElement('tr');
-                let colPrice = document.createElement('div');
-                colPrice.innerHTML = "&#x20B9;" + sortedStores[j].price;
-                // rowPrice.appendChild(colPrice);
-                table.appendChild(colPrice)
-                // let rowShipping =  document.createElement("tr");
-                let colShipping = document.createElement('div');
-                if (sortedStores[j].deliveryCost != "Free") {
-                    colShipping.innerHTML = "Delivery Charges are &#x20B9; " + sortedStores[j].deliveryCost;
-                } else {
-                    colShipping.innerHTML = sortedStores[j].deliveryCost + " Delivery";
+                container.appendChild(titleDivNew);
 
+            if(details.data.hasOwnProperty('available_colors')){
+                let colorsAvail = document.createElement('div');
+                colorsAvail.className = 'colorsAvail';
+                let h2 = document.createElement('h4');
+                h2.textContent = 'Available Colours';
+                h2.className = "styleFont"
+                let divOfcolor = document.createElement('div');
+                divOfcolor.className = "divOfColor";
+                for(let ii=0; ii<details.data.available_colors.length; ii++){
+                    let div = document.createElement('div');
+                    div.textContent = details.data.available_colors[ii];
+                    divOfcolor.appendChild(div);
                 }
-                // rowShipping.appendChild(colShipping);
-                table.appendChild(colShipping);
-                // let rowShippingTime = document.createElement('tr');
-                let colShippingTime = document.createElement('div');
-                colShippingTime.innerHTML = "Delivery in " + sortedStores[j].deliveryTime + " days";
-                // rowShippingTime.appendChild(colShippingTime);
-                table.appendChild(colShippingTime);
-                // let rowEmi = document.createElement('tr');
-                let colEmi = document.createElement('div');
-                colEmi.innerHTML = sortedStores[j].emi;
-                // rowEmi.appendChild(colEmi)
-                table.appendChild(colEmi);
-                // let rowCod = document.createElement('tr');
-                let colCod = document.createElement('div');
-                colCod.innerHTML = sortedStores[j].cod;
-                // rowCod.appendChild(colCod);
-                table.appendChild(colCod);
-                let tdBuy = document.createElement('div');
-                let linkToBuy = document.createElement('a');
-                linkToBuy.innerHTML = "Buy Now";
-                linkToBuy.className = "buyButton"
-                linkToBuy.setAttribute("target", "_blank")
-                linkToBuy.setAttribute('href', sortedStores[j].storeLink)
-                tdBuy.appendChild(linkToBuy);
-                // trBuy.appendChild(tdBuy);
-                table.appendChild(tdBuy)
-                console.log(sortedStores[j].offer);
-                
-                // let rowOffer = document.createElement('tr');
-                // let colOffer = document.createElement('td');
-                // colOffer.innerHTML = sortedStores[j].offer
-                // rowOffer.appendChild(colOffer);
-                // table.appendChild(rowOffer)
-                // table.style.flexGrow = "1";
-                tableDiv.appendChild(table)
-                // tableDiv.appendChild(tableOfOffer)
-
-
-
-                
-
+                colorsAvail.appendChild(h2)
+                colorsAvail.appendChild(divOfcolor)
+                titleDivNew.appendChild(colorsAvail)
             }
-            titleDivNew.appendChild(priceTitle);
-            titleDivNew.appendChild(unorderedList);
-            container.appendChild(imageSlider)
+            
+            if(specsi.data.hasOwnProperty('main_specs') && specsi.data.main_specs.length > 1){
+                let divOfHigh = document.createElement('div');
+                divOfHigh.className ="divOfHigh";
+                let h3 = document.createElement('h4');
+                h3.textContent = "Highlights"
+                h3.className = 'styleFont'
+                var unorderedList = document.createElement('ul');
+                unorderedList.className = "unordered";
+                for (let g = 0; g < specsi.data.main_specs.length; g++) {
+                    let list = document.createElement('li');
+                    list.innerHTML = specsi.data.main_specs[g];
+                    unorderedList.appendChild(list)
+                }
+                divOfHigh.appendChild(h3);
+                divOfHigh.appendChild(unorderedList)
+                titleDivNew.appendChild(divOfHigh)
+            }
+            // var tableDiv = document.createElement('table');
+            if(sortedStores.length>0){
+                let  bestOffer = document.createElement('div');
+                bestOffer.className = 'bestOfferDiv';
+                console.log(sortedStores);
+                let bestStore= document.createElement('div');
+                bestStore.className = "bestStore";
+                let imgDiv = document.createElement('div')
+                let img = document.createElement('img');
+                img.setAttribute('src',sortedStores[0].logo);
+                imgDiv.appendChild(img)
+                let price = document.createElement('div');
+                price.innerHTML = "&#x20B9;"+sortedStores[0].price;
+                let cod = document.createElement('div');
+                cod.textContent= sortedStores[0].cod;
+                let deliveryCost = document.createElement('div');
+                if(sortedStores[0].deliveryCost != "Free"){
+                    deliveryCost.textContent = "Delivery Charges Mentioned Below";
+                }else{
+                    deliveryCost.textContent = sortedStores[0].deliveryCost +" Delivery";
+                }
+                let deliveryTime = document.createElement('div');
+                deliveryTime.textContent = "Delivery in "+sortedStores[0].deliveryTime+" Days";
+                let emi = document.createElement('div');
+                emi.textContent = sortedStores[0].emi;
+                let divButton = document.createElement('div');
+                let button = document.createElement('a');
+                button.setAttribute('href',sortedStores[0].storeLink);
+                button.setAttribute('target','_blank')
+                button.textContent ="Buy Now"
+                divButton.append(button)
+                bestStore.appendChild(imgDiv)
+                bestStore.appendChild(price)
+                bestStore.appendChild(cod)
+                bestStore.appendChild(deliveryCost)
+                bestStore.appendChild(deliveryTime)
+                bestStore.appendChild(emi)
+                bestStore.appendChild(divButton)
+                // bestStore.appendChild()
+                bestOffer.appendChild(bestStore)
+                container.appendChild(bestOffer)
+            }
+            var storeComp = document.createElement('div');
+            storeComp.className = "storeComp";
+            
+            let pngDiv = document.createElement('div');
+            pngDiv.className ="pngDiv"
+            // let divFake= document.createElement('div');
+            // pngDiv.appendChild(divFake)
+            var imgSrc = ['e-Store','Price','COD','Delivery Charges','Expected Delivery','EMI','Return Time']
+            for(let uu=0; uu<imgSrc.length; uu++){
+                let div = document.createElement('div');
+                let h5 = document.createElement('h6');
+                h5.style.fontWeight ='300'
+                let img = document.createElement('img');
+                img.setAttribute('src','/images/'+imgSrc[uu]+'.png');
+                h5.textContent = imgSrc[uu];
+                div.appendChild(img)
+                div.appendChild(h5)
+                pngDiv.appendChild(div)
+                if(uu == imgSrc.length-1){
+                    let div = document.createElement('div');
+                    // div.textContent = "buyButton"
+                    let  a = document.createElement('a')
+                    a.textContent = "Buy button"
+                    a.style.width= "80%";
+                    div.style.visibility = 'hidden'
+                    div.appendChild(a)
 
-            // titleFirstDiv.appendChild(titleDivNew);
-            container.appendChild(titleDivNew);
-            container.appendChild(tableDiv)
-            // parentCont.appendChild(container);
+                    pngDiv.appendChild(div)
+                }
+            }
+            storeComp.appendChild(pngDiv)
+            for(let y=0; y<sortedStores.length; y++){
+                let divStore  = document.createElement('div');
+                divStore.className = 'divStore';
+                let divImg = document.createElement('div')
+                let img = document.createElement('img');
+                img.setAttribute('src',sortedStores[y].logo);
+                divImg.appendChild(img)
+                let price = document.createElement('div');
+                price.innerHTML = '&#x20B9;'+sortedStores[y].price;
+                let cod = document.createElement('div');
+                let codh3= document.createElement('h4')
+                codh3.textContent = sortedStores[y].cod;
+                cod.appendChild(codh3)
+                let deliveryCharge = document.createElement('div');
+                if(sortedStores[y].deliveryCost != 'Free'){
+                    let chargeh3 =document.createElement('h4');
+                    chargeh3.innerHTML = "&#x20B9;"+sortedStores[y].deliveryCost+" for Delivery"
+                    deliveryCharge.appendChild(chargeh3)
+                }else{
+                    let chargeh3 = document.createElement('h4');
+                    chargeh3.innerHTML = sortedStores[y].deliveryCost +" Delivery"
+                    deliveryCharge.appendChild(chargeh3)
+                }
+                let deliveryTime = document.createElement('div');
+                let Timeh3 =document.createElement('h4');
+                Timeh3.innerHTML = "Delivery in  <span>"+sortedStores[y].deliveryTime+"</span> Days";
+                deliveryTime.appendChild(Timeh3);
+                let emi =document.createElement('div');
+                let emih3 = document.createElement('h4')
+                emih3.textContent = sortedStores[y].emi
+                emi.appendChild(emih3)
+                let returnTime  = document.createElement('div');
+                let returnTimeh3 = document.createElement('h4');
+                if(sortedStores[y].returnTime.length>0){
+                    returnTimeh3.innerHTML = "<span> "+sortedStores[y].returnTime+"</span>";
+                    returnTime.appendChild(returnTimeh3)
+                }else{
+                    returnTimeh3.textContent = "No Information Available"
+                    returnTime.appendChild(returnTimeh3)
+                }
+                let linkStore = document.createElement('div');
+                let a = document.createElement('a');
+                a.setAttribute('href',sortedStores[y].storeLink)
+                a.setAttribute('target','_blank')
+                a.textContent="Buy Now";
+                linkStore.appendChild(a)
+                divStore.appendChild(divImg)
+                divStore.appendChild(price)
+                divStore.appendChild(cod)
+                divStore.appendChild(deliveryCharge)
+                divStore.appendChild(deliveryTime)
+                divStore.appendChild(emi)
+                divStore.appendChild(returnTime)
+                divStore.appendChild(linkStore)
+                storeComp.appendChild(divStore)
+            }
+
+
+
             mainBody.appendChild(container);
-
-            let divOfOffer = document.createElement('div');
-            divOfOffer.className = "divOfOffer";
-            let tableOfOffer = document.createElement('table');
-            tableOfOffer.className = "tableOfOffer";
-            let trOfHeading = document.createElement('tr');
-            let tdOfHeading = document.createElement('td');
-
-
-            tdOfHeading.innerHTML = "<h2 class='heading'>Offers</h2>";
-            trOfHeading.appendChild(tdOfHeading)
-            tableOfOffer.appendChild(trOfHeading)
-
-            for (let q = 0; q < sortedStores.length; q++) {
-                let tr = document.createElement('tr')
-                tr.className = "trOfHead";//ashish
-                let tdOfImage = document.createElement('td');
-                tdOfImage.className = "tdOfImage"
-                let imgLogo = document.createElement('img');
-                imgLogo.setAttribute('src', sortedStores[q].logo);
-                tdOfImage.appendChild(imgLogo);
-                let tdOfOffer = document.createElement('td');
-                tdOfOffer.className = "tdOfOffer"
-                tdOfOffer.innerHTML = sortedStores[q].offer;
-                tdOfOffer.innerHTML = tdOfOffer.innerHTML.replace(/#/g, " ");
-
-                tr.appendChild(tdOfImage);
-                tr.appendChild(tdOfOffer);
-                tableOfOffer.appendChild(tr)
+            mainBody.appendChild(storeComp)
+            if(document.getElementsByClassName('slideInside').length > 1){
+                $('.slideInside').hover(function(){
+                    $('.slideInside').removeClass('blackOut');
+                    $(this).addClass('blackOut');
+                    document.getElementsByClassName('imageSlider')[0].firstChild.setAttribute('src',$(this).children().attr('src'))
+                })
             }
-            divOfOffer.appendChild(tableOfOffer);
-            mainBody.appendChild(divOfOffer);
+            // console.log(sortedStores[0])
+            // console.log(sortedStores[0].hasOwnProperty('offer'))
+            if(sortedStores[0] && sortedStores[0].hasOwnProperty('offer')){
+                    let divOfOffer = document.createElement('div');
+                    divOfOffer.className = "divOfOffer";
+                    let divHeading = document.createElement('div');
+                    divHeading.className = "divHeading";
+                    divHeading.textContent = "Offers";
+                    divOfOffer.appendChild(divHeading)
+                    let tableOfOffer = document.createElement('table');
+                    tableOfOffer.className = "tableOfOffer";
+                    // let trOfHeading = document.createElement('tr');
+                    // let tdOfHeading = document.createElement('td');
+                    // tdOfHeading.style.width ='100%';
+
+                    // tdOfHeading.innerHTML = "<h2 class='heading'>Offers</h2>";
+                    // trOfHeading.appendChild(tdOfHeading)
+                    // tableOfOffer.appendChild(trOfHeading)
+                    for (let q = 0; q < sortedStores.length; q++) {
+                        let tr = document.createElement('tr')
+                        tr.className = "trOfHead";//ashish
+                        let tdOfImage = document.createElement('td');
+                        tdOfImage.className = "tdOfImage"
+                        let imgLogo = document.createElement('img');
+                        imgLogo.setAttribute('src', sortedStores[q].logo);
+                        tdOfImage.appendChild(imgLogo);
+                        let tdOfOffer = document.createElement('td');
+                        tdOfOffer.className = "tdOfOffer"
+                        tdOfOffer.innerHTML = sortedStores[q].offer;
+                        // tdOfOffer.innerHTML = tdOfOffer.innerHTML.replace(/#/g, " ");
+                        tr.appendChild(tdOfImage);
+                        tr.appendChild(tdOfOffer);
+                        tableOfOffer.appendChild(tr)
+                    }
+                    divOfOffer.appendChild(tableOfOffer);
+                    mainBody.appendChild(divOfOffer);
+        }
 
             // if(sortedStores.length == 0){
             //     console.log("it is 0");
@@ -462,6 +682,7 @@
             //                 }
 
             console.log(specsi);
+            try{
             var allCate = Object.keys(specsi.data.sub_specs);
             console.log(allCate)
             //     var divOfspecsi = document.createElement('div')
@@ -525,8 +746,9 @@
             //     }
             //     divOfspecsi.appendChild(tableOfSpecs)
             //     mainBody.appendChild(divOfspecsi)
+            
             let h2OfSpecification = document.createElement('div');
-            h2OfSpecification.className = "h2OfSpecification";
+            h2OfSpecification.className = "divHeading";
             h2OfSpecification.textContent = "Specifications"
             h2OfSpecification.style.textAlign = "center"
             //    h2OfSpecification.style.fontSize = "25px"
@@ -535,7 +757,7 @@
             divOfSpecsi.className = 'divOfSpecs';
             if (specsi.data.sub_specs.hasOwnProperty('General')) {
                 console.log(specsi.data.sub_specs['General'])
-                let headingofSpecs = document.createElement('h2');
+                let headingofSpecs = document.createElement('h1');
                 headingofSpecs.textContent = "General"
                 //    headingofSpecs.style.textAlign= "center"
                 divOfSpecsi.appendChild(headingofSpecs)
@@ -550,7 +772,7 @@
                 if (allCate[we] == "General") {
                     continue
                 }
-                let headingofSpecs = document.createElement('h2');
+                let headingofSpecs = document.createElement('h1');
                 headingofSpecs.textContent = allCate[we]
                 divOfSpecsi.appendChild(headingofSpecs)
                 let divOfRow = document.createElement('div');
@@ -564,21 +786,154 @@
             function makingSpec(divOfRow, specsKey, specsValue) {
                 let divOfSpecKeyValue = document.createElement('div');
                 divOfSpecKeyValue.className = "divOfKeyValue";
+                if(specsValue.length >0){
                 let divOfKey = document.createElement('div');
                 divOfKey.className = "divOfKey";
                 divOfKey.textContent = specsKey;
                 let divOfValue = document.createElement('div');
                 divOfValue.className = "divOfValueKey";
-                divOfValue.textContent = specsValue;
+                if(specsValue.length>0){
+                    divOfValue.textContent = specsValue;
+                }
                 divOfSpecKeyValue.appendChild(divOfKey);
                 divOfSpecKeyValue.appendChild(divOfValue)
                 divOfRow.appendChild(divOfSpecKeyValue)
             }
+            }
             mainBody.appendChild(h2OfSpecification)
             mainBody.appendChild(divOfSpecsi)
+        }catch{
+            console.log('SORRY NO SPEICFICATIONS AVAILABLE')
+        }
+            var similar
+            try{
+                similar = await fetch("https://price-api.datayuge.com/api/v1/compare/search?api_key=YnKGTqtB3hrieTofKaGkhJtntFRsYmcDuKY&product="+details.data.product_brand+" "+details.data.product_sub_category);
+                similar = await similar.json()
+                console.log(details.data.product_brand + " "+details.data.product_sub_category)
+            }
+            catch(e){
+                console.log(e)
+            }
+            if(similar !== undefined){
+                console.log(similar)
+                var similarProduct = document.createElement('div');
+                similarProduct.className ="similarProduct"
+                let heading = document.createElement('div');
+                heading.textContent = 'Similar Products';
+                heading.className ="heading"
+                similarProduct.appendChild(heading)
+                let divOfsimProduct =document.createElement('div');
+                divOfsimProduct.className = "divOfSimProduct";
+                // let productHere = document.createElement('div');
+                // productHere.className = 'productBox';
+                console.log(similar.data.length)
+                let productsHere = document.createElement('div');
+                productsHere.className ="productsHere";
+                // <div id="butbWala">
+                //     <button type="button" value="B3" class="butB3"><i class="fa fa-angle-left"
+                //             style="font-size:40px"></i></button>
+                // </div>
+                let butbWala = document.createElement('div');
+                butbWala.id = 'butbWala';
+                let buttonB = document.createElement('button');
+                buttonB.className = 'butB'
+                buttonB.value ='B';
+                buttonB.type = 'button';
+                buttonB.innerHTML ='<i class="fa fa-angle-left" style="font-size:40px"></i>'
 
+                butbWala.appendChild(buttonB)
+                divOfsimProduct.appendChild(butbWala)
+                for(let i=0; i<similar.data.length; i++){
+                    console.log(similar.data[i].product_image)
+                    let productBox = document.createElement('a');
+                    productBox.className ="productBox";
+                    productBox.setAttribute('href','/compare/'+similar.data[i].product_id)
+                    let imageContainer = document.createElement('div');
+                    imageContainer.className ="imageContainer2";
+                    let img= document.createElement('img');
+                    img.setAttribute('src',similar.data[i].product_image);
+                    
+                    imageContainer.appendChild(img)
+                    let name = document.createElement('h4');
+                    name.textContent= similar.data[i].product_title;
+                    let price = document.createElement('h3');
+                    price.innerHTML = "&#x20B9;"+ similar.data[i].product_lowest_price;
+                   productBox.appendChild(imageContainer)
+                    productBox.appendChild(name)
+                    productBox.appendChild(price)
+                    productsHere.appendChild(productBox)
+                }
+                let butaWala = document.createElement('div');
+                butaWala.id = 'butaWala';
+                let buttonA = document.createElement('button');
+                buttonA.className = 'butA'
+                buttonA.value ='A';
+                buttonA.type = 'button';
+                buttonA.innerHTML ='<i class="fa fa-angle-right" style="font-size:40px"></i>'
+                butaWala.appendChild(buttonA)
+                divOfsimProduct.appendChild(productsHere)
+                divOfsimProduct.appendChild(butaWala)
+
+                similarProduct.appendChild(divOfsimProduct)
+                mainBody.appendChild(similarProduct)
+
+                $("button").click(function () {
+        // if statement here
+        var cj = this.value;
+        console.log(cj)
+        var a = cj.includes("A")
+        console.log(a)
+        if (a == true) {
+            var b = cj.replace("A", "");
+            console.log(b)
+            // $(`.middle_div${b}`).scrollLeft(1000);
+            document.getElementById(`butbWala`).style.display = "flex";
+            $(`.butB`).css({
+                "display": "block"
+            })
+            var a1 = document.querySelector(`.productsHere`);
+            console.log("scrolling left positive")
+            var u1 = a1.scrollWidth;
+            var t1 = a1.clientWidth;
+            var t2 = a1.scrollLeft;
+            console.log(u1, t1, t2)
+            a1.scrollLeft += t1;
+            var t3 = t1 + t2;
+            if (t3 >= u1 - t1) {
+                document.getElementById(`butaWala`).style.display = "none";
+                $(`.butA`).css({
+                    "display": "none"
+                });
+            }
+        } else {
+            var b = cj.replace("B", "")
+            console.log(b)
+            // $(`.middle_div${b}`).scrollLeft(-10000);
+            var a2 = document.querySelector(`.productsHere`);
+            var t1 = a2.clientWidth;
+            a2.scrollLeft -= t1;
+            console.log("scrolling left negative")
+            var tb2 = a2.scrollLeft;
+            if (tb2 <= t1) {
+                document.getElementById(`butbWala`).style.display = "none";
+                $(`.butB`).css({
+                    "display": "none"
+                });
+            }
+            document.getElementById(`butaWala`).style.display = "flex";
+            $(`.butA`).css({
+                "display": "block"
+            });
+        }
+    });
+
+            }else{
+                console.log('baghar')
+            }
+            
 
         })();
+
     </script>
 </body>
 

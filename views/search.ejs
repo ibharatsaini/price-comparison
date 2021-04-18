@@ -1,24 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="compare prices">
+    <!-- dw -->
+    <title>
+        <%= que.name %> Prices in India | Compare Prices of <%= que.name %> in India
+    </title>
+    <!-- dw -->
+    <meta name="description" content="Compare <%= que.name %> By Prices,COD ,EMIs, Offer across all e-stores. Compare Best Deal On <%= que.name %> Across all e-Stores">
+    <meta name="og_title" property="og:title" content="<%= que.name %> Prices in India | Compare Prices of  <%= que.name %> in India">
+    <meta name="og_url" property="og:url" content="http://www.pricescompare.in/search?q=<%= que.name %>">
+    <meta name="og_site_name" property="og:site_name" content="PricesCompare.in">
+    <meta name="og_description" property="og:description" content="Compare <%= que.name %> By Prices, Cash On Delivery(COD) ,EMIs, Offer across all e-stores. Compare Best Deal On <%= que.name %> Across all e-Stores">
+    
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "PricesCompare",
+            "alternateName": "PricesCompare.in",
+            "url": "http://www.pricescompare.in",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "http://www.pricescompare.in/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+    </script>
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://www.pricescompare.in/",
+            "logo": "http://www.pricescompare.in/images/logo.png",
+            "sameAs": []
+        }
+    </script>
+    <!-- dw -->
+    <script type="application/ld+json">
+        {
+            "@context": "http:\/\/schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@id": "http:\/\/www.pricescompare.in\/",
+                    "name": "Home"
+                }
+            },{
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@id": null,
+                    "name": ""
+                }
+            }]
+        }
+    </script>
+    <link href="/stylesheets/nouislider.min.css" rel="stylesheet">
+    <script src="/javascripts/nouislider.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/searchresult.css">
-    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
 
-    <title>Document</title>
- <link rel="shortcut icon" type="image/jpg" href="/public/images/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/srm.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/srd.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/srt.css">
+    <script>
+        const deviceWidth = window.outerWidth
+    </script>
 
 </head>
+
 
 <body>
     <div class="overlay">
@@ -31,1094 +94,231 @@
 
     <div id="disableBody"></div>
     <div id="animating">
-        <div id="closePopUp"><span>&times;</span></div>
-        <div id="popBody">
-            <div class="inputOfForm">
-                <form type="GET" class="thisisForm" action="/search">
-                    <input type="text" placeholder="Search for millions Of Products" name="q" id="newSearchBox"
-                        autocomplete="off">
-                    <div class="searchIcon"><span class="fa ">&#x26B2;</span></div>
-                </form>
-            </div>
-            <div id="recommendations">
-                <!-- <h3 style="margin-left: 7px;">Trending</h3><p>obile</p><p>Redmi Note 8pro</p> <p>Iphone X11</p> <p>Mac Book Laptop</p> -->
-            </div>
-        </div>
     </div>
     <div id="alertBox">
         <div id="closePopUp"><span>&times;</span></div>
         <div id="relating"></div>
     </div>
-    <div id="headFixing">
-        <header id="headContainer">
-            <div class='horizontalBars'>
-                <div class="border" data-pos="180">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-            </div>
-            <form method="GET" class="newone" action="/search">
-                <div class="searchBarFlex">
-                    <input type="text" placeholder="Search For Millions Of Products" name="q" id="searchBar" value="">
-                    <div id="searchIcon" type="submit"><span class="fa ">&#x26B2;</span></div>
-                </div>
-            </form>
-        </header>
-    </div>
-    <div class="mainBody">
-        <div id="filterBar">
-            <div id="catg">
-                <h2>Categories</h2>
-                <%   for(var i = 0; i < que.catname.length; i++){ %>
-                <p class='catlink' +i> <%= que.catname[i] %> </p>
-                <%  } %>
-            </div>
-            <div class="divFilterHeading">
-                <h2 class="filterHeading">Filters</h2>
-            </div>
-            <div Class="divOfPricesFilter">
-                <div class="priceFilter">
-                    <h3 class="pricesHeading">Prices</h3>
-                </div>
-                <div class="inputTake">
-                    <div id="priceApi">
-                        <label for="min"></label>
-                        <input type="text" id="min">
 
-                        <label for="max">To:</label>
-                        <input type="text" id="max" onchange="changedMin()">
+    <div id="db2">
+        <span></span>
+    </div>
+    <div id="bd">
+        <div id="db"></div>
+
+        <div id="headFixing">
+            <div class="lg">
+                <a href="/">
+                    <img src="/images/logo.png"></img>
+                </a>
+            </div>
+            <header id="headContainer">
+                <div class='horizontalBars' data-re="b">
+                    <div class="border" data-pos="180">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <img src="/images/arrow.png" alt="arrow" style="display:none">
+                </div>
+                <form method="GET" class="newone" action="/search">
+                    <div class="searchBarFlex">
+                        <div class="gl">
+                            <a href="/">
+                                <img src="/images/logo.png"></img>
+                            </a>
+                        </div>
+                        <input required type="text" placeholder="Search For Millions Of Products" name="q" id="searchBar" autocomplete="off">
+                        <div id="searchIcon" type="submit"><span class="faFirst">&#x26B2;</span></div>
+                        <div id="t">
+                            <div class="se">
+                                <div id="ye">
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
-
-
-            </div>
-            <div class="divOfBrands"></div>
-
-
+                </form>
+            </header>
         </div>
-        <div class="sortingBar"></div>
-        <div class="results"></div>
 
-        <div class='divOfPopUp'></div>
+        <div id="mainBody">
+            <div id="filterBar" class="tr rt">
+                <div id="catg">
+                    <div class="he">
+                        <h4> Categories</h4>
+                    </div>
+                    <a href="/mobile">Mobiles</a>
+                    <a href="/laptops">Laptops</a>
+                    <a href="/desktop">Desktops</a>
+                    <a href="/appliances">Appliances</a>
+                    <a href="/headphones">Headphones</a>
+                    <a href="/led-tv">LED</a>
+                    <a href="/kitchen-appliances">Kitchen Appliances</a>
+                </div>
+                <div id="allFilters">
+                    <!-- <div class="divFilterHeading">
+                        <h3 class="h3Heading">Filters</h3>
+                    </div> -->
+                    <div Class="divOfPricesFilter">
+                        <div class="he">
+
+                            <h4>Price</h4>
+                            <button type="button" value="pr">Clear</button>
+
+                        </div>
+                        <div class="inputTake">
+
+                            <div>
+                                <span>From</span>
+                                <span>To</span>
+                            </div>
+                            <div id="priceApi">
+                                <label for="min">&#x20B9;</label>
+                                <input type="text" id="min" value="">
+
+                                <label for="max">&#x20B9;</label>
+                                <input type="text" id="max" value="">
+                            </div>
+                            <div id='slider'></div>
+                        </div>
+                    </div>
+                    <div class="divOfPayDelivery">
+                        <div class="he">
+                            <h4>Delivery</h4>
+                            <button type="button" value="pd">Clear</button>
+                        </div>
+                        <div>
+                            <label id="labelOfBrand" for="COD">
+                                <input type="checkbox" id="COD" name="delivery" value="COD" onClick="disabling(this)">
+                                <span class="spanOfBox"></span>
+                                <span class="spanforCheckBox"></span>
+                                <span style="display: inline-block; margin-left: 30px;color:black;">Pay On Delivery</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="divOfBrands">
+                        <div class="he">
+                            <h4>Brands</h4>
+                            <button type="button" value="br">Clear</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="h1title" style="margin-top:10px;">
+                <!-- dw -->
+                <h1 title="" style="text-overflow: ellipsis;">
+                    <%= que.name%> Prices Across All e-Stores
+                </h1>
+                <div class="drop" style="padding-bottom: 2px;">
+                    <label for="sb">Sort by:</label>
+                    <select name="sb" id="sb" value="">
+                        <option value="rel" class="styling">Relevance</option>
+                        <option value="l">Low to High</option>
+                        <option value="p">Hight to Low</option>
+                    </select>
+                </div>
+            </div>
+            <div class="results">
+                 <div class="err">
+                    <!-- <img src="/images/logo.png" alt=""> -->
+                    <div id="bt">
+                    </div>
+
+                 </div>
+            </div>
+               
+        </div>
+        <div class="stick">
+            <div class="divOfPopUp">
+                <h4>COMPARE</h4>
+            </div>
+        </div>
+
         <script>
-
-
-
-            $(document).ready(() => {
-                $("[class^='catlink']").click((a) => {
-                    console.log(a.toElement.innerText);
-                    var a = a.toElement.innerText;
-                    $("#newSearchBox")[0].value = a;
-                    console.log($("#newSearchBox")[0].value);
-                    document.forms[0].submit();
-                })
-
-                if (window.innerWidth < 1000) {
-                    $("#filterBar").hide();
-                    console.log(document.innerWidth);
-                }
-
-                if (window.innerWidth > 451) { // for tablets
-                    $(".horizontalBars").click(() => {
-                        console.log(window.innerWidth);
-                        var dd1 = $("#filterBar");
-                        var dd2 = $(".results");
-                        if (dd1.is(":hidden")) {
-                            $("#disableBody").css("display", "block")
-                            $(".searchBarFlex").css("pointer-events", "none")
-                            $("*").css("overflow", "hidden")
-                            dd1.show()
-                            dd2.hide()
-                        }
-                        else {
-                            dd1.hide()
-                            dd2.show()
-                            $("#disableBody").css("display", "none")
-                            $("*").css("overflow", "auto")
-                            $(".searchBarFlex").css("pointer-events", "auto")
-                        }
-                    })
-                }
-
-                if (window.innerWidth < 451) { //for mobile phones
-                    $(".horizontalBars").click(() => {
-                    var dd1 = $("#filterBar");
-                        var dd2 = $(".results");
-                    if (dd1.is(":hidden")) {
-                        dd1.show()
-                        dd2.hide()
-                    }
-                    else {
-                        dd1.hide()
-                        dd2.show()
-                    }
-                })
-                }
-
-                // $(".horizontalBars").click(()=>{
-                //     $("#disableBody").css("display","block")
-                //     $("#disableBody").css("overflow","hidden")
-
-                // })
-            })
-
-            $('#searchBar').on('click', (e) => {
-
-                $("#headContainer").css("z-index", "10")
-                let pOfRecommendations;
-                //  let target = e.target
-                let focus = -1;
-                document.getElementById('disableBody').style.display = "block";
-                let animating = document.getElementById('animating');
-                animating.style.display = "block";
-                let valueOfInput = document.getElementById('newSearchBox');
-                let winW = window.innerWidth;
-                let winh = window.innerHeight;
-
-                animating.style.top = (winh / 2) - (animating.offsetHeight / 2) - 70 + "px";
-                animating.style.left = (winW / 2) - (animating.offsetWidth / 2) + "px"
-                let newSearchBox = document.getElementById('newSearchBox')
-                let recommendations = document.getElementById('recommendations')
-                let $newSearchBox = $('#newSearchBox')
-                $newSearchBox.focus()
-                let trending = ['Redmi note 8', 'Mobile', 'Iphone X11', 'Realme X2', 'MacBook Pro', 'Gaming Laptop']
-                appendingP()
-                function appendingP() {
-                    recommendations.innerHTML = ""
-                    let h3 = document.createElement('h3');
-                    h3.textContent = "Trending";
-                    recommendations.appendChild(h3)
-                    console.log(trending)
-                    for (let rt = 0; rt < trending.length; rt++) {
-                        let p = document.createElement('p');
-                        //   let span= document.createElement('span')
-                        //   span.innerHTML = "&#9906;"
-                        p.innerHTML = trending[rt]
-                        //   p.prepend(span)
-                        p.setAttribute('data-value', trending[rt])
-                        if (addEventListener) {
-                            p.addEventListener('click', putvalue, false)
-
-                        } else {
-                            p.attachEvent('onclick', putvalue)
-                        }
-                        recommendations.appendChild(p)
-                    }
-                    pOfRecommendations = document.querySelectorAll('#recommendations p');
-                }
-                function putvalue(e) {
-                    console.log('new')
-                    console.log(e)
-                    //   let target = e.target
-                    console.log(e.target.getAttribute('data-value'))
-                    valueOfInput.value = e.target.getAttribute('data-value')
-                    document.forms[0].submit()
-                    console.log(valueOfInput)
-                }
-                $newSearchBox.on('keyup', async (e) => {
-                    //  focus = 0;
-                    // let suggestion
-                    // GoForIt = 0;
-                    // let suggestion
-                    // let checking = newSearchBox.value
-                    console.log(newSearchBox.value.match(/[^A-Za-z0-9]+/g))
-                    let ifOk;
-                    let suggestion;
-                    // if((e.keyCode >=65 && e.keyCode <=90) || (e.keyCode >= 0 && e.keyCode <=9)){
-                    if ((!(newSearchBox.value.match(/[^\s+$A-Za-z0-9]+/g))) && (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 0 && e.keyCode <= 9)) {
-                        suggestion = await fetch('https://price-api.datayuge.com/api/v1/compare/search/suggest?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&product=' + newSearchBox.value)
-                        ifOk = suggestion.ok;
-                        //   console.log(suggestion.ok)
-                        console.log(ifOk)
-                        if (ifOk) {
-                            suggestion = await suggestion.json()
-                            //   console.log(suggestion)
-                        }
-
-                        try {
-                            //   console.log(ifOk) 
-                            if (ifOk) {
-                                //    console.log(ifOk)
-                                if ((suggestion.hasOwnProperty('keywords'))) {
-                                    recommendations.innerHTML = ""
-                                    for (let ee = 0; ee < suggestion.keywords.length; ee++) {
-                                        let p = document.createElement('p');
-                                        p.innerHTML = suggestion.keywords[ee]
-                                        p.setAttribute('data-value', suggestion.keywords[ee])
-                                        if (addEventListener) {
-                                            p.addEventListener('click', putvalue, false)
-
-                                        } else {
-                                            p.attachEvent('onclick', putvalue)
-                                        }
-                                        recommendations.appendChild(p)
-                                    }
-
-                                }
-                            } else {
-                                console.log('newonw')
-                                // recommendations.innerHTML = ""
-                                appendingP()
-
-                            }
-
-                        } catch{
-                            console.log('catching')
-                            appendingP()
-                        }
-                        pOfRecommendations = await document.querySelectorAll('#recommendations p');
-                        console.log(pOfRecommendations)
-                    }
-
-                })
-
-                // console.log($newSearchBox)
-                $newSearchBox.on('keyup', (e) => {
-                    console.log('clicked')
-                    if (e.keyCode == 40) {
-                        console.log('krydown')
-                        focus++;
-                        // console.log(focus)
-                        addingClass(pOfRecommendations)
-
-                    } else if (e.keyCode == 38) {
-                        console.log('keyup')
-                        focus--;
-                        // console.log(focus)
-
-                        addingClass(pOfRecommendations)
-                    } else if (e.keyCode == 13) {
-                        // console.log('enter')
-                        e.preventDefault()
-                        if (focus > -1) {
-                            pOfRecommendations[focus].click();
-                        }
-                    }
-                })
-                function addingClass(pOfRecommendations) {
-
-                    for (let rr = 0; rr < pOfRecommendations.length; rr++) {
-                        pOfRecommendations[rr].classList = ""
-                    }
-                    //    removingClass().then();
-                    if (focus >= pOfRecommendations.length) {
-                        focus = 0;
-
-                    } else if (focus < 0) {
-                        focus = pOfRecommendations.length - 1;
-
-                    }
-
-                    pOfRecommendations[focus].classList.add('highlight')
-
-                }
-                // function removingClass(pOfRecommendations){
-
-                //     return new Promise((resolve)=>{
-
-                //     })
-                // }
-
-
-            })
-            $('#closePopUp span').on('click', () => {
-                //   if(document.getElementById('animating')){
-                document.getElementById("headContainer").style.zIndex = "49";
-                document.getElementById('animating').style.display = "none"
-                document.getElementById('alertBox').style.display = "none"
-                document.getElementsByTagName('html')[0].style.overflow = "scroll"
-                document.getElementById('disableBody').style.display = "none"
-
-
-            })
-
-            $('#searchIcon').on('click', () => {
-                document.forms[0].submit()
-            })
-            //sdfsdfasdfkjl;a;skldflkj;asdflkj;alksdfkljdfkjlsadfkjlsdkjl;dsafkjl;dfsakjldfskldsfkjladsfkjl
-            var filterBar = document.getElementById('filterBar');
-            filterBar.style.height = window.innerHeight - document.getElementById('headFixing').offsetHeight + "px";
-            var naming = '<%= que.name %>';
-            var sortedData = [];
-            var newJson = [];
-            var specs = [];
-            console.log(naming);
-            var newData;
-            var greatest;
-            var smallest;
-            var brandValue;
-            var newBrands = [];
-            var bnao;
-            requesting();
-            var promises;
-            async function requesting() {
-                try {
-
-                    var ee = 0;
-                    var $searchBar = $('#searchBar')
-                    console.log($searchBar)
-                    $searchBar.val(naming);
-                    console.log('nwe')
-                    if (brandValue == (undefined || "" || null)) {
-                        console.log(naming)
-                        newData2 = await fetch('https://price-api.datayuge.com/api/v1/compare/search?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&product=' + naming)
-                        newData = await newData2.json()
-                        // console.log(new)
-
-                    } else {
-                        console.log(brandValue)
-                        newData2 = await fetch('https://price-api.datayuge.com/api/v1/compare/search?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&product=' + naming + "&filter=brand%3A" + brandValue);
-                        console.log(naming + "&filter=brand%3A" + brandValue);
-
-
-                        newData = await newData2.json()
-                        console.log(newData)
-
-                    }
-                    // console.log(newData);
-                    for (let j = 0; j < 6; j++) {
-                        console.log(j)
-                        var newJson2 = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&id=' + newData.data[j].product_id);
-                        if (newJson2.ok) {
-                            newJson[j] = await newJson2.json();
-                        } else {
-                            break;
-                        }
-                        console.log("This is newJson")
-                        console.log(newJson[j])
-                        // console.log(newJson[j])
-                        var specs2 = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=g2fqZExRCWJTtoRV7EnGnUlU8ES4M26JYi0&id=' + newData.data[j].product_id);
-                        if (newJson2.ok) {
-                            specs[j] = await specs2.json();
-                        } else {
-                            break
-                        }
-                        console.log(specs)
-                        // console.log(newJson)
-                        sortedData[j] = newData.data[j];
-                        console.log(sortedData[j])
-                        if (newJson[j].data.product_brand) {
-                            console.log('this is if statement')
-                            if (newBrands.indexOf(newJson[j].data.product_brand) == -1) {
-                                console.log(ee)
-                                newBrands[ee] = (newJson[j].data.product_brand)
-                                console.log('this is e')
-                                console.log(newBrands)
-                                ee++;
-                            }
-
-                        }
-                        creatingBody(sortedData[j], newJson[j], specs[j])
-                    }
-
-                    console.log("ye newJosn hai bhai dfklasjkdjkasjdk");
-
-                    console.log(document.getElementsByClassName('resultsCont'))
-                    console.log(newBrands)
-                    smallest = 0, greatest = 0;
-                    for (let q = 0; q < sortedData.length; q++) {
-                        console.log('ye hai sorted data')
-                        console.log(sortedData[q])
-                        if (sortedData[smallest].product_lowest_price >= sortedData[q].product_lowest_price) {
-                            smallest = q
-                            console.log('smallest is updated to ', sortedData[smallest].product_lowest_price)
-                        } else if (sortedData[greatest].product_lowest_price < sortedData[q].product_lowest_price) {
-                            greatest = q
-                            console.log('greates is updated to ', sortedData[greatest].product_lowest_price)
-                        }
-
-                    }
-                    console.log(document.getElementsByClassName('resultsCont'))
-
-
-                    // sortedData.sort(zz) 
-                    console.log(newJson);
-                    console.log(specs);
-                    console.log('this is sortedData')
-                    console.log(sortedData);
-
-
-                } catch (err) {
-                    console.log(err)
-                }
-
-                let divOfSlider = document.createElement('div')
-                divOfSlider.id = "slider"
-                document.getElementsByClassName('inputTake')[0].appendChild(divOfSlider)
-                // whenSliding(sortedData[smallest].product_lowest_price ,sortedData[greatest].product_lowest_price)
-                $('#slider').slider({
-                    range: true,
-                    min: parseFloat(sortedData[smallest].product_lowest_price),
-                    max: parseFloat(sortedData[greatest].product_lowest_price),
-                    values: [parseFloat(sortedData[smallest].product_lowest_price), parseFloat(sortedData[greatest].product_lowest_price)],
-                    // values:[parseFloat(sortedData[0].product_lowest_price),parseFloat(sortedData[sortedData.length-1].product_lowest_price)],
-                    slide: (event, ui) => {
-                        whenSliding(ui.values[0], ui.values[1])
-                    },
-                    change: (event, ui) => {
-
-                        let resultsCont = document.getElementsByClassName('resultsCont');
-                        let results = document.getElementsByClassName('results')[0];
-                        // results.innerHTML = "";
-                        console.log(newJson)
-                        storeName = Object.keys(newJson[0].data.stores)
-                        console.log(storeName)
-                        payonDelivery(sortedData, newJson, specs, ui.values[0], ui.values[1])
-                        // for(let qq=0; qq<newJson.length; qq++){
-                        //     if(sortedData[qq].product_lowest_price > ui.values[0] && sortedData[qq].product_lowest_price < ui.values[1]){
-                        //         creatingBody(sortedData[qq],newJson[qq],specs[qq],ui.values[0],ui.values[1])
-                        //     }
-                        // }
-                    }
-                });
-                // console.log(brandValue)
-                console.log(document.getElementsByClassName('resultsCont')[0])
-                if (brandValue == (undefined || "" || null)) {
-                    console.log(brandValue)
-                    newBranding()
-                }
-
-                for (let ww = 0; ww < newJson.length; ww++) {
-                    for (let qw = 0; qw < newJson[ww].data.stores.length; qw++) {
-                        let store = Object.keys(newJson[ww].data.stores[qw])
-                        console.log(store[0])
-                        console.log(newJson[ww].data.stores[qw][store[0]].is_cod)
-                        if (newJson[ww].data.stores[qw][store[0]].hasOwnProperty('is_cod')) {
-                            if (newJson[ww].data.stores[qw][store[0]].is_cod == "1") {
-                                bnao = 1;
-                                break;
-
-                            } else {
-                                bnao = 0;
-                            }
-                        }
-                    }
-                }
-                if (bnao == 1) {
-                    createPayOnDelivery().then(clickedOrNot());
-                }
-
-            }
-
-            function whenSliding(valx, valy) {
-                var min = document.getElementById("min");
-                min.value = valx;
-                var max = document.getElementById('max');
-                max.value = valy;
-
-            }
-            $('#min').on('change', () => {
-                $("slider").slider("values", ui.values[$('#min').val(), $('#max').val()]);
-            })
-            var specs;
-            function creatingBody(newData, newJson, specs) {
-                var mainBody = document.getElementsByClassName('mainBody')[0];
-                console.log(newData);
-                console.log(newJson);
-                console.log(specs);
-                // console.log(minVal);
-                // console.log(maxVal)
-                console.log('looping');
-                var sortingBar = document.getElementsByClassName('sortingBar')[0];
-                var results = document.getElementsByClassName('results')[0];
-                console.log(newData)
-                let resultsCont = document.createElement('a');
-                resultsCont.className = "resultsCont";
-                resultsCont.href = "/compare/" + newData.product_id;
-                console.log(newData.product_id)
-                let imageDiv = document.createElement('div');
-                imageDiv.className = "imagesOuter";
-                let image = document.createElement('img');
-                image.setAttribute('src', newData.product_image);
-                image.className = "imageClass";
-                let imagechecking = document.createElement('div');
-                imagechecking.className = "imageChecking"
-                let titleDiv = document.createElement('div');
-                titleDiv.className = "titleDiv";
-                let title = document.createElement('h3');
-                title.className = "title";
-                title.innerHTML = newData.product_title;
-                console.log(newData.product_id + "this is id")
-                // console.log(JSON.stringify(newJson));
-                let specsKey = document.createElement('div');
-                specsKey.className = "specsKey";
-                let listOfSpec = document.createElement('ul');
-                listOfSpec.className = "specList";
-                var listItem;
-                for (let r = 0; r < specs.data.main_specs.length; r++) {
-                    let fontOfListing = document.createElement('h3');
-                    listItem = document.createElement('li');
-                    listItem.className = "listItem";
-                    fontOfListing.innerHTML = specs.data.main_specs[r];
-                    listItem.appendChild(fontOfListing);
-                    listOfSpec.appendChild(listItem);
-                }
-                console.log("nenwenwneknkwer" + newJson.stores)
-                let pricesDiv = document.createElement('div');
-                pricesDiv.className = "pricesDiv";
-                let priceTag;
-                var prodStoreInfo = [];
-                var z = 0;
-                var prodStoreInfo = [];
-                console.log("cheking ho rha hai")
-                var sortingAndAlloting = function (apnaData) {
-                    for (let l = 0; l < apnaData.data.stores.length; l++) {
-                        let storing = Object.keys(apnaData.data.stores[l]);
-                        if (apnaData.data.stores[l][storing[0]].hasOwnProperty('product_store_url')) {
-                            if ((apnaData.data.stores[l][storing[0]]['product_price'] || apnaData.data.stores[l][storing[0]]['product_mrp']) != (undefined || null || "0" || 0)) {
-                                prodStoreInfo[z] = {};
-                                prodStoreInfo[z]['name'] = storing[0];
-                                if (apnaData.data.stores[l][storing[0]]['product_price'] != (undefined || null || 0 || "0")) {
-                                    prodStoreInfo[z]['price'] = apnaData.data.stores[l][storing[0]]['product_price'];
-                                    // console.log(`${storing[0]}  ${"price"}  ${prodStoreInfo[z][storing[0]]['price']}`)
-                                } else {
-                                    prodStoreInfo[z]['price'] = apnaData.data.stores[l][storing[0]]['product_mrp']
-                                    // console.log(`${}  ${"price"}  ${prodStoreInfo[z][storing[0]]['mrp']}`)
-
-                                }
-                                prodStoreInfo[z]['url'] = {}
-                                prodStoreInfo[z]['url'] = apnaData.data.stores[l][storing[0]]['product_store_url']
-                                prodStoreInfo[z]['logo'] = apnaData.data.stores[l][storing[0]]['product_store_logo']
-                                z++;
-                            }
-                        }
-                    }
-                    prodStoreInfo.sort((y, x) => {
-                        return parseFloat(y.price) - parseFloat(x.price)
-                    })
-                    return prodStoreInfo
-
-                }
-                let prodStore = sortingAndAlloting(newJson);
-                console.log(prodStore)
-
-                console.log(specs)
-                var tableOflogo = document.createElement('table');
-                tableOflogo.className = "tableOfLogo";
-                for (let m = 0; m < prodStore.length; m++) {
-                    let linking = document.createElement('a');
-                    let headingPrice = document.createElement('h4');
-                    console.log(prodStore[m].price);
-                    console.log(prodStore[m].logo)
-                    let rowPrice = document.createElement('tr');
-                    let colLogo = document.createElement('td');
-                    let imgLogo = document.createElement('img');
-                    imgLogo.setAttribute('src', prodStore[m].logo);
-                    colLogo.appendChild(imgLogo);
-                    let priceTag = document.createElement('td');
-                    headingPrice.innerHTML = "&#x20B9;" + prodStore[m].price;
-                    console.log(m)
-                    if (m == 0) {
-                        headingPrice.style.fontSize = "1.8em";
-                        if (window.innerWidth < 450) {
-                            headingPrice.style.fontSize = "4vw";
-                        }
-                    }
-                    linking.setAttribute('href', prodStore[m].url);
-                    linking.appendChild(headingPrice);
-                    priceTag.appendChild(linking)
-                    rowPrice.appendChild(colLogo);
-                    rowPrice.appendChild(priceTag);
-                    tableOflogo.appendChild(rowPrice)
-                }
-                let compareDivision = document.createElement('div');
-                compareDivision.className = "compareDivision";
-                var labelOfCompare = document.createElement('label');
-                labelOfCompare.className = "labelOfCompare"
-                let spanOfBox = document.createElement('span')
-                spanOfBox.className = "spanOfBox"
-                var inputOfPayDelivery = document.createElement('input');
-                inputOfPayDelivery.setAttribute('onclick', "comp(this)");
-                let spanOfText = document.createElement('span');
-                // spanOfText.style.position = "absolute";
-                spanOfText.style.display = "inline-block"
-                spanOfText.textContent = "Add to compare"
-                spanOfText.style.marginLeft = "30px"
-                inputOfPayDelivery.id = newData.product_id;
-                inputOfPayDelivery.type = "checkbox";
-                inputOfPayDelivery.name = newData.product_sub_category;
-                inputOfPayDelivery.value = newData.product_id
-                labelOfCompare.setAttribute('for', newData.product_id);
-                var spanforCheckBox = document.createElement('span');
-                spanforCheckBox.className = 'spanforCheckBox';
-                labelOfCompare.appendChild(inputOfPayDelivery);
-                labelOfCompare.appendChild(spanOfBox)
-                labelOfCompare.appendChild(spanforCheckBox);
-                labelOfCompare.appendChild(spanOfText);
-                // let labelCompare = document.createElement('label');
-                // labelCompare.className = 'labelCompare';
-                // labelCompare.setAttribute('for',newData.product_id);
-                // let checkBoxInput = document.createElement('input');
-                // checkBoxInput.className = 'checkBoxInput';
-                // checkBoxInput.setAttribute('type','checkbox');
-                // checkBoxInput.id= newData.product_id;
-                // let divOfCheckBox = document.createElement('div');
-                // divOfCheckBox.className = 'divOfCheckBox';
-                // labelCompare.appendChild(checkBoxInput);
-                // labelCompare.appendChild(divOfCheckBox);
-                // var spanElement = document.createElement('div');
-                // spanElement.textContent   =  "Add To Compare";
-                // spanElement.style.display   =  "inline-block"
-                // labelCompare.appendChild(spanElement);
-                compareDivision.appendChild(labelOfCompare);
-                pricesDiv.appendChild(tableOflogo);
-                pricesDiv.appendChild(compareDivision);
-                imagechecking.appendChild(image)
-                imageDiv.appendChild(imagechecking);
-                titleDiv.appendChild(title);
-                titleDiv.appendChild(listOfSpec);
-                resultsCont.appendChild(imageDiv);
-                resultsCont.appendChild(titleDiv);
-                resultsCont.appendChild(pricesDiv);
-                results.appendChild(resultsCont);
-            }
-            console.log('this is newBrandas if se pehle')
-            console.log(newBrands)
-            function newBranding() {
-                if (newBrands.length > 0) {
-                    console.log(newBrands)
-                    console.log('we are in if')
-                    let divOfBrands = document.getElementsByClassName('divOfBrands')[0];
-                    // divOfBrands.className = "divOfBrands"
-                    let divOfNameAndClose = document.createElement('div');
-                    divOfNameAndClose.classList = "divOfBrands divOfName pricesHeading"
-                    let headingOfBrands = document.createElement('h3');
-                    headingOfBrands.className = "headingOfBrands"
-                    headingOfBrands.innerHTML = "Brands";
-                    divOfNameAndClose.appendChild(headingOfBrands)
-                    divOfBrands.appendChild(divOfNameAndClose)
-                    console.log('this' + divOfBrands)
-                    for (let f = 0; f < newBrands.length; f++) {
-                        console.log('we are n for loop ')
-                        var labelOfBrandName = document.createElement('label');
-                        let spanOfBox = document.createElement('span')
-                        spanOfBox.className = "spanOfBrandBox"
-                        var inputOfBrandName = document.createElement('input');
-                        let brandName = document.createElement('p');
-                        brandName.style.display = "inline-block";
-                        brandName.style.marginLeft = "30px";
-                        brandName.innerHTML = newBrands[f];
-                        inputOfBrandName.id = newBrands[f];
-                        inputOfBrandName.type = "checkbox";
-                        inputOfBrandName.name = "brand";
-                        inputOfBrandName.value = newBrands[f];
-                        labelOfBrandName.setAttribute('for', newBrands[f]);
-                        labelOfBrandName.className = "labelOfBrandName";
-                        var spanforCheckBox = document.createElement('span');
-                        spanforCheckBox.className = 'spanforBrandCheckBox';
-
-                        labelOfBrandName.appendChild(inputOfBrandName);
-                        labelOfBrandName.appendChild(spanOfBox)
-                        labelOfBrandName.appendChild(spanforCheckBox);
-                        labelOfBrandName.appendChild(brandName);
-                        divOfBrands.appendChild(labelOfBrandName);
-                    }
-                    let filterBar = document.getElementById('filterBar');
-                    filterBar.appendChild(divOfBrands)
-                }
-                var divING = $('.divOfBrands').find(':checkbox')
-                divING.click(function (e) {
-                    document.getElementsByClassName('inputTake')[0].removeChild(document.getElementById('slider'))
-                    $this = $(this)
-                    console.log($this)
-                    console.log('thisisiisisis')
-                    let INPUTnAME = $(this).attr('name');
-                    var group = $("input:checkbox[name=" + '"' + INPUTnAME + '"' + "]");
-                    console.log(group);
-                    group.attr("checked", false);
-                    $this.attr("checked", true);
-                    brandValue = $this.val()
-                    let results = document.getElementsByClassName('results')[0];
-                    results.innerHTML = ""
-                    if (document.getElementsByClassName('divOfPayDelivery').length !== 0) {
-                        document.getElementById('filterBar').removeChild(document.getElementsByClassName('divOfPayDelivery')[0])
-                    }
-                    if (document.getElementsByClassName('pOfClose').length == 0) {
-                        let divOfName = document.getElementsByClassName('divOfName')[0];
-                        let pOfClose = document.createElement('p');
-                        pOfClose.className = "pOfClose";
-                        let spanOfClose = document.createElement('span');
-                        spanOfClose.innerHTML = "X"
-                        spanOfClose.id = "spanOfClose";
-                        pOfClose.appendChild(spanOfClose)
-                        divOfName.appendChild(pOfClose)
-                        let $closeButton = $('#spanOfClose')
-                        $closeButton.click((e) => {
-                            // results.innerHTML = ""
-                            e.preventDefault();
-                            $this.attr("checked", false)
-                            document.getElementsByClassName('inputTake')[0].removeChild(document.getElementById('slider'))
-                            divOfName.removeChild(document.getElementsByClassName('pOfClose')[0])
-                            if (document.getElementsByClassName('divOfPayDelivery').length !== 0) {
-                                document.getElementById('filterBar').removeChild(document.getElementsByClassName('divOfPayDelivery')[0])
-                            }
-                            brandValue = "";
-                            results.innerHTML = ""
-                            results.innerHTML = ""
-                            requesting()
-                        })
-                    }
-                    console.log(brandValue)
-                    requesting()
-                });
-            }
-            function clickedOrNot() {
-                let labeling = $('#labelOfBrand')
-                console.log(labeling)
-                labeling.on("click", function () {
-                    // console.log(this)
-                    var min = $('#slider').slider('values')[0];
-                    var max = $('#slider').slider('values')[1];
-                    console.log(sortedData[smallest].product_lowest_price, sortedData[greatest].product_lowest_price)
-                    payonDelivery(sortedData, newJson, specs, min, max);
-                });
-
-            }
-            function payonDelivery(fullsortedData, fullnewJson, fullspecs, min, max) {
-                let minimum = min;
-                let maximum = max
-                console.log(' pay on delivery');
-                let inputCheck = document.getElementById('COD');
-                let results = document.getElementsByClassName('results')[0];
-                results.innerHTML = "";
-                if (inputCheck != undefined) {
-                    if (inputCheck.checked) {
-                        console.log("sorted data hai yeh ")
-                        console.log(fullsortedData)
-
-                        for (let ww = 0; ww < fullsortedData.length; ww++) {
-                            var bnao1;
-                            console.log('Id hai Yeh')
-                            console.log(sortedData[ww].product_id)
-                            console.log(fullnewJson[ww])
-                            for (let qw = 0; qw < fullnewJson[ww].data.stores.length; qw++) {
-                                let store = Object.keys(fullnewJson[ww].data.stores[qw])
-                                console.log(store[0])
-                                console.log(fullnewJson[ww].data.stores[qw][store[0]].is_cod)
-                                if (fullnewJson[ww].data.stores[qw][store[0]].hasOwnProperty('is_cod')) {
-                                    console.log('atleast cod to hai')
-                                    if (fullnewJson[ww].data.stores[qw][store[0]].is_cod == ("1")) {
-                                        console.log(sortedData)
-                                        bnao1 = 1;
-                                    } else {
-                                        bnao1 = 0;
-                                        break;
-                                    }
-                                }
-                            }
-                            console.log(sortedData[ww].product_id)
-                            console.log("ye hai bnao    " + bnao)
-                            if ((bnao1 == 1) && (fullsortedData[ww].product_lowest_price >= minimum) && (fullsortedData[ww].product_lowest_price <= maximum)) {
-                                creatingBody(fullsortedData[ww], fullnewJson[ww], fullspecs[ww])
-                            }
-
-
-                        }
-
-
-                    } else {
-                        for (let y = 0; y < fullnewJson.length; y++) {
-                            if (fullsortedData[y].product_lowest_price >= minimum && fullsortedData[y].product_lowest_price <= maximum) {
-                                creatingBody(fullsortedData[y], fullnewJson[y], fullspecs[y])
-                            }
-                        }
-                    }
-                }
-            }
-            function createPayOnDelivery() {
-                return new Promise((resolve) => {
-                    let divOfPayDelivery = document.createElement('div');
-                    divOfPayDelivery.className = "divOfPayDelivery";
-                    let headingPayDelivery = document.createElement('h3');
-                    headingPayDelivery.className = "pricesHeading"
-                    headingPayDelivery.textContent = "Delivery"
-                    var labelOfPayDelivery = document.createElement('label');
-                    labelOfPayDelivery.id = "labelOfBrand";
-                    let spanOfBox = document.createElement('span')
-                    spanOfBox.className = "spanOfBox"
-                    var inputOfPayDelivery = document.createElement('input');
-                    let spanOfText = document.createElement('span');
-                    // spanOfText.style.position = "absolute";
-                    spanOfText.style.display = "inline-block"
-                    spanOfText.textContent = "Cash On Delivery"
-                    spanOfText.style.marginLeft = "30px"
-                    inputOfPayDelivery.id = "COD"
-                    inputOfPayDelivery.type = "checkbox";
-                    inputOfPayDelivery.name = "delivery";
-                    inputOfPayDelivery.value = "COD"
-                    labelOfPayDelivery.setAttribute('for', "COD");
-                    var spanforCheckBox = document.createElement('span');
-                    spanforCheckBox.className = 'spanforCheckBox';
-                    labelOfPayDelivery.appendChild(inputOfPayDelivery);
-                    labelOfPayDelivery.appendChild(spanOfBox)
-                    labelOfPayDelivery.appendChild(spanforCheckBox);
-                    labelOfPayDelivery.appendChild(spanOfText);
-                    divOfPayDelivery.appendChild(headingPayDelivery)
-                    divOfPayDelivery.appendChild(labelOfPayDelivery);
-                    let filterBar = document.getElementById('filterBar')
-                    filterBar.appendChild(divOfPayDelivery)
-                    if (document.getElementsByClassName('divOfPayDelivery').length > 0) {
-                        console.log("andsat");
-                        console.log(newJson + "thi sis new")
-
-
-                    }
-
-                })
-            }
-            var idList = [];
-            var prodCategory;
-            var divOfPopUp = document.getElementsByClassName('divOfPopUp')[0];
-
-            let ty = document.createElement('h4');
-
-            ty.style.display = "inline-block"
-            ty.style.color = "whitesmoke"
-            ty.textContent = "COMPARE"
-            divOfPopUp.appendChild(ty)
-            var spanOfItem = document.createElement('div');
-            spanOfItem.style.width = "20px"
-            var categ;
-            function comp(el) {
-                if (el.checked) {
-                    if (idList.length == 0) {
-                        categ = el.name
-                        console.log(categ)
-                    }
-                    console.log(el.id)
-                    if (!(el.id in idList)) {
-                        console.log(el.name)
-                        if (categ == el.name) {
-                            if (idList.length < 3) {
-                                idList.push(el.id)
-                                console.log(idList.length)
-                            } else {
-                                el.checked = false;
-                                animatingMessage('Three Products Are Not Enough?', false)
-                                return
-                            }
-                        } else {
-                            el.checked = false
-                            animatingMessage('You Must Compare Products Of Same Category', false)
-                            return
-                        }
-                    }
-                } else {
-                    var newIndex = idList.indexOf(el.id)
-                    console.log(newIndex);
-                    if (newIndex == idList.length - 1) {
-                        idList.pop()
-                        console.log(idList)
-                    } else {
-                        idList.splice(newIndex, newIndex + 1)
-                    }
-                }
-                if (idList.length > 0) {
-                    divOfPopUp.style.display = "block"
-                    spanOfItem.textContent = idList.length;
-                    divOfPopUp.prepend(spanOfItem)
-                } else {
-                    divOfPopUp.style.display = "none"
-                }
-            }
-            $('.divOfPopUp:first').on('click', showingAlertBox)
-            function showingAlertBox() {
-                // e.preventDefault();
-                var alertBox = document.getElementById('alertBox');
-                var relating = document.getElementById('relating');
-                relating.innerHTML = ""
-                // let wrapperAlert = document.getElementById('wrapperAlert')
-                document.getElementById('disableBody').style.display = 'block';
-                alertBox.style.visibility = "hidden"
-                // var widthOfAlertBox = document.getElem
-                document.getElementById('alertBox').style.display = "block";
-
-
-                // document.getElementsByClassName('headFixing')[0].style.position = "fixed"
-                document.getElementsByTagName('html')[0].style.overflow = "hidden";
-                let headingOfCompareAlert = document.createElement('h3')
-                headingOfCompareAlert.className = "headingOfCompareAlert";
-                headingOfCompareAlert.textContent = "Products To Compare"
-                let divOfMainProd = document.createElement('div');
-                divOfMainProd.className = "divOfMainProd"
-                // divOfProduct.style.width = 
-                for (let jj = 0; jj < idList.length; jj++) {
-
-                    // let prodName = document.createElement('h4');    
-                    // prodName.className = "prodName"
-                    console.log(newJson)
-                    for (let rr = 0; rr < newJson.length; rr++) {
-                        console.log('we are in loop')
-                        // console.log(newJson[rr].product_id)
-                        // console.log(idList[jj])
-                        if (idList[jj] == newJson[rr].data.product_id) {
-                            console.log(newJson[rr].data.product_id)
-                            console.log(idList[jj])
-                            let divOfProduct = document.createElement('div');
-                            divOfProduct.className = "divOfProd";
-                            let divOfHeadingbrand = document.createElement('div');
-                            divOfHeadingbrand.className = "divOfHeadingbrand"
-                            let headingOfBrand = document.createElement('h3');
-                            // headingOfBrand.className = "headingOfBrand";
-                            headingOfBrand.style.marginLeft = "auto";
-                            headingOfBrand.style.marginRight = "auto"
-                            headingOfBrand.style.maxWidth = "80%"
-                            headingOfBrand.style.overflow = "hidden"
-                            // headingOfBrand.style.marginBottom = "10px"
-                            headingOfBrand.textContent = newJson[rr].data.product_name;
-                            // headingOfBrand.style.float ="center"
-                            // headingOfBrand.style.width = "100%";
-                            var spanofCloseHeading = document.createElement('span')
-                            spanofCloseHeading.className = "spanOfCloseHeading"
-                            spanofCloseHeading.innerHTML = "&times;"
-                            // spanofCloseHeading.setAttribute('data-num' , jj)
-                            spanofCloseHeading.style.cursor = "pointer"
-                            spanofCloseHeading.style.marginRight = "0px"
-                            let divOfImageComp = document.createElement('div');
-                            divOfImageComp.className = "divOfImageComp";
-
-                            // divOfImageComp.style.height = "10%"
-                            // divOfImageComp.style.height = (relating.offsetHeight * 80)/100  +"px";                    
-                            // divOfImageComp.style.marginLeft = "auto";
-                            // divOfImageComp.style.marginRight = "auto"
-                            let imageOfProd = document.createElement('img');
-                            imageOfProd.src = newJson[rr].data.product_images[0];
-                            imageOfProd.style.maxWidth = "100%";
-                            imageOfProd.style.maxHeight = "100%";
-
-                            imageOfProd.className = "imageOfProd";
-                            divOfImageComp.appendChild(imageOfProd);
-                            divOfHeadingbrand.appendChild(headingOfBrand);
-                            divOfHeadingbrand.appendChild(spanofCloseHeading)
-                            divOfProduct.appendChild(divOfHeadingbrand)
-                            divOfProduct.appendChild(divOfImageComp)
-                            divOfMainProd.appendChild(divOfProduct)
-                        }
-                    }
-                }
-                relating.appendChild(headingOfCompareAlert);
-                relating.appendChild(divOfMainProd);
-
-                alertBox.style.visibility = "visible"
-
-                let winW = window.innerWidth;
-                let winh = window.innerHeight;
-                alertBox.style.left = (winW / 2) - (alertBox.offsetWidth / 2) + "px"
-                alertBox.style.top = (winh / 2) - (alertBox.offsetHeight / 2) + "px";
-                let form = document.createElement('form');
-                form.setAttribute('method', "GET")
-                form.setAttribute('action', '/product')
-                let divTypeButton = document.createElement('div');
-                divTypeButton.id = "divOfCompareButton"
-                divTypeButton.type = "submit";
-                let h3OfCompare = document.createElement('h3')
-                h3OfCompare.textContent = "Compare"
-                h3OfCompare.style.margin = "auto"
-                h3OfCompare.style.color = "whitesmoke"
-                divTypeButton.appendChild(h3OfCompare)
-                var inputtype = document.createElement('input');
-                inputtype.name = "pids"
-                inputtype.type = "text";
-                inputtype.value = idList;
-                inputtype.style.display = "none"
-                form.appendChild(inputtype)
-                form.appendChild(divTypeButton)
-                form.style.height = "10%"
-                relating.appendChild(form)
-                var $spanClose = $('.spanOfCloseHeading')
-                $spanClose.on('click', (e) => {
-                    // ksndflslkdnfn
-                    console.log($('.spanOfCloseHeading').index(e.target))
-                    let element = $('.spanOfCloseHeading').index(e.target)
-                    console.log(element)
-                    e.target.className = ""
-                    console.log(document.getElementsByName('pids')[0].value)
-                    document.getElementsByClassName('divOfMainProd')[0].removeChild(document.getElementsByClassName('divOfProd')[element])
-                    // document.getElementsByClassName('divOfProd')[element].className = ""
-                    // document.getElementsByClassName('divOfProd')[element].style.display = "none"
-                    let valueOfNew = document.getElementsByName('pids')[0].value.split(",");
-                    document.querySelector('.results label[for=' + '"' + valueOfNew[element] + '"]' + ' input').checked = false
-                    console.log(valueOfNew[element])
-                    console.log(valueOfNew)
-                    if (element == valueOfNew.length - 1) {
-                        valueOfNew.pop()
-                        idList.pop()
-                    } else {
-                        valueOfNew.splice(element, 1)
-                        idList.splice(element, 1)
-                    }
-
-
-                    if (valueOfNew.length > 0) {
-                        document.getElementsByName('pids')[0].value = valueOfNew;
-                        console.log(document.getElementsByName('pids')[0].value)
-                        // console.log(valueOfNew)
-                    } else {
-                        // let msgBox = document.getElementsByClassName('messageBox')[0]
-
-                        alertBox.style.display = "none";
-                        relating.innerHTML = ""
-                        document.getElementById('disableBody').style.display = 'none';
-                        document.getElementsByTagName('html')[0].style.overflow = "scroll"
-                        animatingMessage("Add Products To Compare", true)
-
-                        console.log('to sal')
-                    }
-                    console.log('final value o new')
-                    console.log(valueOfNew)
-
-                })
-                // console.log($('divOfCompareButton')[0])
-                $('#divOfCompareButton').on('click', () => {
-                    if (document.getElementsByName('pids')[0].value.split(",").length > 1) {
-                        document.forms[1].submit()
-                    } else {
-                        animatingMessage('Add Atleast One More Product', true)
-                    }
-                })
-            }
-
-            function animatingMessage(msg, showOrNot) {
-                console.log(showOrNot)
-                document.getElementsByClassName('overlay')[0].style.display = "block"
-                document.querySelector('.messageBox h4').textContent = msg;
-                document.getElementsByClassName('messageBox')[0].style.display = "flex"
-                if ((showOrNot)) {
-                    document.querySelectorAll('.messageBox div')[0].style.display = "none"
-                }
-                $('.messageBox div').on('click', () => {
-                    document.getElementsByClassName('overlay')[0].style.display = "none"
-                    document.querySelector('.messageBox').style.display = "none";
-                    showingAlertBox();
-                })
-
-                setTimeout(() => {
-                    document.getElementsByClassName('overlay')[0].style.display = "none"
-                    document.getElementsByClassName('messageBox')[0].style.display = "none"
-                    document.querySelectorAll('.messageBox div')[0].style.display = "inline-block"
-                    //  document.querySelector('.messageBox h4').textContent = ""
-                    // document.getElementsByClassName('messageBox')[0].textContent = ""
-
-                }, 6000)
-            }
+                window.na = '<%= que.name %>';
+                window.na = '<%= que.name %>';
         </script>
 
+        <!-- </div> -->
 
 
+      
+
+        <div></div>
+        <!-- ---------------------------------------------------------------------------------------------------------- -->
+        <div id="footKaBaap">
+            <footer id="footer">
+                <div id="upFoot">
+                    <div class="divs1 dob">
+                        <!-- <div id="mySpan"></div>  -->
+                        <div class="footInfo">
+                            <div>Made with <span></span> in <img src="/images/if.gif" alt=""></div>
+                            <a href="/"><img class="logo" src="/images/logo.png"></a>
+                        </div>
+                    </div>
+                    <div class="divs2 dob">
+                        <!-- <div id="mySpan"></div> -->
+                        <div class="footInfo">
+                            <h2>Contact Us</h2>
+                            <a target="_blank" href="/advertise-with-us">
+                                <p>Advertise with us</p>
+                            </a>
+                            <a target="_blank" href="/privacy">
+                                <p>Privacy</p>
+                            </a>
+                            <a target="_blank" href="/contact-us">
+                                <p>Contact Us</p>
+                            </a>
+                            <a target="_blank" href="/credits">
+                                <p>Credits</p>
+                            </a>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="divs3 dob">
+                        <!-- <div id="mySpan"></div> -->
+                        <div class="footInfo">
+                            <h2>Follow Us On</h2>
+                            <a target="_blank">
+                                <p>Facebook</p>
+                            </a>
+                            <!-- <a target="_blank"><p>Twitter</p></a> -->
+                            <a target="_blank">
+                                <p>Instagram</p>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="divs4 dob">
+                        <!-- <div id="mySpan"></div> -->
+
+                        <div class="footInfo">
+                            <h2>Get To Know Us</h2>
+                            <a target="_blank" href="/about-us">
+                                <p>About Us</p>
+                            </a>
+                            <a target="_blank" href="/terms-of-use">
+                                <p>Terms of use</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="downFoot">
+                    <h2>© 2020 Copyright : </h2><a style="color: white;text-decoration: none;" href="/">pricescompare.in</a>
+                </div>
+            </footer>
+        </div>
     </div>
-
-    <div class="blockElement"></div>
-    <div class="footerClass">
-        <footer class="footering"></footer>
-    </div>
-
-
-
-
-    <!-- <script src="/javascripts/new.js" type="application/javascript"></script> -->
 </body>
+<script src="/javascripts/code.js"></script>
+<script src="/javascripts/new.js"></script>
 
-
-</html
+</html>
