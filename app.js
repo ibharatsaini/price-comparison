@@ -21,7 +21,15 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(cors())
-
+//caching
+let cash = function(req,res,next){
+  const t= 60*120;
+  if(req.method == "GET"){
+    res.set('Cache-control', `public, max-age=${t}`)
+  }
+  next()
+}
+app.use(cash)
 
 // logger 
 var  logSt = fs.createWriteStream(__dirname+'/inf.log',{flags: 'a'})
