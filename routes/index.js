@@ -10,39 +10,19 @@ const { json } = require('body-parser');
 const { Console } = require('console');
 
 router.get('/keywords', function(req, res) {
-    console.log('new')
     fs.readFile('./public/key.json', 'utf-8', (e, d) => {
         if (e) throw e
         a = JSON.parse(d)
-        console.log(a)
         res.send(JSON.stringify(a))
     })
 })
 router.get('/compare/:id', function(req, res) {
-    // console.log(req.params.id)
-    ag = req.useragent
-    console.log(ag);
-  
-    if (ag.isMobile && ag.platform !== "iPad") {
-        res.render('compareM', que = { pid: req.params.id })
-    } else if (ag.isDesktop) {
-        res.render('compareAD', que = { pid: req.params.id })
-    } else if (ag.isTablet) {
-        res.render('compareAT', que = { pid: req.params.id })
-    }
+    res.render('compareAD',que = { pid: req.params.id })
+
 })
 
 router.get('/:cat/:brand/:product/:id',function(req,res){
-    console.log(req.params.id)
-    ag = req.useragent
-    if (ag.isMobile && ag.platform !== "iPad") {
-        res.render('compareM', que = { pid: req.params.id })
-    } else if (ag.isDesktop) {
-        res.render('compareAD', que = { pid: req.params.id })
-    } else if (ag.isTablet) {
-        res.render('compareAT', que = { pid: req.params.id })
-    }
-
+    res.render('compareAD',que = { pid: req.params.id })
 })
 router.get('/', function(req, res) {
     res.render('index');
@@ -56,70 +36,56 @@ router.get('/search', function(req, resp) {
 router.get('/mobile',function(req,res){
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
-        console.log('inmobile')
         res.render('cat/mobile/mobile_catMobile')
     } else {
-        console.log("init")
         res.render('cat/desktop/mobile_cat')
     }
 })
 router.get('/headphones',function(req,res){
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
-        console.log('inmobile')
         res.render('cat/mobile/headphone_catMobile')
     } else {
-        console.log("init")
         res.render('cat/desktop/headphone_cat')
     }
 })
 router.get('/laptops',function(req,res){
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
-        console.log('inmobile')
         res.render('cat/mobile/laptops_catMobile')
     } else {
-        console.log("init")
         res.render('cat/desktop/laptops_cat')
     }
 })
 router.get('/desktop',function(req,res){
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
-        console.log('inmobile')
         res.render('cat/mobile/desktop_catMobile')
     } else {
-        console.log("init")
         res.render('cat/desktop/desktop_cat')
     }
 })
 router.get('/appliances',function(req,res){
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
-        console.log('inmobile')
         res.render('cat/mobile/appliances_catMobile')
     } else {
-        console.log("init")
         res.render('cat/desktop/appliances_cat')
     }
 })
 router.get('/led-tv',function(req,res){
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
-        console.log('inmobile')
         res.render('cat/mobile/led_catMobile')
     } else {
-        console.log("init")
         res.render('cat/desktop/led_cat')
     }
 })
 router.get('/kitchen-appliances',function(req,res){
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
-        console.log('inmobile')
         res.render('cat/mobile/kitchen_catMobile')
     } else {
-        console.log("init")
         res.render('cat/desktop/kitchen_cat')
     }
 })
@@ -339,7 +305,6 @@ router.get('/monitor/samsung-monitor-price-list', function(req, res) {
     res.render('br/desktop/samsung', data)
 })
 router.get('/desktop/mouse-price-list', function(req, res) {
-    console.log('here')
     data = { a: 'random', b: 'mouse' }
     res.render('br/desktop/mouse', data)
 })
@@ -349,7 +314,6 @@ router.get('/desktop/desktop-price-list', function(req, res) {
 })
 
 router.get('/product', (req, res) => {
-    console.log('product')
     res.render('compareProduct', list = { ids: req.query.pids })
 
 })
@@ -380,7 +344,6 @@ router.get('/json/:p/:brand', function(req, res) {
     fs.readFile(brading, 'utf-8', (e, d) => {
             if(d){
             apple2 = JSON.parse(d)
-            console.log(apple2)
             res.send(JSON.stringify(apple2))
             }else{
                 let log=req.ip + "     "+new Date()+"    "+req.headers.referer+"    "+ 200 +"    "+brading+"    "+e
@@ -389,8 +352,6 @@ router.get('/json/:p/:brand', function(req, res) {
         writeStream.write(log,err=>{
             if(err){
                 console.log(err)
-            }else{
-                console.log('done')
             }
         })
             }
@@ -407,8 +368,6 @@ router.post('/stream',function(req,res){
     writeStream.write(log,err=>{
         if(err){
             console.log(err)
-        }else{
-            console.log('done')
         }
     })
     
@@ -428,6 +387,12 @@ router.get('/advertise-with-us',function(req,res){
 })
 router.get('/about-us',function(req,res){
     res.render('aboutus')
+})
+router.get('/credits',function(req,res){
+    res.render('credits')
+})
+router.get('/get-some-error-345435',function(req,res){
+    res.render('error')
 })
 
 module.exports = router;

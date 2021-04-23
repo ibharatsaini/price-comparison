@@ -928,6 +928,22 @@ a {
         width: 10px;
         height: 7px;
     }
+    .divs1 a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:60px;
+        height: 60px;
+    }
+    .footInfo img:nth-child(1){
+        width: 80%;
+        height: 80%;
+    }
+    .divs1 img {
+        margin-left: 5px;
+        width: 10px;
+        height: 7px;
+    }
     #mySpan {
         min-height: 85%;
         height: 167px;

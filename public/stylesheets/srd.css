@@ -37,7 +37,7 @@ a {
 
 @media (min-width:1025px) {
     #t {
-        top: 7%;
+        top: 60px;
         position: fixed;
         display: none;
         float: right;
@@ -121,7 +121,7 @@ a {
         position: sticky;
         top: 0px;
         width: 100%;
-        height: 7%;
+        height: 60px;
         min-height: 30px;
         max-height: 80px;
         display: -webkit-box;
@@ -466,9 +466,11 @@ a {
         height: 100vw;
     }
     #bd {
-        /* width: 100%; */
+        width: 100%;
         height: 100%;
         overflow: auto;
+        max-width: 1600px;
+        margin: auto;
     }
     #filterBar {
         display: -webkit-box;
@@ -1919,6 +1921,17 @@ p{
         margin-left: 5px;
         width: 10px;
         height: 7px;
+    }
+    .divs1 a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:60px;
+        height: 60px;
+    }
+    .footInfo img:nth-child(1){
+        width: 80%;
+        height: 80%;
     }
     #mySpan {
         min-height: 85%;

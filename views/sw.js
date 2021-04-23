@@ -1,4 +1,4 @@
-const cacheName = 'priceComparison_v2.0.0'
+const cacheName = 'priceComparison_v1.1.0'
 var assets = [
     '/',
     '/stylesheets/ad.css',
@@ -39,15 +39,16 @@ self.addEventListener('fetch', (event) => {
         caches.match(event.request)
             .then(res => {
                 return res || fetch(event.request).catch(() => {
-                    if (event.request.url.indexof('.ejs') > -1) {
+                    console.log(event.request.url.indexof('.ejs'))
+                    if (event.request.url.indexof('.ejs') != -1) {
                         caches.match('/get-some-error-345435')
                     }
                 })
             })
-            .catch(() => {
-                if (event.request.url.indexof('.ejs') > -1) {
-                    caches.match('/get-some-error-345435')
-                }
-            })
+            // .catch(() => {
+            //     if (event.request.url.indexof('.ejs') > -1) {
+            //         caches.match('/get-some-error-345435')
+            //     }
+            // })
     )
 })

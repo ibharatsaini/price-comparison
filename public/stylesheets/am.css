@@ -231,10 +231,21 @@
         width: 100%;
         height: 43px;
     }
-    .lg img {
-        width: 30px;
-        height: 30pxf;
+    .lg a{
+        padding-left: 3px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 80%;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
+    .lg img {
+        /* max-width: ; */
+        max-height: 100%;
+    }
+
     .gl {
         display: none;
     }
@@ -869,6 +880,7 @@
     }
     #downFoot a{
         margin-left: 5px;
+        font-size: 11px;
     }
     .h2a {
         cursor: pointer;
@@ -933,7 +945,7 @@
         font-weight: bold;
     }
     .divs1 .footInfo{
-        margin-top:30%
+        margin-top:10%
     }
     .divs1 span::before{
         content: '\2764';
@@ -941,6 +953,22 @@
     }
     .divs1 span{
         /* margin: 0px 3px; */
+    }
+    .divs1 img {
+        margin-left: 5px;
+        width: 10px;
+        height: 7px;
+    }
+    .divs1 a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:40px;
+        height: 40px;
+    }
+    .footInfo img:nth-child(1){
+        width: 80%;
+        height: 80%;
     }
     .divs1 img {
         margin-left: 5px;

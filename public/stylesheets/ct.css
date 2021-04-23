@@ -942,6 +942,26 @@ a {
         /* align-items: center; */
         margin-top: 40px;
     }
+    .divs1 img {
+        margin-left: 5px;
+        width: 10px;
+        height: 7px;
+    }
+    #downFoot a{
+        font-size: 13px;
+        margin-left: 5px;
+    }
+    .divs1 a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:60px;
+        height: 60px;
+    }
+    .footInfo img:nth-child(1){
+        width: 80%;
+        height: 80%;
+    }
     .footInfo div {
         font-size: 15px;
         color: white;
