@@ -20,6 +20,10 @@ router.get('/compare/:id', function(req, res) {
     res.render('compareAD',que = { pid: req.params.id })
 
 })
+router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-9-prime/ZToxNjYxNg',function(req,res){
+    console.log('link')
+    res.render('pro/redmi 9 prime',que={pid:'ZToxNjYxNg '})
+})
 
 router.get('/:cat/:brand/:product/:id',function(req,res){
     res.render('compareAD',que = { pid: req.params.id })

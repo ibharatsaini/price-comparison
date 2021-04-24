@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/compareStore.css">
+    <link rel="stylesheet" href="/stylesheets/compareStore20_Mobile.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/compareStore_Tab.css" type="text/css">
+    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/co.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/compareStore_Mobile.css"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script> -->
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="bd">
+  
+
+        <div id="db2">
+            <span></span>
+        </div>
+        <div id="db"></div>
+    
+        <div id="headFixing">
+            <div class="lg">
+                <a href="/">
+                    <img src="/images/logo.png"></img>
+                </a>
+            </div>
+            <header id="headContainer">
+                <div class='horizontalBars' data-re="b">
+                    <div class="border" data-pos="180">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <img src="/images/arrow.png" alt="arrow" style="display:none">
+                </div>
+                <form method="GET" class="newone" action="/search">
+                    <div class="searchBarFlex">
+                        <div class="gl">
+                            <a href="/">
+                                <img src="/images/logo.png"></img>
+                            </a>
+                        </div>
+                        <input required type="text" placeholder="Search For Millions Of Products" name="q" id="searchBar" autocomplete="off">
+                        <div id="searchIcon" type="submit"><span class="faFirst">&#x26B2;</span></div>
+                        <div id="t">
+                            <div class="se">
+                                <div id="ye">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </form>
+            </header>
+        </div>
+        <div id="mainBody">
+            <div id="ca">
+                <div class="tyu">
+                    <div class="der">
+                        <a href="/mobile">Mobiles</a>
+                        <a href="/laptops">Laptops</a>
+                        <a href="/desktop">Desktops</a>
+                        <a href="/appliances">Appliances</a>
+                        <a href="/headphones">Headphones</a>
+                        <a href="/led-tv">LED</a>
+                        <a href="/kitchen-appliances">Kitchen Appliances</a>
+                    </div>
+                </div>
+            </div>
+            <style>
+                html,
+                body {
+                    height: 100%;
+                    width: 100%;
+                    margin: 0%;
+                }
+                @media (min-width:1025px) {
+                #load {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgb(92, 86, 30);
+                    background-color: rgba(0, 0, 0, 0.0);
+                    letter-spacing: 6px;
+                    word-spacing: -7px;
+                }
+        
+                .heck1 {
+                    font-size: 60px;
+                    /* text-transform: lowercase; */
+                    animation-name: boom;
+                    animation-duration: 2s;
+                    animation-timing-function: linear;
+                    animation-delay: 0s;
+                    animation-iteration-count: infinite;
+                    margin-right: 10px;
+                    font-weight: 100;
+                    transform: scale(0);
+                    margin: 0;
+                }
+        
+                #h1 {
+                    animation-delay: 0.10s;
+                }
+        
+                #h2 {
+                    animation-delay: 0.15s;
+                }
+        
+                #h3 {
+                    animation-delay: 0.25s;
+                }
+        
+                #h4 {
+                    animation-delay: 0.30s;
+                }
+        
+                #h5 {
+                    animation-delay: 0.35s;
+                }
+        
+                #h6 {
+                    animation-delay: 0.40s;
+                }
+        
+                #h7 {
+                    animation-delay: 0.45s;
+                }
+        
+                #h8 {
+                    animation-delay: 0.50s;
+                }
+        
+                #h9 {
+                    animation-delay: 0.55s;
+                }
+        
+                #h10 {
+                    animation-delay: 0.70s;
+                }
+        
+                #h11 {
+                    animation-delay: 0.75s;
+                }
+        
+                #h12 {
+                    animation-delay: 0.80s;
+                }
+        
+                #h13 {
+                    animation-delay: 0.85s;
+                }
+                
+        
+                @keyframes boom {
+        
+                    0%,
+                    100% {
+                        transform: scale(1.2);
+                    }
+        
+                    90% {
+                        transform: scale(0.8);
+                    }
+        
+                    99% {
+                        transform: scale(0);
+                    }
+        
+                }
+        
+                #mainKamain {
+                    display: flex;
+                    height: 100%;
+                    width: 100%;
+                    /* position: absolute; */
+                    justify-content: center;
+                    align-items: center;
+                }
+        
+                #mainKamain img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    zoom: 5;
+                    position: absolute;
+                    filter: blur(6px);
+                }
+            }
+            @media (min-width: 550px) and (max-width:1025px) {
+
+                #load {
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgb(92, 86, 30);
+                    background-color: rgba(0, 0, 0, 0.0);
+                    letter-spacing: 6px;
+                    word-spacing: -7px;
+                }
+        
+                .heck1 {
+                    font-size: 40px;
+                    /* text-transform: lowercase; */
+                    animation-name: boom;
+                    animation-duration: 2s;
+                    animation-timing-function: linear;
+                    animation-delay: 0s;
+                    animation-iteration-count: infinite;
+                    margin-right: 10px;
+                    font-weight: 100;
+                    transform: scale(0);
+                    margin: 0;
+                    font-weight: 300;
+                }
+        
+                #h1 {
+                    animation-delay: 0.10s;
+                }
+        
+                #h2 {
+                    animation-delay: 0.15s;
+                }
+        
+                #h3 {
+                    animation-delay: 0.25s;
+                }
+        
+                #h4 {
+                    animation-delay: 0.30s;
+                }
+        
+                #h5 {
+                    animation-delay: 0.35s;
+                }
+        
+                #h6 {
+                    animation-delay: 0.40s;
+                }
+        
+                #h7 {
+                    animation-delay: 0.45s;
+                }
+        
+                #h8 {
+                    animation-delay: 0.50s;
+                }
+        
+                #h9 {
+                    animation-delay: 0.55s;
+                }
+        
+                #h10 {
+                    animation-delay: 0.70s;
+                }
+        
+                #h11 {
+                    animation-delay: 0.75s;
+                }
+        
+                #h12 {
+                    animation-delay: 0.80s;
+                }
+        
+                #h13 {
+                    animation-delay: 0.85s;
+                }
+                
+        
+                @keyframes boom {
+        
+                    0%,
+                    100% {
+                        transform: scale(1.2);
+                    }
+        
+                    90% {
+                        transform: scale(0.8);
+                    }
+        
+                    99% {
+                        transform: scale(0);
+                    }
+        
+                }
+        
+                #mainKamain {
+                    display: flex;
+                    height: 100%;
+                    width: 100%;
+                    /* position: absolute; */
+                    justify-content: center;
+                    align-items: center;
+                }
+        
+                #mainKamain img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    zoom: 5;
+                    position: absolute;
+                    filter: blur(6px);
+                }
+            }
+            @media (max-width:550px) {
+
+                
+                #load {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(92, 86, 30);
+        background-color: rgba(0, 0, 0, 0.0);
+        letter-spacing: 6px;
+        word-spacing: -7px;
+    }
+
+    .heck1 {
+        font-size: 13px;
+        /* text-transform: lowercase; */
+        animation-name: boom;
+        animation-duration: 2s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        margin-right: 7px;
+        transform: scale(0);
+        margin: 0;
+        font-weight: 300;
+    }
+
+    #h1 {
+        animation-delay: 0.10s;
+    }
+
+    #h2 {
+        animation-delay: 0.15s;
+    }
+
+    #h3 {
+        animation-delay: 0.25s;
+    }
+
+    #h4 {
+        animation-delay: 0.30s;
+    }
+
+    #h5 {
+        animation-delay: 0.35s;
+    }
+
+    #h6 {
+        animation-delay: 0.40s;
+    }
+
+    #h7 {
+        animation-delay: 0.45s;
+    }
+
+    #h8 {
+        animation-delay: 0.50s;
+    }
+
+    #h9 {
+        animation-delay: 0.55s;
+    }
+
+    #h10 {
+        animation-delay: 0.70s;
+    }
+
+    #h11 {
+        animation-delay: 0.75s;
+    }
+
+    #h12 {
+        animation-delay: 0.80s;
+    }
+
+    #h13 {
+        animation-delay: 0.85s;
+    }
+    
+
+    @keyframes boom {
+
+        0%,
+        100% {
+            transform: scale(1.2);
+        }
+
+        90% {
+            transform: scale(0.8);
+        }
+
+        99% {
+            transform: scale(0);
+        }
+
+    }
+
+    #mainKamain {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        /* position: absolute; */
+        justify-content: center;
+        align-items: center;
+    }
+
+    #mainKamain img {
+        max-width: 100%;
+        max-height: 100%;
+        zoom: 5;
+        position: absolute;
+        filter: blur(6px);
+    }
+}
+
+            </style>
+            <div id="load" style="display: none;">
+                <h3 id="h1" class="heck1">B</h3>
+                <h3 id="h2" class="heck1">e</h3>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <h3 id="h3" class="heck1">a</h3>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <h3 id="h4" class="heck1">S</h3>
+                <h3 id="h5" class="heck1">m</h3>
+                <h3 id="h6" class="heck1">a</h3>
+                <h3 id="h7" class="heck1">r</h3>
+                <h3 id="h8" class="heck1">t</h3>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <h3 id="h9" class="heck1">B</h3>
+                <h3 id="h10" class="heck1">u</h3>
+                <h3 id="h11" class="heck1">y</h3>
+                <h3 id="h12" class="heck1">e</h3>
+                <h3 id="h13" class="heck1">r</h3>
+            </div>
+            <div id="filterBar" class="tr rt">
+                <div id="catg">
+                    <div class="he">
+                        <h4> Categories</h4>
+                    </div>
+                    <a href="/mobile">Mobiles</a>
+                    <a href="/laptops">Laptops</a>
+                    <a href="/desktop">Desktops</a>
+                    <a href="/appliances">Appliances</a>
+                    <a href="/headphones">Headphones</a>
+                    <a href="/led-tv">LED</a>
+                    <a href="/kitchen-appliances">Kitchen Appliances</a>
+                </div>
+                
+            </div>
+    
+    
+        <div class="container"><div class="imageContainer"><div class="divOfGallery"><div class="slideImageOuter"><div class="slideInside blackOut"><img src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYxNi0xNjktMQ.jpg"></div><div class="slideInside"><img src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYxNi0xNjktMg.jpg"></div><div class="slideInside"><img src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYxNi0xNjktMw.jpg"></div><div class="slideInside"><img src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYxNi0xNjktNA.jpg"></div><div class="slideInside"><img src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYxNi0xNjktNQ.jpg"></div></div></div><div class="divofimage"><div class="imageSlider"><img src="https://images-api.datayuge.in/image/dHI6dy0xNDAwLGgtMTQwMCxjLWF0X21heC8xNjYxNi0xNjktMQ.jpg"></div></div></div><div class="titleDivNew"><h1 class="priceTitle">Xiaomi Redmi 9 Prime</h1><div class="review"><div><span>4.3/5</span><img src="/images/star.png"></div></div><div class="mrpTag"><span>₹9999</span><span>₹9999</span><span>0% Off!</span></div><div class="colorsAvail"><h4 class="styleFont">Available Colours</h4><div class="divOfColor"><div>All Colours</div><div>Mint Blue </div><div>Space Blue</div><div>Matte Black</div><div>Sunrise Flare</div></div></div></div><div class="bestOfferDiv"><div class="bestStore"><div><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></div><div>₹9999</div><div>COD Available</div><div>Free Delivery</div><div>Delivery in 2-3 Days</div><div>EMIs Available</div><div><a href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk3V1Q3OS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ" target="_blank">Store</a></div></div></div></div><div class="divHeading">Comparison</div><div class="storeComp"><div class="pngDiv"><div><img src="/images/e-Store.png"><h6 style="font-weight: 300;">e-Store</h6></div><div><img src="/images/Price.png"><h6 style="font-weight: 300;">Price</h6></div><div><img src="/images/COD.png"><h6 style="font-weight: 300;">COD</h6></div><div><img src="/images/Delivery Charges.png"><h6 style="font-weight: 300;">Delivery Charges</h6></div><div><img src="/images/Expected Delivery.png"><h6 style="font-weight: 300;">Expected Delivery</h6></div><div><img src="/images/EMI.png"><h6 style="font-weight: 300;">EMI</h6></div><div><img src="/images/Return Time.png"><h6 style="font-weight: 300;">Return Time</h6></div><div style="visibility: hidden;"><a style="width: 80%;">Buy button</a></div></div><div class="divStore"><div><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></div><div>₹9999</div><div><h4>COD Available</h4></div><div><h4>Free Delivery</h4></div><div><h4>Delivery in  <span>2-3</span> Days</h4></div><div><h4>EMIs Available</h4></div><div><h4><span> 10 Days</span></h4></div><div><a href="https://price-api.datayuge.com/redirect?id=aHR0cHM6Ly93d3cuYW1hem9uLmluL2dwL29mZmVyLWxpc3RpbmcvQjA4Njk3V1Q3OS8_JnRhZz1wcmljZXl1Z2UwZC0yMQ" target="_blank">Store</a></div></div></div><div class="divOfOffer"><div class="divHeading">Offers</div><table class="tableOfOffer"><tr class="trOfHead"><td class="tdOfImage"><img src="https://images-api.datayuge.in/image/YW1hem9uX3N0b3JlLnBuZw.png"></td><td class="tdOfOffer">No offers Available</td></tr></table></div><div class="divHeading" style="text-align: center;">Specifications</div><div class="divOfSpecs"><h1>General</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Launch Date</div><div class="divOfValueKey">August 4, 2020</div></div><div class="divOfKeyValue"><div class="divOfKey">Face unlock</div><div class="divOfValueKey">Yes</div></div></div><h1>Sound</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Speaker</div><div class="divOfValueKey">Yes</div></div><div class="divOfKeyValue"><div class="divOfKey">Audio Jack</div><div class="divOfValueKey">Yes, 3.5mm</div></div></div><h1>Camera</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Flash</div><div class="divOfValueKey">Rear (LED Flash)</div></div><div class="divOfKeyValue"><div class="divOfKey">Rear</div><div class="divOfValueKey">Quad (13 MP Camera + 8 MP, Wide Angle, Ultra-Wide Angle Camera + 5 MP Camera + 2 MP, depth Camera)</div></div><div class="divOfKeyValue"><div class="divOfKey">Front</div><div class="divOfValueKey">Single (8 MP Camera)</div></div><div class="divOfKeyValue"><div class="divOfKey">Camera Features</div><div class="divOfValueKey">Auto Focus, Face detection, Touch to focus</div></div><div class="divOfKeyValue"><div class="divOfKey">Shooting Modes</div><div class="divOfValueKey">Continuos Shooting, High Dynamic Range mode (HDR)</div></div></div><h1>Battery</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Type</div><div class="divOfValueKey">Li-Polymer</div></div><div class="divOfKeyValue"><div class="divOfKey">Capacity</div><div class="divOfValueKey">5020 mAh</div></div><div class="divOfKeyValue"><div class="divOfKey">Removable</div><div class="divOfValueKey">No</div></div><div class="divOfKeyValue"><div class="divOfKey">Fast Charging</div><div class="divOfValueKey">Yes</div></div></div><h1>Display</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Display Type</div><div class="divOfValueKey">IPS LCD</div></div><div class="divOfKeyValue"><div class="divOfKey">Resolution</div><div class="divOfValueKey">1080 x 2340 pixels</div></div><div class="divOfKeyValue"><div class="divOfKey">Size</div><div class="divOfValueKey">6.53 inches (16.59 cms)</div></div><div class="divOfKeyValue"><div class="divOfKey">Bezel-less display</div><div class="divOfValueKey">Yes, with Waterdrop notch</div></div><div class="divOfKeyValue"><div class="divOfKey">TouchScreen</div><div class="divOfValueKey">Yes, Capacitive, Multi-touch</div></div><div class="divOfKeyValue"><div class="divOfKey">Color Reproduction</div><div class="divOfValueKey">16M Colors</div></div><div class="divOfKeyValue"><div class="divOfKey">Pixel Density</div><div class="divOfValueKey">395 pixels per inch (ppi)</div></div></div><h1>Sensors</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Fingerprint sensor</div><div class="divOfValueKey">Yes, Rear</div></div><div class="divOfKeyValue"><div class="divOfKey">Other Sensor</div><div class="divOfValueKey">Light sensor, Proximity sensor, Accelerometer</div></div></div><h1>Storage</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Internal Memory</div><div class="divOfValueKey">32 GB</div></div><div class="divOfKeyValue"><div class="divOfKey">RAM</div><div class="divOfValueKey">3 GB</div></div><div class="divOfKeyValue"><div class="divOfKey">Expandable Memory </div><div class="divOfValueKey">Yes, microSD, Up to 512 GB (Dedicated)</div></div></div><h1>Software</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Operating System</div><div class="divOfValueKey">Android v10 (Q)</div></div><div class="divOfKeyValue"><div class="divOfKey">Custom UI</div><div class="divOfValueKey">MIUI</div></div></div><h1>Processor</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Chipset</div><div class="divOfValueKey">MediaTek Helio G80</div></div><div class="divOfKeyValue"><div class="divOfKey">No of Cores</div><div class="divOfValueKey">8 (Octa Core)</div></div><div class="divOfKeyValue"><div class="divOfKey">CPU</div><div class="divOfValueKey">2GHz, Dual core, Cortex A75 + 1.8GHz, Quad core, Cortex A55</div></div><div class="divOfKeyValue"><div class="divOfKey">Architecture</div><div class="divOfValueKey">64-bit</div></div><div class="divOfKeyValue"><div class="divOfKey">Graphics</div><div class="divOfValueKey">Mali-G52</div></div></div><h1>Connectivity</h1><div class="divOfRowing"><div class="divOfKeyValue"><div class="divOfKey">Bluetooth</div><div class="divOfValueKey">Bluetooth v5.0</div></div><div class="divOfKeyValue"><div class="divOfKey">Wi-Fi</div><div class="divOfValueKey">Yes with b/g/n</div></div><div class="divOfKeyValue"><div class="divOfKey">SIM Configuration</div><div class="divOfValueKey">Dual SIM (SIM1: Nano) (SIM2: Nano)</div></div><div class="divOfKeyValue"><div class="divOfKey">Network</div><div class="divOfValueKey">4G: Available (supports Indian bands), 3G: Available, 2G: Available</div></div><div class="divOfKeyValue"><div class="divOfKey">Voice over LTE(VoLTE)</div><div class="divOfValueKey">Yes</div></div><div class="divOfKeyValue"><div class="divOfKey">Wi-fi features</div><div class="divOfValueKey">Mobile Hotspot</div></div><div class="divOfKeyValue"><div class="divOfKey">GPS</div><div class="divOfValueKey">Yes with A-GPS</div></div><div class="divOfKeyValue"><div class="divOfKey">Infrared</div><div class="divOfValueKey">Yes</div></div><div class="divOfKeyValue"><div class="divOfKey">USB</div><div class="divOfValueKey">USB Type-C, Mass storage device, USB charging</div></div></div></div><div class="cont"><div class="brandLogo">Similar Products</div><div class="secondChild"><div id="butbWala"><button class="butB" value="B" type="button"><i class="fa fa-angle-left"></i></button></div><div class="hereProducts"><div class="productBox"><a class="imageBox" href="/compare/ZToxNjQ0MQ"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTY0NDEtMjA1LTE.jpg"></div><h3 class="h4Kafont">From ₹15999</h3><h4>Xiaomi Redmi Note 10 Pro</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzA0Mg"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTcwNDItMTQ4LTE.jpg"></div><h3 class="h4Kafont">From ₹17990</h3><h4>Xiaomi Redmi Note 9 Pro 5G</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjY5NA"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTY2OTQtMjkzLTE.jpg"></div><h3 class="h4Kafont">From ₹14999</h3><h4>Xiaomi Poco X3</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzA2NA"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTcwNjQtMTctMQ.jpg"></div><h3 class="h4Kafont">From ₹8388</h3><h4>Xiaomi Poco M3</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzM2Mw"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTczNjMtODctMQ.jpg"></div><h3 class="h4Kafont">From ₹18999</h3><h4>Xiaomi Redmi Note 10 Pro Max</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjMxOA"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTYzMTgtMTM1LTE.jpg"></div><h3 class="h4Kafont">From ₹14999</h3><h4>Xiaomi Redmi Note 9 Pro Max</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjc2Mw"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTY3NjMtNDEtMQ.jpg"></div><h3 class="h4Kafont">From ₹55390</h3><h4>Xiaomi Mi 11 Pro</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjk1MQ"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTY5NTEtMjgzLTE.jpg"></div><h3 class="h4Kafont">From ₹65790</h3><h4>Xiaomi Mi 11</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjUyMA"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTY1MjAtNzYtMQ.jpg"></div><h3 class="h4Kafont">From ₹22490</h3><h4>Xiaomi Redmi K40</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjY1MQ"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTY2NTEtMTQtMQ.jpg"></div><h3 class="h4Kafont">From ₹21999</h3><h4>Xiaomi Mi 10i</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzQwMQ"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTc0MDEtMTQyLTE.jpg"></div><h3 class="h4Kafont">From ₹30190</h3><h4>Xiaomi Poco F3</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjYxNg"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTY2MTYtMTY5LTE.jpg"></div><h3 class="h4Kafont">From ₹9999</h3><h4>Xiaomi Redmi 9 Prime</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzMyMQ"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTczMjEtMjYxLTE.jpg"></div><h3 class="h4Kafont">From ₹18999</h3><h4>Xiaomi Poco X3 Pro</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzEwNw"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTcxMDctMjY4LTE.jpg"></div><h3 class="h4Kafont">From ₹10499</h3><h4>Xiaomi Redmi 9 Power</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzQyMA"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTc0MjAtMjYyLTE.jpg"></div><h3 class="h4Kafont">From ₹13999</h3><h4>Xiaomi Redmi Note 10 128GB</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjA0OA"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTYwNDgtMTY4LTE.jpg"></div><h3 class="h4Kafont">From ₹10999</h3><h4>Xiaomi Redmi Note 9</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzA0MQ"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTcwNDEtMTg3LTE.jpg"></div><h3 class="h4Kafont">From ₹14590</h3><h4>Xiaomi Redmi Note 9 5G</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNzIzMA"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTcyMzAtNjctMQ.jpg"></div><h3 class="h4Kafont">From ₹21999</h3><h4>Xiaomi Mi 10i 8GB RAM</h4></a></div><div class="productBox"><a class="imageBox" href="/compare/ZToxNjI3MA"><div class="imageCont"><img src="https://images-api.datayuge.in/image/dHI6dy0zNzAsaC0zMzAsYy1hdF9tYXgvMTYyNzAtMjI2LTE.jpg"></div><h3 class="h4Kafont">From ₹6799</h3><h4>Xiaomi Redmi 9A</h4></a></div></div><div id="butaWala"><button class="butA" value="A" type="button"><i class="fa fa-angle-right"></i></button></div></div></div></div>
+    
+        
+    <script>
+        window.pid = '<%= que.pid %>'
+        window.deviceWidth =window.outerWidth
+    </script>
+    <div id="footKaBaap">
+        <footer id="footer">
+            <div id="upFoot">
+                <div class="divs1 dob">
+                    <!-- <div id="mySpan"></div>  -->
+                    <div class="footInfo">
+                        <div>Made with <span></span> in <img src="/images/if.gif" alt=""></div>
+                        <a href="/"><img class="logo" src="/images/logo.png"></a>
+                    </div>
+                </div>
+                <div class="divs2 dob">
+                    <!-- <div id="mySpan"></div> -->
+                    <div class="footInfo">
+                        <h2>Contact Us</h2>
+                        <a target="_blank" href="/advertise-with-us">
+                            <p>Advertise with us</p>
+                        </a>
+                        <a target="_blank" href="/privacy">
+                            <p>Privacy</p>
+                        </a>
+                        <a target="_blank" href="/contact-us">
+                            <p>Contact Us</p>
+                        </a>
+                        <a target="_blank" href="/credits">
+                            <p>Credits</p>
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+                <div class="divs3 dob">
+                    <!-- <div id="mySpan"></div> -->
+                    <div class="footInfo">
+                        <h2>Follow Us On</h2>
+                        <a target="_blank">
+                            <p>Facebook</p>
+                        </a>
+                        <!-- <a target="_blank"><p>Twitter</p></a> -->
+                        <a target="_blank">
+                            <p>Instagram</p>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="divs4 dob">
+                    <!-- <div id="mySpan"></div> -->
+
+                    <div class="footInfo">
+                        <h2>Get To Know Us</h2>
+                        <a target="_blank" href="/about-us">
+                            <p>About Us</p>
+                        </a>
+                        <a target="_blank" href="/terms-of-use">
+                            <p>Terms of use</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="downFoot">
+                <h4>© 2020 Copyright : </h4><a style="color: white;text-decoration: none;" href="http://www.piricescompare.in"> PricesCompare.in</a>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>
+<script src="/javascripts/csd.js"></script>
+<script src="/javascripts/csm.js"></script>
+<script src="/javascripts/cst.js"></script>
+<script src="/javascripts/a.js"></script>
+
+</html>
