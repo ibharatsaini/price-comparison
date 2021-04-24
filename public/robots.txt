@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /credits
+Disallow: /advertise-with-us
+Disallow: /privacy
+Disallow: /contact-us
+Disallow: /about-us
+Disallow: /terms-of-use
+Disallow: /e/json/testing/:brand
+Disallow: /e/json/testing2/:brand2
+Disallow: /json/:p/:brand
+Disallow: /stream
+Disallow: /keywords
+Disallow: /get-some-error-345435
+Disallow: /error
+Disallow: /product

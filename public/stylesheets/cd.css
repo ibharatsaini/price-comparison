@@ -352,7 +352,7 @@ a {
     #mainBody {
         position: relative;
         background-color: #F8F8F8;
-        max-width: 1680px;
+        max-width: 1600px;
         margin: 0 auto;
         min-height: 100%;
         /* display: flex;

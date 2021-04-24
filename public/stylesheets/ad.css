@@ -12,7 +12,7 @@
         width: 100%;
         height: 100%;
         /* overflow: auto; */
-        max-width: 1600px;
+        /* max-width: 1600px; */
         margin: auto;
     }
     #t {
@@ -200,11 +200,13 @@
         position: relative;
         background-color: #F8F8F8;
         max-width: 1680px;
-        margin: 0 auto;
+      margin: 0 auto;
     }
     #sbseSupaMain{
         /* display: flex; */
         position: relative;
+        max-width: 1600px;
+        margin:auto
 
     }
     #headContainer {

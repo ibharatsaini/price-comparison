@@ -146,17 +146,20 @@ a {
     .mainBody {
         position: relative;
         background-color: #F8F8F8;
-        max-width: 1680px;
+        max-width: 1600px;
         /* height: 100%; */
         margin: 0 auto;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         font: 100%;
+
         /* background-color: #403f3f; */
     }
     #mainBody {
         min-height: 100%;
+        max-width: 1600px;
+        margin:auto;
     }
     #headContainer {
         display: -webkit-box;
@@ -470,8 +473,8 @@ a {
         width: 100%;
         height: 100%;
         overflow: auto;
-        max-width: 1600px;
-        margin: auto;
+        /* max-width: 1600px; */
+        /* margin: auto; */
     }
     #filterBar {
         display: -webkit-box;
