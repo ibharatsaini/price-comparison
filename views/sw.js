@@ -1,4 +1,4 @@
-const cacheName = 'priceComparison_v1.3.0'
+const cacheName = 'priceComparison_v1.2.0'
 var assets = [
     '/',
     '/stylesheets/ad.css',
