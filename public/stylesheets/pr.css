@@ -594,6 +594,17 @@ a:visited{
         width: 10px;
         height: 7px;
     }
+    .divs1 a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:60px;
+        height: 60px;
+    }
+    .footInfo img:nth-child(1){
+        width: 80%;
+        height: 80%;
+    }
     #mySpan {
         min-height: 85%;
         height: 167px;
@@ -1216,6 +1227,30 @@ a:visited{
         width: 10px;
         height: 7px;
     }
+   
+    .divs1 a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:40px;
+        height: 40px;
+    }
+    .footInfo img:nth-child(1){
+        width: 80%;
+        height: 80%;
+    }
+    
+    .divs1 a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:60px;
+        height: 60px;
+    }
+    .footInfo img:nth-child(1){
+        width: 80%;
+        height: 80%;
+    }
 }
 @media (min-width:550px) and (max-width:1025px){
     #t {
@@ -1707,5 +1742,21 @@ a:visited{
         height: 10px;
         width: 20px;
         margin-right: 5px;
+    }
+    .divs1 img {
+        margin-left: 5px;
+        width: 10px;
+        height: 7px;
+    }
+    .divs1 a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:60px;
+        height: 60px;
+    }
+    .footInfo img:nth-child(1){
+        width: 80%;
+        height: 80%;
     }
 }
