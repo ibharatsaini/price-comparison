@@ -22,8 +22,30 @@ router.get('/compare/:id', function(req, res) {
 })
 router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-9-prime/ZToxNjYxNg',function(req,res){
     console.log('link')
-    res.render('pro/redmi 9 prime',que={pid:'ZToxNjYxNg '})
+    res.render('pro/redmi 9 prime',que={pid:'ZToxNjYxNg'})
 })
+router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-note-9-pro-4gb-ram/ZToxNjYwNg',function(req,res){
+    console.log('link')
+    res.render('pro/redmi 9 pro max',que={pid:'ZToxNjYwNg'})
+})
+router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-note-9/ZToxNjA0OA',function(req,res){
+    console.log('link')
+    res.render('pro/redmi 9 note',que={pid:'ZToxNjA0OA'})
+})
+router.get('/mobile/xiaomi-mobiles/xiaomi-poco-x2/ZToxNjI2Nw',function(req,res){
+    console.log('link')
+    res.render('pro/xiaomi poco x2',que={pid:'ZToxNjI2Nw'})
+})
+router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10/ZToxNjA2MA',function(req,res){
+    res.render('pro/xiaomi mi 10',que={pid:'ZToxNjA2MA'})
+})
+router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10t/ZToxNjc5Mw',function(req,res){
+    res.render('pro/xiaomi mi 10t',que={pid:'ZToxNjc5Mw'})
+})
+router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10t-pro/ZToxNjcwOA',function(req,res){
+    res.render('pro/xiaomi mi 10t pro',que={pid:'ZToxNjcwOA'})
+})
+
 
 router.get('/:cat/:brand/:product/:id',function(req,res){
     res.render('compareAD',que = { pid: req.params.id })
