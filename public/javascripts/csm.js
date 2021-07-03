@@ -6,7 +6,7 @@ if (W < 550) {
         console.log(naming2);
         let t, a, l = "Not defined";
         try {
-            if (a = "https://price-api.datayuge.com/api/v1/compare/detail?api_key=XiJ7nmLmKt5HKRMFRarBBDv9tbOe6aGz3cu&id=" + naming2, (details = await fetch(a)).status && (l = details.status), !details.ok) throw e;
+            if (a = "https://price-api.datayuge.com/api/v1/compare/detail?api_key=e4jbDB83X7WmVhIDahTVK1IupStiV7T125G&id=" + naming2, (details = await fetch(a)).status && (l = details.status), !details.ok) throw e;
             details = await details.json()
         } catch (e) {
             const d = "/stream";
@@ -15,7 +15,7 @@ if (W < 550) {
             console.log(n), fetch(d, { method: "POST", body: JSON.stringify(n), headers: { "Content-type": "application/json; charset=UTF-8" } }), console.log("fetch")
         }
         try {
-            if (a = "https://price-api.datayuge.com/api/v1/compare/specs?api_key=XiJ7nmLmKt5HKRMFRarBBDv9tbOe6aGz3cu&id=" + naming2, (specsi = await fetch(a)).status && (l = specsi.status), !specsi.ok) throw console.log("else"), e;
+            if (a = "https://price-api.datayuge.com/api/v1/compare/specs?api_key=e4jbDB83X7WmVhIDahTVK1IupStiV7T125G&id=" + naming2, (specsi = await fetch(a)).status && (l = specsi.status), !specsi.ok) throw console.log("else"), e;
             specsi = await specsi.json(), console.log(specsi)
         } catch (e) {
             console.log("error");
@@ -206,8 +206,12 @@ if (W < 550) {
                 e.appendChild(a), n.appendChild(e)
             }
             console.log(details);
+            let t1 = document.getElementsByTagName("title")[0];
+            t1.textContent = "Compare " + details.data.product_name + " By Prices,Offers On e-Stores - PricesCompare.in"
+            
             let a = document.getElementsByTagName("head")[0];
             console.log(a);
+            a.appendChild(t1)
             let l = document.querySelector('meta[name="description"]')
                 // l.name = "description";
             l.content = "Compare " + details.data.product_name + " By Prices,COD Available ,EMIs Available, Offers across all e-stores(Flipkart, Amazon, TataCliq, PaytmMall Etc). Compare Best Deals On " + details.data.product_name + " Across all e-Stores";
@@ -261,7 +265,7 @@ if (W < 550) {
             n.appendChild(e), n.appendChild(t)
         }
         try {
-            (d = await fetch("https://price-api.datayuge.com/api/v1/compare/search?api_key=XiJ7nmLmKt5HKRMFRarBBDv9tbOe6aGz3cu&product=" + details.data.product_brand + " " + details.data.product_sub_category)).ok && (d = await d.json())
+            (d = await fetch("https://price-api.datayuge.com/api/v1/compare/search?api_key=e4jbDB83X7WmVhIDahTVK1IupStiV7T125G&product=" + details.data.product_brand + " " + details.data.product_sub_category)).ok && (d = await d.json())
         } catch (e) { console.log(e) }
         if (void 0 !== d) {
             console.log(d);

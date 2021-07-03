@@ -1,4 +1,3 @@
-
 var express = require('express');
 var router = express.Router();
 
@@ -17,49 +16,49 @@ router.get('/keywords', function(req, res) {
     })
 })
 router.get('/compare/:id', function(req, res) {
-    res.render('compareAD',que = { pid: req.params.id })
+    res.render('compareAD', que = { pid: req.params.id })
 
 })
-router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-9-prime/ZToxNjYxNg',function(req,res){
+router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-9-prime/ZToxNjYxNg', function(req, res) {
     console.log('link')
-    res.render('pro/redmi 9 prime',que={pid:'ZToxNjYxNg'})
+    res.render('pro/redmi 9 prime', que = { pid: 'ZToxNjYxNg' })
 })
-router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-note-9-pro-4gb-ram/ZToxNjYwNg',function(req,res){
+router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-note-9-pro-4gb-ram/ZToxNjYwNg', function(req, res) {
     console.log('link')
-    res.render('pro/redmi 9 pro max',que={pid:'ZToxNjYwNg'})
+    res.render('pro/redmi 9 pro max', que = { pid: 'ZToxNjYwNg' })
 })
-router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-note-9/ZToxNjA0OA',function(req,res){
+router.get('/mobile/xiaomi-mobiles/xiaomi-redmi-note-9/ZToxNjA0OA', function(req, res) {
     console.log('link')
-    res.render('pro/redmi 9 note',que={pid:'ZToxNjA0OA'})
+    res.render('pro/redmi 9 note', que = { pid: 'ZToxNjA0OA' })
 })
-router.get('/mobile/xiaomi-mobiles/xiaomi-poco-x2/ZToxNjI2Nw',function(req,res){
+router.get('/mobile/xiaomi-mobiles/xiaomi-poco-x2/ZToxNjI2Nw', function(req, res) {
     console.log('link')
-    res.render('pro/xiaomi poco x2',que={pid:'ZToxNjI2Nw'})
+    res.render('pro/xiaomi poco x2', que = { pid: 'ZToxNjI2Nw' })
 })
-router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10/ZToxNjA2MA',function(req,res){
-    res.render('pro/xiaomi mi 10',que={pid:'ZToxNjA2MA'})
+router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10/ZToxNjA2MA', function(req, res) {
+    res.render('pro/xiaomi mi 10', que = { pid: 'ZToxNjA2MA' })
 })
-router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10t/ZToxNjc5Mw',function(req,res){
-    res.render('pro/xiaomi mi 10t',que={pid:'ZToxNjc5Mw'})
+router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10t/ZToxNjc5Mw', function(req, res) {
+    res.render('pro/xiaomi mi 10t', que = { pid: 'ZToxNjc5Mw' })
 })
-router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10t-pro/ZToxNjcwOA',function(req,res){
-    res.render('pro/xiaomi mi 10t pro',que={pid:'ZToxNjcwOA'})
+router.get('/mobile/xiaomi-mobiles/xiaomi-mi-10t-pro/ZToxNjcwOA', function(req, res) {
+    res.render('pro/xiaomi mi 10t pro', que = { pid: 'ZToxNjcwOA' })
 })
 
 
-router.get('/:cat/:brand/:product/:id',function(req,res){
-    res.render('compareAD',que = { pid: req.params.id })
+router.get('/:cat/:brand/:product/:id', function(req, res) {
+    res.render('compareAD', que = { pid: req.params.id })
 })
 router.get('/', function(req, res) {
     res.render('index');
 });
-router.get('/search', function(req, resp) { 
+router.get('/search', function(req, resp) {
     naming = { name: req.query.q }
     resp.render('search', que = naming)
 });
 
 
-router.get('/mobile',function(req,res){
+router.get('/mobile', function(req, res) {
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
         res.render('cat/mobile/mobile_catMobile')
@@ -67,7 +66,7 @@ router.get('/mobile',function(req,res){
         res.render('cat/desktop/mobile_cat')
     }
 })
-router.get('/headphones',function(req,res){
+router.get('/headphones', function(req, res) {
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
         res.render('cat/mobile/headphone_catMobile')
@@ -75,7 +74,7 @@ router.get('/headphones',function(req,res){
         res.render('cat/desktop/headphone_cat')
     }
 })
-router.get('/laptops',function(req,res){
+router.get('/laptops', function(req, res) {
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
         res.render('cat/mobile/laptops_catMobile')
@@ -83,7 +82,7 @@ router.get('/laptops',function(req,res){
         res.render('cat/desktop/laptops_cat')
     }
 })
-router.get('/desktop',function(req,res){
+router.get('/desktop', function(req, res) {
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
         res.render('cat/mobile/desktop_catMobile')
@@ -91,7 +90,7 @@ router.get('/desktop',function(req,res){
         res.render('cat/desktop/desktop_cat')
     }
 })
-router.get('/appliances',function(req,res){
+router.get('/appliances', function(req, res) {
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
         res.render('cat/mobile/appliances_catMobile')
@@ -99,7 +98,7 @@ router.get('/appliances',function(req,res){
         res.render('cat/desktop/appliances_cat')
     }
 })
-router.get('/led-tv',function(req,res){
+router.get('/led-tv', function(req, res) {
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
         res.render('cat/mobile/led_catMobile')
@@ -107,7 +106,7 @@ router.get('/led-tv',function(req,res){
         res.render('cat/desktop/led_cat')
     }
 })
-router.get('/kitchen-appliances',function(req,res){
+router.get('/kitchen-appliances', function(req, res) {
     ag = req.useragent
     if (ag.isMobile && ag.platform !== "iPad") {
         res.render('cat/mobile/kitchen_catMobile')
@@ -323,8 +322,8 @@ router.get('/monitor/lenovo-monitor-price-list', function(req, res) {
     res.render('br/desktop/lenovo', data)
 })
 router.get('/monitor/lg-monitor-price-list', function(req, res) {
-        data = { a: 'lg', b: 'monitor' }
-        res.render('br/desktop/lg', data)
+    data = { a: 'lg', b: 'monitor' }
+    res.render('br/desktop/lg', data)
 })
 router.get('/monitor/samsung-monitor-price-list', function(req, res) {
     data = { a: 'samsung', b: 'monitor' }
@@ -346,7 +345,7 @@ router.get('/product', (req, res) => {
 
 router.get('/e/json/testing/:brand', function(req, res) {
     var apple2 = {}
-    let brading = "./server/"+ req.params.brand + ".json"
+    let brading = "./server/" + req.params.brand + ".json"
     fs.readFile(brading, 'utf-8', (e, d) => {
         if (e) throw e
         apple2 = JSON.parse(d)
@@ -364,39 +363,39 @@ router.get('/e/json/testing2/:brand2', function(req, res) {
 })
 router.get('/json/:p/:brand', function(req, res) {
     var apple2 = {}
-    req.params.p.replace("[^a-zA-Z]+","")
-    req.params.brand.replace("[^a-zA-Z]+","")
+    req.params.p.replace("[^a-zA-Z]+", "")
+    req.params.brand.replace("[^a-zA-Z]+", "")
     let brading = "./adc/" + req.params.p + "/" + req.params.brand + "/all " + req.params.brand + ".json"
     fs.readFile(brading, 'utf-8', (e, d) => {
-            if(d){
+        if (d) {
             apple2 = JSON.parse(d)
             res.send(JSON.stringify(apple2))
-            }else{
-                let log=req.ip + "     "+new Date()+"    "+req.headers.referer+"    "+ 200 +"    "+brading+"    "+e
-        var writeStream = fs.createWriteStream('./er.log',{flags:'a'});
-    // console.log(js.er.message)
-        writeStream.write(log,err=>{
-            if(err){
-                console.log(err)
-            }
-        })
-            }
-        })
-    
+        } else {
+            let log = req.header('X-Forwarded-For') + "     " + new Date() + "    " + req.headers.referer + "    " + 200 + "    " + brading + "    " + e
+            var writeStream = fs.createWriteStream('./er.log', { flags: 'a' });
+            // console.log(js.er.message)
+            writeStream.write(log, err => {
+                if (err) {
+                    console.log(err)
+                }
+            })
+        }
+    })
+
 })
 
 
 
-router.post('/stream',function(req,res){
+router.post('/stream', function(req, res) {
     const js = req.body
-    var writeStream = fs.createWriteStream('./er.log',{flags:'a'});
-    let log = req.ip+ "    "+new Date()+"     "+req.headers.referer + "     "+js.sc+"     "+js.lk+"    "+(js.er)+"\n"
-    writeStream.write(log,err=>{
-        if(err){
+    var writeStream = fs.createWriteStream('./er.log', { flags: 'a' });
+    let log = req.ip + "    " + new Date() + "     " + req.headers.referer + "     " + js.sc + "     " + js.lk + "    " + (js.er) + "\n"
+    writeStream.write(log, err => {
+        if (err) {
             console.log(err)
         }
     })
-    
+
 
 })
 router.get('/privacy', function(req, res) {
@@ -408,16 +407,16 @@ router.get('/terms-of-use', function(req, res) {
 router.get('/contact-us', function(req, res) {
     res.render('contactus')
 })
-router.get('/advertise-with-us',function(req,res){
+router.get('/advertise-with-us', function(req, res) {
     res.render('advertise')
 })
-router.get('/about-us',function(req,res){
+router.get('/about-us', function(req, res) {
     res.render('aboutus')
 })
-router.get('/credits',function(req,res){
+router.get('/credits', function(req, res) {
     res.render('credits')
 })
-router.get('/get-some-error-345435',function(req,res){
+router.get('/get-some-error-345435', function(req, res) {
     res.render('error')
 })
 

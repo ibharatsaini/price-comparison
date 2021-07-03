@@ -230,10 +230,10 @@
         var specsi;
         (async () => {
             console.log(naming2)
-            details = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=YnKGTqtB3hrieTofKaGkhJtntFRsYmcDuKY&id=' + naming2);
+            details = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=e4jbDB83X7WmVhIDahTVK1IupStiV7T125G&id=' + naming2);
             details = await details.json();
             console.log(details)
-            specsi = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=YnKGTqtB3hrieTofKaGkhJtntFRsYmcDuKY&id=' + naming2);
+            specsi = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=e4jbDB83X7WmVhIDahTVK1IupStiV7T125G&id=' + naming2);
             specsi = await specsi.json();
             console.log(details);
             console.log(specsi);
@@ -807,7 +807,7 @@
         }
             var similar
             try{
-                similar = await fetch("https://price-api.datayuge.com/api/v1/compare/search?api_key=YnKGTqtB3hrieTofKaGkhJtntFRsYmcDuKY&product="+details.data.product_brand+" "+details.data.product_sub_category);
+                similar = await fetch("https://price-api.datayuge.com/api/v1/compare/search?api_key=e4jbDB83X7WmVhIDahTVK1IupStiV7T125G&product="+details.data.product_brand+" "+details.data.product_sub_category);
                 similar = await similar.json()
                 console.log(details.data.product_brand + " "+details.data.product_sub_category)
             }

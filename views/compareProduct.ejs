@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>   
     <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script> -->
   
-    <title>Document</title>
+    <title>Compare Multiple Products' Specifications - PricesCompare.in</title>
 </head>
 
 <body>
@@ -79,13 +79,13 @@
      (async function(){
         let prodSpecs2=[];
            for(let qq=0; qq<idsListing.length; qq++){
-                 prodSpecs2[qq] = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=XiJ7nmLmKt5HKRMFRarBBDv9tbOe6aGz3cu&id='+idsListing[qq]);
+                 prodSpecs2[qq] = await fetch('https://price-api.datayuge.com/api/v1/compare/detail?api_key=e4jbDB83X7WmVhIDahTVK1IupStiV7T125G&id='+idsListing[qq]);
                  prodSpecs2[qq] = await prodSpecs2[qq].json()
                  console.log(prodSpecs2[qq])
                  prodSpecs[prodSpecs2[qq].data.product_name];
                  prodSpecs[prodSpecs2[qq].data.product_name] = prodSpecs2[qq]
                 //  console.log(prodSpecs[].data.product_name)
-                 let specs2 = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=XiJ7nmLmKt5HKRMFRarBBDv9tbOe6aGz3cu&id='+ idsListing[qq]);
+                 let specs2 = await fetch('https://price-api.datayuge.com/api/v1/compare/specs?api_key=e4jbDB83X7WmVhIDahTVK1IupStiV7T125G&id='+ idsListing[qq]);
                  specs[qq] = await specs2.json()
         }
         console.log(prodSpecs);
